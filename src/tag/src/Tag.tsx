@@ -1,5 +1,5 @@
 import { useTheme } from "../../_mixins/use-theme";
-import { computed, CSSProperties, defineComponent, PropType } from "vue";
+import { h, computed, CSSProperties, defineComponent, PropType } from "vue";
 import "./styles/index.css";
 export default defineComponent({
   name: "Tag",

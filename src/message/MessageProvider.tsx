@@ -6,6 +6,7 @@ import {
   ref,
   Teleport,
   h,
+  Fragment,
   renderSlot,
 } from "vue";
 import MessageEnvironment from "./MessageEnvironment";

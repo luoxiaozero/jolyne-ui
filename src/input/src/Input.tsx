@@ -1,5 +1,5 @@
 import { useTheme } from "../../_mixins/use-theme";
-import { computed, CSSProperties, defineComponent, PropType, ref } from "vue";
+import { h, computed, CSSProperties, defineComponent, PropType, ref } from "vue";
 import "./styles/index.css";
 
 export default defineComponent({
@@ -40,7 +40,6 @@ export default defineComponent({
     }
     function handleWrapperFocus(e: FocusEvent): void {
       focuseRef.value = true;
-      console.log("---")
     }
     function handleWrapperBlur() {
       focuseRef.value = false;

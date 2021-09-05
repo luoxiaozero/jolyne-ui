@@ -1,4 +1,4 @@
-import { defineComponent, inject, InjectionKey, PropType, provide, ref, Ref, watch } from "vue";
+import { h, defineComponent, InjectionKey, PropType, provide, ref, Ref, watch } from "vue";
 import { Theme, lightTheme } from "../themes";
 
 export interface ConfigProviderInjection {

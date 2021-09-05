@@ -1,5 +1,6 @@
 import { useTheme } from "../../_mixins/use-theme";
 import {
+  h,
   computed,
   CSSProperties,
   defineComponent,

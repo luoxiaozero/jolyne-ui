@@ -1,4 +1,4 @@
-import { defineComponent, createTextVNode } from "vue";
+import { h, defineComponent, createTextVNode } from "vue";
 import { messageProps } from "./message-props";
 import {
   CloseCircleOutline as ErrorIcon,

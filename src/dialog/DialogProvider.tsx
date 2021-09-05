@@ -1,4 +1,4 @@
-import { defineComponent, InjectionKey, provide, reactive, ref } from "vue";
+import { h, Fragment, defineComponent, InjectionKey, provide, reactive, ref } from "vue";
 import JoDialog from "./Dialog";
 type DialogOptions = {
   type?: "info" | "success" | "warning" | "error" | "default";

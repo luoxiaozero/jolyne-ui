@@ -1,4 +1,4 @@
-import { defineComponent, PropType, ref } from "vue";
+import { h, defineComponent, PropType, ref } from "vue";
 
 export default defineComponent({
   name: "Upload",

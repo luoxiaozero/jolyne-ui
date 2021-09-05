@@ -1,5 +1,5 @@
 import { JoButton } from "../button";
-import { defineComponent, nextTick, PropType, ref } from "vue";
+import { h, defineComponent, nextTick, PropType, ref } from "vue";
 import { JoInput } from "../input";
 import { JoSpace } from "../space";
 import { JoTag } from "../tag";

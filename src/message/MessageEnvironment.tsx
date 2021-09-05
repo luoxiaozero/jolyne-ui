@@ -1,4 +1,4 @@
-import { defineComponent, ref, onMounted, PropType } from "vue";
+import { h, defineComponent, ref, onMounted, PropType } from "vue";
 import JoMessage from "./Message";
 import { messageProps } from "./message-props";
 

@@ -1,6 +1,6 @@
 import { flatten } from "../util/flatten";
 import getSlot from "../util/getSlot";
-import { defineComponent, PropType } from "vue";
+import { h, defineComponent, PropType } from "vue";
 import "./styles/index.css";
 
 export default defineComponent({

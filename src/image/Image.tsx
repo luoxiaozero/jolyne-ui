@@ -1,4 +1,4 @@
-import { CSSProperties, defineComponent, PropType } from "vue";
+import { h, CSSProperties, defineComponent, PropType } from "vue";
 import "./styles/index.css";
 export default defineComponent({
   name: "Image",

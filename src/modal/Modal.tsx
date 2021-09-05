@@ -1,4 +1,4 @@
-import { defineComponent, Teleport, PropType } from "vue";
+import { h, Fragment, defineComponent, Teleport, PropType } from "vue";
 import { JoCard } from "../card";
 import "./styles/index.css";
 

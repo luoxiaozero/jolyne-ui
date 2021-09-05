@@ -1,4 +1,4 @@
-import { defineComponent, Teleport, PropType, computed, CSSProperties } from "vue";
+import { h, defineComponent, Teleport, PropType, computed, CSSProperties } from "vue";
 import { useTheme } from "../_mixins/use-theme";
 import "./styles/index.css";
 export default defineComponent({

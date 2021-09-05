@@ -1,4 +1,4 @@
-import { defineComponent, ref } from "vue";
+import { h, defineComponent, ref } from "vue";
 import "./styles/index.css";
 
 export default defineComponent({

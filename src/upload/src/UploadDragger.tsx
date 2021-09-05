@@ -1,5 +1,5 @@
 import { useTheme } from "../../_mixins/use-theme";
-import { computed, CSSProperties, defineComponent } from "vue";
+import { h, computed, CSSProperties, defineComponent } from "vue";
 
 export default defineComponent({
   name: "UploadDragger",
