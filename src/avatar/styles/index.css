@@ -1,0 +1,12 @@
+.jo-avatar {
+  display: inline-block;
+  width: var(--size);
+  height: var(--size);
+  background-color: #f7f7f7;
+  border-radius: var(--border-radius);
+}
+.jo-avatar img {
+  width: 100%;
+  height: 100%;
+  border-radius: var(--border-radius);
+}

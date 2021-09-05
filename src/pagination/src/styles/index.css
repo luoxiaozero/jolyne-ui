@@ -1,0 +1,21 @@
+.jo-pagination {
+  padding: 5px 20px;
+}
+.jo-pagination span {
+  margin: 2px 10px 0 0;
+  display: inline-block;
+  width: 35px;
+  height: 35px;
+  line-height: 35px;
+  text-align: center;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 5px;
+}
+.jo-pagination span:hover {
+  background-color: var(--background-color);
+  color: var(--select-color);
+}
+.jo-pagination--selected {
+  color: var(--select-color);
+}

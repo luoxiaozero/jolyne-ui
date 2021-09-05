@@ -1,0 +1,12 @@
+.jo-tag {
+    height: 28px;
+    line-height: 28px;
+    font-size: 14px;
+    padding: 0 8px;
+    background-color: var(--background-color);
+    border-radius: 3px;
+}
+.jo-tag__close {
+    margin-left: 8px;
+    cursor: pointer;
+}

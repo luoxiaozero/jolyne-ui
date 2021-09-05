@@ -1,0 +1,14 @@
+.jo-card > div:first-child {
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+}
+.jo-card > div:last-child {
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+}
+.jo-card__header,
+.jo-card__content,
+.jo-card__footer {
+  padding: 12px 28px;
+  background-color: var(--background-color);
+}

@@ -1,0 +1,1 @@
+export { default as JoModal} from "./Modal"

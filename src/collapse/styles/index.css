@@ -1,0 +1,30 @@
+.jo-collapse-item__header {
+    padding: 13px 20px;
+    cursor: pointer;
+}
+.jo-collapse-item__header--selected {
+    color: #1abc9c;
+    font-weight: bold;
+}
+.jo-collapse-item__triangle-right {
+  float: right;
+  position: relative;
+  top: 5px;
+  right: 5px;
+  width: 0;
+  height: 0;
+  border-top: 4px solid transparent;
+  border-right: 7px solid #0009;
+  border-bottom: 4px solid transparent;
+}
+.jo-collapse-item__triangle-down {
+  float: right;
+  position: relative;
+  top: 5px;
+  right: 5px;
+  width: 0;
+  height: 0;
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-top: 8px solid #1abc9cee;
+}

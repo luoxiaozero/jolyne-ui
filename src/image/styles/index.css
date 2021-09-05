@@ -1,0 +1,6 @@
+.jo-image {
+  display: inline-flex;
+}
+.jo-image__img {
+  border-radius: var(--border-radius);
+}
