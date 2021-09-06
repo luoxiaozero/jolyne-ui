@@ -58,3 +58,8 @@
     background-color: transparent;
     border: 1px solid var(--border-color);
 }
+.jo-button.jo-button--text {
+    height: auto;
+    border: none;
+    padding: inherit;
+}

@@ -26,6 +26,7 @@ export default defineComponent({
       type: String as PropType<Type>,
       default: "default",
     },
+    text: Boolean,
     /**禁用 */
     disabled: Boolean,
     onClick: Function as PropType<(e: MouseEvent) => void>,
@@ -57,6 +58,7 @@ export default defineComponent({
           "jo-button",
           `jo-button--${this.type}-type`,
           {
+            "jo-button--text": this.$props.text,
             ["jo-button--disabled"]: this.$props.disabled,
           },
         ]}
