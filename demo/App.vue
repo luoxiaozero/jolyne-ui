@@ -19,13 +19,15 @@ export default defineComponent({
 <template>
   <JoConfigProvider :theme="themeRef">
     <router-view></router-view>
-    <JoGlobalStyle/>
+    <JoGlobalStyle />
   </JoConfigProvider>
 </template>
 
 <style>
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, Helvetica Neue, PingFang SC,
+    Microsoft YaHei, Source Han Sans SC, Noto Sans CJK SC, WenQuanYi Micro Hei,
+    sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
