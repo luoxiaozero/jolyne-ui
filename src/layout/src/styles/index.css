@@ -1,0 +1,28 @@
+.jo-layout {
+    flex: auto;
+    background-color: var(--background-color);
+}
+.jo-layout--absolute-positioned {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+.jo-layout-header {
+    background-color: var(--background-color);
+}
+.jo-layout-header--bordered {
+    border-bottom: 1px solid var(--border-color);
+}
+.jo-layout-sider {
+    min-width: 240px;
+    background-color: var(--background-color);
+}
+.jo-layout-sider--bordered {
+    border-right: 1px solid var(--border-color);
+}
+/* 临时 */
+.jo-layout--absolute-positioned > div {
+    height: 100%;
+}
