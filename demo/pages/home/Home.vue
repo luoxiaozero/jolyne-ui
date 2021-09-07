@@ -1,5 +1,5 @@
 <template>
-    <PageContainer>
+    <PageContainer has-sider>
         <TheSider />
         <JoLayout>
             <div style="text-align: center;">
