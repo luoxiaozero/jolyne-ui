@@ -3,19 +3,20 @@
         <slot name="content"></slot>
         <slot name="demo"></slot>
         <template #footer>
-            
+            <JoCode :code="code" lang="html"></JoCode>
         </template>
     </JoCard>
 </template>
 
 <script lang='ts'>
 import { defineComponent } from 'vue';
-import { JoCard } from "../../src";
+import { JoCard, JoCode } from "../../src";
 
 export default defineComponent({
     name: "ComponentDemo",
     components: {
-        JoCard
+        JoCard,
+        JoCode
     },
     props: {
         demoFileName: {
