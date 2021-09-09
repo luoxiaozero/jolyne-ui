@@ -12,11 +12,16 @@
     "vue": "^3.2.6"
   },
   "devDependencies": {
+    "@types/fs-extra": "^9.0.12",
+    "@types/marked": "^3.0.0",
     "@vicons/ionicons5": "^0.11.0",
     "@vitejs/plugin-vue": "^1.6.0",
     "@vitejs/plugin-vue-jsx": "^1.1.7",
     "@vue/compiler-sfc": "^3.2.6",
+    "fs-extra": "^10.0.0",
     "gulp": "^4.0.2",
+    "highlight.js": "^11.2.0",
+    "marked": "^3.0.2",
     "rimraf": "^3.0.2",
     "typescript": "^4.3.2",
     "vite": "^2.5.2",

@@ -2,6 +2,7 @@
     <PageContainer has-sider>
         <TheSider />
         <JoLayout>
+            <TestDemo />
             <div style="text-align: center;">
                 <img alt="Vue logo" src="../../assets/logo.png" />
                 <HelloWorld msg="Hello Vue 3 + TypeScript + Vite" />
@@ -16,12 +17,14 @@ import { JoLayout } from "../../../src";
 import HelloWorld from '../../components/HelloWorld.vue'
 import PageContainer from "../../components/PageContainer.vue";
 import TheSider from "./TheSider.vue";
+import TestDemo from "../../../build/loaders/test/test.demo.md";
 export default defineComponent({
     components: {
         HelloWorld,
         PageContainer,
         TheSider,
         JoLayout,
+        TestDemo
     },
     setup() {
 
