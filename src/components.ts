@@ -2,6 +2,7 @@ export * from "./_mixins/use-theme";
 export * from "./avatar";
 export * from "./button";
 export * from "./card";
+export * from "./code";
 export * from "./collapse";
 export * from "./config-provider";
 export * from "./dialog";

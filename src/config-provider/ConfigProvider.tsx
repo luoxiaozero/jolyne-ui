@@ -2,7 +2,8 @@ import { h, defineComponent, InjectionKey, PropType, provide, ref, Ref, watch } 
 import { Theme, lightTheme } from "../themes";
 
 export interface ConfigProviderInjection {
-    theme: Ref<Theme>
+    theme: Ref<Theme>,
+    hljs: any
 }
 
 export const configProviderInjectionKey: InjectionKey<ConfigProviderInjection> =
@@ -13,11 +14,13 @@ export default defineComponent({
     name: "ConfigProvider",
     props: {
         theme: Object as PropType<Theme>,
+        hljs: Object,
     },
     setup(props) {
         const mergeTheme = ref(Object.assign({}, lightTheme, props.theme))
         provide(configProviderInjectionKey, {
-            theme: mergeTheme
+            theme: mergeTheme,
+            hljs: props.hljs,
         });
         watch(() => props.theme, () => {
             mergeTheme.value = Object.assign({}, lightTheme, props.theme);
