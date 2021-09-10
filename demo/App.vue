@@ -2,6 +2,7 @@
 import { defineComponent } from 'vue';
 import { JoConfigProvider, JoGlobalStyle } from "../src";
 import { themeRef } from './store';
+import hljs from "./util/hljs";
 export default defineComponent({
   name: "App",
   components: {
@@ -10,14 +11,15 @@ export default defineComponent({
   },
   setup() {
     return {
-      themeRef
+      themeRef,
+      hljs
     }
   }
 })
 </script>
 
 <template>
-  <JoConfigProvider :theme="themeRef">
+  <JoConfigProvider :theme="themeRef" :hljs="hljs">
     <router-view></router-view>
     <JoGlobalStyle />
   </JoConfigProvider>
