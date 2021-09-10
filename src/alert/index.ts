@@ -1,0 +1,1 @@
+export { default as JoAlert } from "./src/Alert";

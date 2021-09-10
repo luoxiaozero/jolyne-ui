@@ -1,0 +1,7 @@
+.jo-alert{
+    margin: 0 20px;
+    padding: 10px;
+    background-color: var(--background-color);
+    border:var(--border);
+    border-radius: 2px;
+}
