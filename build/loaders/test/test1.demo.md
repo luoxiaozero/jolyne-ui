@@ -1,16 +1,12 @@
-# Test
+# Test1
 
 sdsdd
 
 ```html
-<jo-card title='123'>
-  <jo-button>
+<jo-button>
   test
 </jo-button>
 <jo-button>
   ss
 </jo-button>
-  </jo-card>
-
 ```
-

@@ -63,7 +63,7 @@ function mergeParts(parts: Parts) {
   mergedPartsData.content = parts.content;
   mergedPartsData.code = "";
   if (parts.template) {
-    mergedPartsData.code += `<template>${parts.template
+    mergedPartsData.code += `<template>\n${parts.template
       .split("\n")
       .map((line) => (line.length ? " " + line : line))
       .join("\n")}\n</template>`;
