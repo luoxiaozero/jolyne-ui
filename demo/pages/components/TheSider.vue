@@ -31,6 +31,17 @@ export default defineComponent({
                     },
                 ]
             },
+            {
+                type: "group",
+                label: '测试组件',
+                key: 'test-2',
+                children: [
+                    {
+                        label: '测试',
+                        key: 'test',
+                    },
+                ]
+            },
         ]
         watch(keyRef, (value) => {
             router.push(`/components/${value}`);
