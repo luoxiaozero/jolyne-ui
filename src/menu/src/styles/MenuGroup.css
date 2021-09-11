@@ -1,0 +1,10 @@
+.jo-menu-group__header {
+    padding: 10px;
+    padding-left: 12px;
+    padding-bottom: 6px;
+    color: #909399;
+    font-size: 13px;
+}
+.jo-menu-group__content > .jo-menu-item >.jo-menu-item__content {
+    padding-left: 22px;
+}

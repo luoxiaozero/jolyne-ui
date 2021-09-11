@@ -12,6 +12,7 @@ export * from "./global-style";
 export * from "./image";
 export * from "./input";
 export * from "./layout";
+export * from "./menu";
 export * from "./message";
 export * from "./modal";
 export * from "./pagination";
