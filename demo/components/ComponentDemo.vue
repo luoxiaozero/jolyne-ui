@@ -3,7 +3,7 @@
         <slot name="content"></slot>
         <slot name="demo"></slot>
         <template #footer>
-            <JoCode :code="code" lang="html"></JoCode>
+            <JoCode :code="codeStr" lang="html"></JoCode>
         </template>
     </JoCard>
 </template>
@@ -36,8 +36,11 @@ export default defineComponent({
             required: true,
         }
     },
-    setup() {
-        return {}
+    setup(props) {
+        const codeStr = decodeURIComponent(props.code || "");
+        return {
+            codeStr
+        }
     },
 })
 </script>

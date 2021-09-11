@@ -34,6 +34,8 @@ function getPartsOfDemo(tokens: marked.TokensList): Parts {
       ["template", "html"].includes(token.lang || "")
     ) {
       template = token.text;
+    } else if (token.type === "code" && ["script", "js"].includes(token.lang || "")) {
+      script = token.text;
     } else if (token.type === "code" && ["style", "css"].includes(token.lang || "")) {
       style = token.text;
     } else {
@@ -70,12 +72,13 @@ function mergeParts(parts: Parts) {
   }
   if (parts.script) {
     if (parts.template) mergedPartsData.code += "\n\n";
-    mergedPartsData.code += `<script>${parts.script}</script>`;
+    mergedPartsData.code += `<script>\n${parts.script}\n</script>`;
   }
   if (parts.style) {
     if (parts.template || parts.script) mergedPartsData.code += "\n\n";
-    mergedPartsData.code += `<style>${parts.style}</style>`;
+    mergedPartsData.code += `<style>\n${parts.style}\n</style>`;
   }
+  mergedPartsData.code = encodeURIComponent(mergedPartsData.code);
   return mergedPartsData;
 }
 function getFileName(path: string) {
