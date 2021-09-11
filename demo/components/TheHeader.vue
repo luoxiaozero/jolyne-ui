@@ -2,6 +2,7 @@
     <JoLayoutHeader class="nav" bordered>
         <div class="nav-box">
             <router-link to="/" class="router-link--text">Jolyne UI</router-link>
+            <router-link to="/components/menu" class="router-link--text">组件</router-link>
             <router-link to="/theme" class="router-link--text">主题</router-link>
         </div>
         <div>
