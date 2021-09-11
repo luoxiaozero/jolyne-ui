@@ -23,7 +23,7 @@ export default defineComponent({
       hasSiderStyle,
       cssVars: computed(() => {
         return {
-          "--background-color": theme.value.common.neutralBody,
+          "--background-color": theme.value.layout.backgroundColor,
         };
       }),
     };
