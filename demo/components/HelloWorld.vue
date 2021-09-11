@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
+import { JoButton } from "../../src";
 
 defineProps<{ msg: string }>()
 
@@ -8,7 +9,7 @@ const count = ref(0)
 
 <template>
   <h1>{{ msg }}</h1>
-
+  <p>一个仿的 UI 库</p>
   <p>
     Recommended IDE setup:
     <a href="https://code.visualstudio.com/" target="_blank">VSCode</a>
@@ -16,17 +17,18 @@ const count = ref(0)
     <a href="https://github.com/johnsoncodehk/volar" target="_blank">Volar</a>
   </p>
 
-  <p>See <code>README.md</code> for more information.</p>
+  <p>
+    See
+    <code>README.md</code> for more information.
+  </p>
 
   <p>
-    <a href="https://vitejs.dev/guide/features.html" target="_blank">
-      Vite Docs
-    </a>
+    <a href="https://vitejs.dev/guide/features.html" target="_blank">Vite Docs</a>
     |
     <a href="https://v3.vuejs.org/" target="_blank">Vue 3 Docs</a>
   </p>
 
-  <button type="button" @click="count++">count is: {{ count }}</button>
+  <JoButton @click="count++">count is: {{ count }}</JoButton>
   <p>
     Edit
     <code>components/HelloWorld.vue</code> to test hot module replacement.
@@ -35,7 +37,7 @@ const count = ref(0)
 
 <style scoped>
 a {
-  color: #42b983;
+  color: #12aa9c;
 }
 
 label {
