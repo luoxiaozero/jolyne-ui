@@ -1,1 +1,1 @@
-export { default as JoCard } from "./Card";
+export { default as JoCard } from "./src/Card";

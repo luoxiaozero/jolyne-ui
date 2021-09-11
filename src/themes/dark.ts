@@ -6,11 +6,13 @@ import { uploadDark } from "../upload/styles";
 import { tagDark } from "../tag/styles";
 import { paginationDark } from "../pagination/styles";
 import { layoutDark } from "../layout/styles";
+import { cardDark } from "../card/styles";
 export const darkTheme = {
     name: "dark",
     common: commonDark,
     alert:alertDark,
     button: buttonDark,
+    card: cardDark,
     input: inputDark,
     layout: layoutDark,
     upload: uploadDark,

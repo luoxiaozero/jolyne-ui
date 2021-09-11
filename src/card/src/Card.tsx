@@ -6,12 +6,16 @@ import {
   renderSlot,
   PropType,
 } from "vue";
-import { useTheme } from "../_mixins/use-theme";
+import { useTheme } from "../../_mixins/use-theme";
 import "./styles/index.css";
 export default defineComponent({
   name: "Card",
   props: {
     title: String,
+    bordered: {
+      type: Boolean,
+      default: true,
+    },
     headerStyle: [Object, String] as PropType<CSSProperties | string>,
     contentStyle: [Object, String] as PropType<CSSProperties | string>,
     footerStyle: [Object, String] as PropType<CSSProperties | string>,
@@ -22,13 +26,17 @@ export default defineComponent({
       cssVars: computed(() => {
         return {
           "--background-color": theme.value.common.neutralCard,
+          "--border-color": theme.value.card.borderColor,
         };
       }),
     };
   },
   render() {
     return (
-      <div class="jo-card" style={this.cssVars as CSSProperties}>
+      <div
+        class={["jo-card", { "jo-card--bordered": this.bordered }]}
+        style={this.cssVars as CSSProperties}
+      >
         {this.$slots.header || this.title ? (
           <div class="jo-card__header" style={this.headerStyle}>
             {renderSlot(this.$slots, "header", {}, () => [this.title])}
