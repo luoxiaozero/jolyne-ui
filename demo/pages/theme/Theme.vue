@@ -142,6 +142,12 @@ export default defineComponent({
             {
                 name: "美蝶绿",
                 rgb: "#12aa9c",
+                children: [
+                    {
+                        name: "1",
+                        rgb: "#12aa9c2c"
+                    }
+                ]
             },
             {
                 name: "黛绿",
