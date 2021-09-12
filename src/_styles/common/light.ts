@@ -1,7 +1,10 @@
+import common from "./_common";
 const theme = {
-  neutralBase: "#FFF",
-  neutralInvertBase: "#000",
-  neutralTextBase: "#333639",
+  ...common,
+  fontColor: "#333639",
+  colorBase: "#fff",
+  colorInvertBase: "#000",
+  colorBody: "#f6f6f6",
   neutralPopover: "#fff",
   neutralCard: "#fff",
   neutralModal: "#fff",
