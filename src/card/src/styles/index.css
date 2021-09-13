@@ -21,3 +21,16 @@
   padding: 12px 28px;
   background-color: var(--background-color);
 }
+
+.jo-card--segmented-header .jo-card__header{
+  border-bottom: 1px solid var(--border-color);
+}
+
+.jo-card--segmented-content .jo-card__content{
+  border-top: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.jo-card--segmented-footer .jo-card__footer{
+  border-top: 1px solid var(--border-color);
+}

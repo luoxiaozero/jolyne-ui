@@ -16,6 +16,7 @@ export default defineComponent({
       type: Boolean,
       default: true,
     },
+    segmented: String as PropType<"header" | "content" | "footer">,
     headerStyle: [Object, String] as PropType<CSSProperties | string>,
     contentStyle: [Object, String] as PropType<CSSProperties | string>,
     footerStyle: [Object, String] as PropType<CSSProperties | string>,
@@ -34,7 +35,13 @@ export default defineComponent({
   render() {
     return (
       <div
-        class={["jo-card", { "jo-card--bordered": this.bordered }]}
+        class={[
+          "jo-card",
+          {
+            "jo-card--bordered": this.bordered,
+            [`jo-card--segmented-${this.segmented}`]: this.segmented,
+          },
+        ]}
         style={this.cssVars as CSSProperties}
       >
         {this.$slots.header || this.title ? (
