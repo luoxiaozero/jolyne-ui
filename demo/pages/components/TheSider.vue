@@ -41,6 +41,10 @@ export default defineComponent({
                         label: "卡片",
                         key: "card",
                     },
+                    {
+                        label: "表格",
+                        key: "table",
+                    }
                 ]
             },
             {
