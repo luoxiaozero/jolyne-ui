@@ -9,6 +9,10 @@ export const componentsRoutes = [
         component: () => import("../../src/button/demos/zhCN/index.entry.md")
     },
     {
+        path: "card",
+        component: () => import("../../src/card/demos/zhCN/index.entry.md")
+    },
+    {
         path: "test",
         component: TestEntryDemo
     }

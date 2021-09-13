@@ -33,6 +33,10 @@ export default defineComponent({
                         label: "按钮",
                         key: "button",
                     },
+                    {
+                        label: "卡片",
+                        key: "card",
+                    },
                 ]
             },
             {
