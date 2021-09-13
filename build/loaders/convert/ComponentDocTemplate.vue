@@ -20,6 +20,6 @@ export default defineComponent({
 
 <style scoped>
 .doc {
-    padding: 18px 20px;
+    padding: 2px 22px 28px;
 }
 </style>
