@@ -8,6 +8,7 @@ import { tagLight } from "../tag/styles";
 import { paginationLight } from "../pagination/styles";
 import { layoutLight } from "../layout/styles";
 import { cardLight } from "../card/styles";
+import { codeLight } from "../code/styles";
 export const lightTheme = {
     name: "light",
     common: commonLight,
@@ -15,6 +16,7 @@ export const lightTheme = {
     badge:badgeLight,
     button: buttonLight,
     card: cardLight,
+    code: codeLight,
     input: inputLight,
     layout: layoutLight,
     upload: uploadLight,

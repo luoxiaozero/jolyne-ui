@@ -6,6 +6,7 @@
     "dev": "vite",
     "build:lib": "rimraf lib && tsc -b ./build.tsconfig.json && gulp",
     "build:publish": "npm run build:lib && npm publish --access=public",
+    "build:site": "vue-tsc --noEmit && vite build",
     "serve": "vite preview"
   },
   "dependencies": {

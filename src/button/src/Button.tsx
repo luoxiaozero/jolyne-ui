@@ -41,10 +41,25 @@ export default defineComponent({
     return {
       cssVars: computed(() => {
         const { borderColor, fontColor, fontColorInvert } = theme.value.button;
+        const backgroundColor =
+          Reflect.get(
+            theme.value.common,
+            `color${props.type.charAt(0).toUpperCase() + props.type.slice(1)}`
+          ) || "#0000";
+
+        const backgroundColorHover =
+          Reflect.get(
+            theme.value.common,
+            `color${
+              props.type.charAt(0).toUpperCase() + props.type.slice(1)
+            }Hover`
+          ) || "#0000";
         return {
           "--border-color": borderColor,
           "--font-color": fontColor,
           "--font-color-invert": fontColorInvert,
+          "--background-color": backgroundColor,
+          "--background-color-hover": backgroundColorHover,
         };
       }),
       handleClick,
