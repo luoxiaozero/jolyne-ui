@@ -30,6 +30,10 @@ export default defineComponent({
                         key: 'menu',
                     },
                     {
+                        label: '标记',
+                        key: 'badge',
+                    },
+                    {
                         label: "按钮",
                         key: "button",
                     },
