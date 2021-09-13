@@ -29,6 +29,10 @@ export default defineComponent({
                         label: '菜单',
                         key: 'menu',
                     },
+                    {
+                        label: "按钮",
+                        key: "button",
+                    },
                 ]
             },
             {

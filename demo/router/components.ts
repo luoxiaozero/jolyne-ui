@@ -5,6 +5,10 @@ export const componentsRoutes = [
         component: () => import("../../src/menu/demos/zhCN/index.entry.md")
     },
     {
+        path: "button",
+        component: () => import("../../src/button/demos/zhCN/index.entry.md")
+    },
+    {
         path: "test",
         component: TestEntryDemo
     }
