@@ -20,6 +20,7 @@ export * from "./pagination";
 export * from "./scrollbar";
 export * from "./space";
 export * from "./switch";
+export * from "./table";
 export * from "./tag";
 export * from "./themes";
 export * from "./upload";

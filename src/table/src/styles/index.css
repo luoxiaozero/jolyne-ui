@@ -1,0 +1,30 @@
+.jo-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  border: 1px solid var(--border-color);
+}
+.jo-table th {
+    background-color: var(--background-color-th);
+}
+.jo-table td {
+    background-color: var(--background-color-td);
+}
+
+.jo-table td,
+.jo-table th {
+  padding: 10px 12px;
+  border-right: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
+}
+.jo-table td:last-child,
+.jo-table th:last-child {
+  border-right: none;
+}
+
+.jo-table tbody tr:last-child td{
+  border-bottom: none;
+}
+.jo-table tr {
+  border-bottom: 1px solid var(--border-color);
+}

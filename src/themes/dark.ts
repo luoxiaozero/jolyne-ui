@@ -8,6 +8,7 @@ import { paginationDark } from "../pagination/styles";
 import { layoutDark } from "../layout/styles";
 import { cardDark } from "../card/styles";
 import { codeDark } from "../code/styles";
+import { tableDark } from "../table/styles";
 export const darkTheme = {
     name: "dark",
     common: commonDark,
@@ -18,6 +19,7 @@ export const darkTheme = {
     input: inputDark,
     layout: layoutDark,
     upload: uploadDark,
+    table: tableDark,
     tag: tagDark,
     pagination: paginationDark,
 }

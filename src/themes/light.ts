@@ -9,6 +9,7 @@ import { paginationLight } from "../pagination/styles";
 import { layoutLight } from "../layout/styles";
 import { cardLight } from "../card/styles";
 import { codeLight } from "../code/styles";
+import { tableLight } from "../table/styles";
 export const lightTheme = {
     name: "light",
     common: commonLight,
@@ -20,6 +21,7 @@ export const lightTheme = {
     input: inputLight,
     layout: layoutLight,
     upload: uploadLight,
+    table: tableLight,
     tag: tagLight,
     pagination: paginationLight,
 }
