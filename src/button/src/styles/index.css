@@ -1,65 +1,55 @@
 .jo-button {
-    height: 34px;
-    padding: 0 14px;
-    background-color: #0000;
-    color: var(--font-color);
-    border: none;
-    font-size: 14px;
-    cursor: pointer;
+  height: 34px;
+  padding: 0 14px;
+  background-color: #0000;
+  color: var(--font-color);
+  border: none;
+  font-size: 14px;
+  cursor: pointer;
 }
 
 .jo-button--default-type {
-    border: 1px solid var(--border-color);
-    border-radius: 3px;
-    transition: all .3s;
+  border: 1px solid var(--border-color);
+  border-radius: 3px;
+  transition: all 0.3s;
 }
 .jo-button--default-type:hover {
-    border: 1px solid #36ad6a;
-    color: #36ad6a;
+  border: 1px solid #36ad6a;
+  color: #36ad6a;
 }
 
-.jo-button--error-type {
-    background-color: #d03050;
-    border-radius: 3px;
-    color: var(--font-color-invert);
-    transition: all .3s;
-}
-.jo-button--error-type:hover {
-    background-color: #de576d;
-}
-
+.jo-button--primary-type,
+.jo-button--info-type,
+.jo-button--error-type,
+.jo-button--warning-type,
 .jo-button--success-type {
-    background-color: #18a058;
-    border-radius: 3px;
-    color: var(--font-color-invert);
-    transition: all .3s;
-}
-.jo-button--success-type:hover {
-    background-color: #36ad6a;
+  background-color: var(--background-color);
+  border-radius: 3px;
+  color: var(--font-color-invert);
+  transition: all 0.3s;
 }
 
-.jo-button--info-type {
-    background-color: #00a7de;
-    border-radius: 3px;
-    color: var(--font-color-invert);
-    transition: all .3s;
+.jo-button--primary-type:hover,
+.jo-button--info-type:hover,
+.jo-button--error-type:hover,
+.jo-button--warning-type:hover,
+.jo-button--success-type:hover {
+  background-color: var(--background-color-hover);
 }
-.jo-button--info-type:hover {
-    background-color: #4af;
-}
+
 .jo-button--disabled {
-    color: var(--border-color);
-    background-color: transparent;
-    border: 1px solid var(--border-color);
-    cursor: not-allowed;
+  color: var(--border-color);
+  background-color: transparent;
+  border: 1px solid var(--border-color);
+  cursor: not-allowed;
 }
 .jo-button--disabled:hover {
-    color: var(--border-color);
-    background-color: transparent;
-    border: 1px solid var(--border-color);
+  color: var(--border-color);
+  background-color: transparent;
+  border: 1px solid var(--border-color);
 }
 .jo-button.jo-button--text {
-    height: auto;
-    border: none;
-    padding: inherit;
+  height: auto;
+  border: none;
+  padding: inherit;
 }
