@@ -35,7 +35,7 @@ export default defineComponent({
           theme.value.badge.BackgroundColor;
         return {
           "--background-color": backgroundColor,
-          "--font-color": theme.value.common.neutralTextBase,
+          "--font-color": theme.value.common.fontColor,
         };
       }),
     };
