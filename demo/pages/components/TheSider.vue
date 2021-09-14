@@ -44,6 +44,10 @@ export default defineComponent({
                     {
                         label: "表格",
                         key: "table",
+                    },
+                    {
+                        label: "加载条",
+                        key: "loading-bar",
                     }
                 ]
             },

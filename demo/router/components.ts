@@ -23,6 +23,10 @@ export const componentsRoutes = [
         component: () => import("../../src/table/demos/zhCN/index.entry.md")
     },
     {
+        path: "loading-bar",
+        component: () => import("../../src/loading-bar/demos/zhCN/index.entry.md")
+    },
+    {
         path: "test",
         component: TestEntryDemo
     }

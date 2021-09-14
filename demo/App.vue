@@ -1,13 +1,14 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
-import { JoConfigProvider, JoGlobalStyle } from "../src";
+import { JoConfigProvider, JoGlobalStyle, JoLoadingBarProvider } from "../src";
 import { themeRef } from './store';
 import hljs from "./util/hljs";
 export default defineComponent({
   name: "App",
   components: {
     JoConfigProvider,
-    JoGlobalStyle
+    JoGlobalStyle,
+    JoLoadingBarProvider
   },
   setup() {
     return {
@@ -20,7 +21,9 @@ export default defineComponent({
 
 <template>
   <JoConfigProvider :theme="themeRef" :hljs="hljs">
-    <router-view></router-view>
+    <JoLoadingBarProvider>
+      <router-view></router-view>
+    </JoLoadingBarProvider>
     <JoGlobalStyle />
   </JoConfigProvider>
 </template>
