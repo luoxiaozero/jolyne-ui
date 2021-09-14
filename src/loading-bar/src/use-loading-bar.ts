@@ -1,8 +1,8 @@
 import { inject } from "vue";
 import { throwError } from "../../util";
-import { loadingBarApiInjectionKey } from "./LoadingBarProvider";
+import { LoadingBarApiInjection, loadingBarApiInjectionKey } from "./LoadingBarProvider";
 
-export function useLoadingBar() {
+export function useLoadingBar(): LoadingBarApiInjection {
   const api = inject(loadingBarApiInjectionKey, null);
   if (api === null) {
     throwError(

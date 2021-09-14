@@ -16,7 +16,7 @@ interface LoadingBarInst {
   finish: () => void;
   error: () => void;
 }
-type LoadingBarApiInjection = LoadingBarInst;
+export type LoadingBarApiInjection = LoadingBarInst;
 
 export const loadingBarApiInjectionKey: InjectionKey<LoadingBarApiInjection> =
   Symbol("loadingBar");
