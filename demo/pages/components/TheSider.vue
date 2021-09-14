@@ -48,6 +48,10 @@ export default defineComponent({
                     {
                         label: "加载条",
                         key: "loading-bar",
+                    },
+                    {
+                        label: "抽屉",
+                        key: "drawer",
                     }
                 ]
             },
