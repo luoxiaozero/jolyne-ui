@@ -1,5 +1,5 @@
 <template>
-    <JoLayoutHeader class="nav" bordered>
+    <JoLayoutHeader class="nav" :bordered="bordered">
         <div class="nav-box">
             <router-link to="/" class="router-link--text">Jolyne UI</router-link>
             <router-link to="/components/menu" class="router-link--text">组件</router-link>
@@ -19,6 +19,12 @@ export default defineComponent({
     components: {
         JoLayoutHeader,
         JoButton
+    },
+    props: {
+        bordered: {
+            type: Boolean,
+            default: true,
+        }
     },
     setup() {
         const themeNameRef = useThemeName();
