@@ -8,15 +8,12 @@ import path from "path";
 export default ({ mode }: { mode: string }): unknown => {
   return defineConfig({
     resolve: {
-      alias:
-        mode === "development"
-          ? [
-              {
-                find: "jolyne-ui",
-                replacement: path.resolve(__dirname, "./src"),
-              },
-            ]
-          : undefined,
+      alias: [
+        {
+          find: "jolyne-ui",
+          replacement: path.resolve(__dirname, "./src"),
+        },
+      ],
     },
     plugins: [vue(), vueJsx(), createDemoPlugin()],
   });
