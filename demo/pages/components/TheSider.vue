@@ -48,6 +48,10 @@ export default defineComponent({
                     {
                         label: "抽屉",
                         key: "drawer",
+                    },
+                    {
+                        label: "弹出消息",
+                        key: "popover",
                     }
                 ]
             },

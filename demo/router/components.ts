@@ -27,6 +27,10 @@ export const componentsRoutes = [
         component: () => import("../../src/drawer/demos/zhCN/index.entry.md")
     },
     {
+        path: "popover",
+        component: () => import("../../src/popover/demos/zhCN/index.entry.md")
+    },
+    {
         path: "test",
         component: TestEntryDemo
     }
