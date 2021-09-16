@@ -1,23 +1,25 @@
 <template>
     <PageContainer>
         <div style="margin: 16px 20px;" class="color-box">
-            <JoCard title="字体">
-                <div>
-                    字体
+            <div style="width: 840px; margin: 0 auto 30px;">
+                <h2>字体</h2>
+                <p>
+                    <strong>字体:</strong>
                     <code>font-family:-apple-system,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Microsoft YaHei,Source Han Sans SC,Noto Sans CJK SC,WenQuanYi Micro Hei,sans-serif;</code>
-                </div>
-                <table style="width: 100%;" class="font-box">
+                </p>
+
+                <JoTable class="font-box">
                     <thead>
                         <tr>
-                            <td>层级</td>
-                            <td>字体大小</td>
-                            <td>举例</td>
+                            <th>层级</th>
+                            <th>字体大小</th>
+                            <th>举例</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr style="font-size: 12px;">
                             <td>辅助文字</td>
-                            <td>12px Extra Small</td>
+                            <td>12px Tiny</td>
                             <td>这是个字体大小演示</td>
                         </tr>
                         <tr style="font-size: 13px;">
@@ -37,18 +39,18 @@
                         </tr>
                         <tr style="font-size: 18px;">
                             <td>标题</td>
-                            <td>18px large</td>
+                            <td>18px Large</td>
                             <td>这是个字体大小演示</td>
                         </tr>
                         <tr style="font-size: 20px;">
                             <td>主标题</td>
-                            <td>20px Extra large</td>
+                            <td>20px Huge</td>
                             <td>这是个字体大小演示</td>
                         </tr>
                     </tbody>
-                </table>
-            </JoCard>
-            <JoCard title="边框和圆角">
+                </JoTable>
+                <h2>边框和圆角</h2>
+
                 <div class="border-box">
                     <div>
                         实线
@@ -67,25 +69,31 @@
                     <span style="border-radius: 4px;">大圆角 4px</span>
                     <span style="border-radius: 30px;">圆形圆角 30px</span>
                 </div>
-            </JoCard>
-            <ContrastColor :colors="colors" title="主题色" />
-            <ContrastColor :colors="auxiliaryColors" title="辅助色" />
-            <ContrastColor :colors="neutralColors" title="中性色" />
-            <ContrastColor :colors="chooseColors" title="待选色" />
+
+                <h2>主题色</h2>
+                <ColorBlock v-for="c of colors" :colorData="c"/>
+                <h2>辅助色</h2>
+                <ColorBlock v-for="c of auxiliaryColors" :colorData="c"/>
+                <h2>中性色</h2>
+                <ColorBlock v-for="c of neutralColors" :colorData="c"/>
+                <h2>待选色</h2>
+                <ColorBlock v-for="c of chooseColors" :colorData="c"/>
+            </div>
         </div>
     </PageContainer>
 </template>
 
 <script lang='ts'>
 import { defineComponent } from 'vue';
-import { JoCard } from "../../../src";
+import { JoCard, JoTable } from "../../../src";
 import PageContainer from "../../components/PageContainer.vue";
-import ContrastColor from "./ContrastColor.vue";
+import ColorBlock from "./ColorBlock.vue";
 export default defineComponent({
     components: {
         JoCard,
         PageContainer,
-        ContrastColor
+        JoTable,
+        ColorBlock
     },
     setup() {
         const neutralColors = [
@@ -238,9 +246,5 @@ export default defineComponent({
     display: inline-block;
     width: 100%;
     height: 5px;
-}
-.font-box td {
-    height: 40px;
-    border-bottom: 1px solid #dcdfe6;
 }
 </style>

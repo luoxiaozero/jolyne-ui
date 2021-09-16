@@ -31,10 +31,10 @@ export default defineComponent({
 .theme-color {
     position: relative;
     display: inline-block;
-    width: 180px;
+    width: 160px;
     height: 70px;
     margin-bottom: 20px;
-    margin-left: 12px;
+    margin-right: 12px;
     padding: 10px 16px;
     border-radius: 4px;
     color: white;
