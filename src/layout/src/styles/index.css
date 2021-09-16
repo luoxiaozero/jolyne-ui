@@ -16,11 +16,14 @@
     border-bottom: 1px solid var(--border-color);
 }
 .jo-layout-sider {
-    min-width: 240px;
+    min-width: 260px;
     background-color: var(--background-color);
 }
 .jo-layout-sider--bordered {
     border-right: 1px solid var(--border-color);
+}
+.jo-layout-header--shadow {
+    box-shadow: 0px 4px 10px var(--shadow-color);
 }
 /* 临时 */
 .jo-layout--absolute-positioned > div {

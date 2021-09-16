@@ -23,12 +23,20 @@ export const componentsRoutes = [
         component: () => import("../../src/table/demos/zhCN/index.entry.md")
     },
     {
+        path: "loading-bar",
+        component: () => import("../../src/loading-bar/demos/zhCN/index.entry.md")
+    },
+    {
         path: "drawer",
         component: () => import("../../src/drawer/demos/zhCN/index.entry.md")
     },
     {
         path: "popover",
         component: () => import("../../src/popover/demos/zhCN/index.entry.md")
+    },
+    {
+        path: "anchor",
+        component: () => import("../../src/anchor/demos/zhCN/index.entry.md")
     },
     {
         path: "test",

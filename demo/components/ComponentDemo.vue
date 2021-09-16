@@ -1,5 +1,5 @@
 <template>
-    <JoCard :title="title" segmented="footer">
+    <JoCard :title="title" segmented="footer" :id="demoFileName">
         <slot name="content"></slot>
         <slot name="demo"></slot>
         <template #footer>

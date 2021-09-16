@@ -1,0 +1,27 @@
+.jo-anchor-link {
+  padding: 0 10px 0 16px;
+}
+.jo-anchor-link > a {
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  padding: 3px 0;
+  text-decoration: none;
+  color: inherit;
+}
+.jo-anchor-link > a:hover {
+  color: #12aa9c;
+}
+.jo-anchor-link-active {
+  position: relative;
+  color: #12aa9c;
+  background-color: #12aa9c22;
+}
+.jo-anchor-link-active::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: -2px;
+  border-left: 2px solid #12aa9c;
+}

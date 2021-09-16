@@ -1,7 +1,7 @@
 import mdToDoc from "./convert/md-to-doc";
 import { projectPath } from "./utils/project-path";
 
-export default function docLoader(code: string, path: string): string {
+export default async function docLoader(code: string, path: string): Promise<string> {
     const relativeUrl = path.replace(projectPath + "/", "");
     return mdToDoc(code, path, relativeUrl);
 }

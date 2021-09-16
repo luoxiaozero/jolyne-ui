@@ -1,5 +1,6 @@
 export * from "./_mixins/use-theme";
 export * from "./alert";
+export * from "./anchor";
 export * from "./avatar";
 export * from "./badge";
 export * from "./button";
@@ -14,6 +15,7 @@ export * from "./global-style";
 export * from "./image";
 export * from "./input";
 export * from "./layout";
+export * from "./loading-bar";
 export * from "./menu";
 export * from "./message";
 export * from "./modal";

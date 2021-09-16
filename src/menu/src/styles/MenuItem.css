@@ -1,6 +1,5 @@
 .jo-menu-item__content {
     position: relative;
-    margin: 0 8px;
     padding: 10px;
     padding-left: 14px;
     cursor: pointer;
@@ -14,5 +13,4 @@
 .jo-menu-item__content--selected {
     color: #12aa9c;
     background-color: #12aa9c2c;
-    border-radius: 2px;
 }

@@ -6,6 +6,7 @@ export default defineComponent({
   name: "LayoutHeader",
   props: {
     bordered: Boolean,
+    shadow: Boolean,
   },
   setup() {
     const theme = useTheme();
@@ -14,8 +15,9 @@ export default defineComponent({
         return {
           "--background-color": theme.value.common.neutralCard,
           "--border-color": theme.value.input.borderColor,
-        }
-      })
+          "--shadow-color": theme.value.layout.shadowColor, 
+        };
+      }),
     };
   },
   render() {
@@ -23,7 +25,10 @@ export default defineComponent({
       <div
         class={[
           "jo-layout-header",
-          { "jo-layout-header--bordered": this.$props.bordered },
+          {
+            "jo-layout-header--bordered": this.$props.bordered,
+            "jo-layout-header--shadow": this.shadow,
+          },
         ]}
         style={this.cssVars as CSSProperties}
       >

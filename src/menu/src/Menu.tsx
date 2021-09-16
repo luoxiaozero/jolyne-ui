@@ -15,7 +15,7 @@ interface MenuOption {
   key: string;
   children?: MenuOption[];
 }
-interface MenuInjection {
+export interface MenuInjection {
   key: Ref<string>;
   toggleExpand: (item: MenuItemType) => void;
 }

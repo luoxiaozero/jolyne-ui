@@ -1,5 +1,5 @@
 <template>
-    <JoLayoutSider bordered>
+    <JoLayoutSider style="padding: 2px 0 4px;">
         <JoMenu :options="menuOptions" v-model:value="keyRef" />
     </JoLayoutSider>
 </template>
@@ -46,12 +46,20 @@ export default defineComponent({
                         key: "table",
                     },
                     {
+                        label: "加载条",
+                        key: "loading-bar",
+                    },
+                    {
                         label: "抽屉",
                         key: "drawer",
                     },
                     {
                         label: "弹出消息",
                         key: "popover",
+                    },
+                    {
+                        label: "侧边导航",
+                        key: "anchor",
                     }
                 ]
             },

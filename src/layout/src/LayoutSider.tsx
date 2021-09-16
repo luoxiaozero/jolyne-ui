@@ -11,7 +11,7 @@ export default defineComponent({
     return {
       cssVars: computed(() => {
         return {
-          "--background-color": theme.value.common.neutralCard,
+          "--background-color": theme.value.layout.backgroundColorSider,
           "--border-color": theme.value.input.borderColor,
         };
       }),
