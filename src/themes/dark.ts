@@ -9,6 +9,7 @@ import { layoutDark } from "../layout/styles";
 import { cardDark } from "../card/styles";
 import { codeDark } from "../code/styles";
 import { tableDark } from "../table/styles";
+import { popoverDark } from "../popover/styles";
 export const darkTheme = {
     name: "dark",
     common: commonDark,
@@ -22,4 +23,5 @@ export const darkTheme = {
     table: tableDark,
     tag: tagDark,
     pagination: paginationDark,
+    popover: popoverDark
 }

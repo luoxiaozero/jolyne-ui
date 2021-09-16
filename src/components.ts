@@ -18,6 +18,7 @@ export * from "./menu";
 export * from "./message";
 export * from "./modal";
 export * from "./pagination";
+export * from "./popover";
 export * from "./scrollbar";
 export * from "./space";
 export * from "./switch";
