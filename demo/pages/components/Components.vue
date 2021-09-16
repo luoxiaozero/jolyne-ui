@@ -1,7 +1,7 @@
 <template>
     <PageContainer has-sider>
         <TheSider :bordered="false"/>
-        <JoLayout>
+        <JoLayout id="listenTo-doc">
             <router-view></router-view>
         </JoLayout>
     </PageContainer>
