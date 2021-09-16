@@ -1,7 +1,7 @@
 <template>
     <JoLayout position="absolute">
-        <TheHeader :bordered="bordered"/>
-        <JoLayout :hasSider="hasSider" position="absolute" style="top: 50px">
+        <TheHeader :shadow="shadow"/>
+        <JoLayout :hasSider="hasSider" position="absolute" style="top: 54px">
             <slot></slot>
         </JoLayout>
     </JoLayout>
@@ -18,7 +18,7 @@ export default defineComponent({
     },
     props: {
         hasSider: Boolean,
-        bordered: {
+        shadow: {
             type: Boolean,
             default: true,
         }

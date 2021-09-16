@@ -1,5 +1,5 @@
 <template>
-    <JoLayoutSider bordered>
+    <JoLayoutSider style="padding: 2px 0 4px;">
         <JoMenu :options="menuOptions" v-model:value="keyRef" />
     </JoLayoutSider>
 </template>

@@ -1,5 +1,5 @@
 <template>
-    <PageContainer has-sider :bordered="false">
+    <PageContainer has-sider :shadow="false">
         <div style="width: 100%;text-align: center;">
             <img alt="Vue logo" src="../../assets/logo.png" />
             <HelloWorld msg="Hello Vue 3 + TypeScript + Vite + Jolyne-ui" />
