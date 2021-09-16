@@ -1,7 +1,7 @@
 <template>
     <JoLayout position="absolute">
         <TheHeader :shadow="shadow"/>
-        <JoLayout :hasSider="hasSider" position="absolute" style="top: 54px">
+        <JoLayout :hasSider="hasSider" position="absolute" style="top: 54px" id="page-layout">
             <slot></slot>
         </JoLayout>
     </JoLayout>

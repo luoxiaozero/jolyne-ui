@@ -52,6 +52,10 @@ export default defineComponent({
                     {
                         label: "抽屉",
                         key: "drawer",
+                    },
+                    {
+                        label: "侧边导航",
+                        key: "anchor",
                     }
                 ]
             },
