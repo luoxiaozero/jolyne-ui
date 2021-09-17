@@ -1,6 +1,6 @@
 <template>
     <PageContainer>
-        <div style="width: 840px; margin: 0 auto 30px;">
+        <JoCard style="width: 840px; margin: 30px auto;">
             <div class="anchor">
                 <JoAnchor listenTo="#page-layout > .jo-scrollbar">
                     <JoAnchorLink title="字体" href="#字体"></JoAnchorLink>
@@ -88,7 +88,7 @@
             <ColorBlock v-for="c of neutralColors" :colorData="c" />
             <h2 id="待选色">待选色</h2>
             <ColorBlock v-for="c of chooseColors" :colorData="c" />
-        </div>
+        </JoCard>
     </PageContainer>
 </template>
 
@@ -257,7 +257,7 @@ export default defineComponent({
 }
 .anchor {
     position: sticky;
-    top: 26px;
+    top: 20px;
     width: 200px;
     float: right;
     transform: translateX(260px);

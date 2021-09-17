@@ -3,6 +3,7 @@ import HomeVue from "../pages/home/Home.vue";
 import ThemeVue from "../pages/theme/Theme.vue";
 import ComponentsVue from "../pages/components/Components.vue";
 import { componentsRoutes } from "./components";
+import { loadingBarApiRef } from "../store";
 const routes: RouteRecordRaw[] = [
     {
         path: "/",
@@ -23,3 +24,17 @@ export const router = createRouter({
     history: createWebHistory(),
     routes
 });
+
+router.beforeEach((to, from , next) => {
+    console.log(loadingBarApiRef.value)
+    if (loadingBarApiRef.value) {
+        
+        loadingBarApiRef.value.start();
+    }
+    next();
+})
+router.afterEach((to, from) => {
+if (loadingBarApiRef.value) {
+    loadingBarApiRef.value.finish();
+    }
+})

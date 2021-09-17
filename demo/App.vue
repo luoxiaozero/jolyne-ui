@@ -1,7 +1,7 @@
 <script lang="ts">
-import { defineComponent } from 'vue';
-import { JoConfigProvider, JoGlobalStyle, JoLoadingBarProvider } from "../src";
-import { themeRef } from './store';
+import { defineComponent, onMounted, ref } from 'vue';
+import { JoConfigProvider, JoGlobalStyle, JoLoadingBarProvider, useLoadingBar } from "../src";
+import { themeRef, loadingBarApiRef } from './store';
 import hljs from "./util/hljs";
 export default defineComponent({
   name: "App",
@@ -11,9 +11,14 @@ export default defineComponent({
     JoLoadingBarProvider
   },
   setup() {
+    const loadingBarProviderRef = ref<any>(null);
+    onMounted(() => {
+      loadingBarApiRef.value = loadingBarProviderRef.value.loadingBarRef;
+    })
     return {
       themeRef,
-      hljs
+      hljs,
+      loadingBarProviderRef
     }
   }
 })
@@ -21,7 +26,7 @@ export default defineComponent({
 
 <template>
   <JoConfigProvider :theme="themeRef" :hljs="hljs">
-    <JoLoadingBarProvider>
+    <JoLoadingBarProvider ref="loadingBarProviderRef">
       <router-view></router-view>
     </JoLoadingBarProvider>
     <JoGlobalStyle />
