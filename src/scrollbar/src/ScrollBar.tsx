@@ -7,8 +7,8 @@ export default defineComponent({
   },
   render() {
     return (
-      <div class="jo-scrollbar">
-        <div class="jo-scrollbar-content" style={this.contentStyle}>{this.$slots.default?.()}</div>
+      <div class="jo-scrollbar" style={this.contentStyle}>
+        {this.$slots.default?.()}
       </div>
     );
   },
