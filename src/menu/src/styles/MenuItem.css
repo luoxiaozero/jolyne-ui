@@ -13,4 +13,5 @@
 .jo-menu-item__content--selected {
     color: #12aa9c;
     background-color: #12aa9c2c;
+    border-right: 2px solid #12aa9c;
 }

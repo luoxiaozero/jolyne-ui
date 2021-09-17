@@ -14,6 +14,10 @@ export default defineComponent({
     title: String,
     bordered: {
       type: Boolean,
+      default: false,
+    },
+    boxShadow: {
+      type: Boolean,
       default: true,
     },
     segmented: String as PropType<"header" | "content" | "footer">,
@@ -28,6 +32,7 @@ export default defineComponent({
         return {
           "--background-color": theme.value.common.neutralCard,
           "--border-color": theme.value.card.borderColor,
+          "--box-shadow": theme.value.card.boxShadow,
         };
       }),
     };
@@ -39,6 +44,7 @@ export default defineComponent({
           "jo-card",
           {
             "jo-card--bordered": this.bordered,
+            "jo-card--box-shadow": this.boxShadow,
             [`jo-card--segmented-${this.segmented}`]: this.segmented,
           },
         ]}

@@ -5,6 +5,10 @@ export default defineComponent({
   name: "LayoutSider",
   props: {
     bordered: Boolean,
+    boxShadow: {
+      type: Boolean,
+      default: true,
+    },
   },
   setup() {
     const theme = useTheme();
@@ -13,6 +17,7 @@ export default defineComponent({
         return {
           "--background-color": theme.value.layout.backgroundColorSider,
           "--border-color": theme.value.input.borderColor,
+          "--box-shadow-sider": theme.value.layout.boxShadowSider,
         };
       }),
     };
@@ -22,7 +27,10 @@ export default defineComponent({
       <div
         class={[
           "jo-layout-sider",
-          { "jo-layout-sider--bordered": this.$props.bordered },
+          {
+            "jo-layout-sider--bordered": this.$props.bordered,
+            "jo-layout-sider--box-shadow": this.boxShadow,
+          },
         ]}
         style={this.cssVars as CSSProperties}
       >

@@ -4,6 +4,9 @@
 .jo-card--bordered {
   border: 1px solid var(--border-color);
 }
+.jo-card--box-shadow {
+  box-shadow: var(--box-shadow);
+}
 .jo-card > div:first-child {
   border-top-left-radius: 3px;
   border-top-right-radius: 3px;
