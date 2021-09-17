@@ -43,6 +43,10 @@ export const componentsRoutes = [
         component: () => import("../../src/anchor/demos/zhCN/index.entry.md")
     },
     {
+        path: "space",
+        component: () => import("../../src/space/demos/zhCN/index.entry.md")
+    },
+    {
         path: "test",
         component: TestEntryDemo
     }
