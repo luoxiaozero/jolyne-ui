@@ -34,7 +34,7 @@ export default defineComponent({
         class={["jo-layout", `jo-layout--${this.position}-positioned`]}
         style={this.cssVars as CSSProperties}
       >
-        <JoScrollbar style={this.hasSider ? this.hasSiderStyle : undefined}>
+        <JoScrollbar contentStyle={this.hasSider ? this.hasSiderStyle : undefined}>
           {this.$slots.default?.()}
         </JoScrollbar>
       </div>
