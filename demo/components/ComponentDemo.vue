@@ -3,20 +3,23 @@
         <slot name="content"></slot>
         <slot name="demo"></slot>
         <template #footer>
-            <JoCode :code="codeStr" lang="html"></JoCode>
+            <JoScrollbar>
+                <JoCode :code="codeStr" lang="html"></JoCode>
+            </JoScrollbar>
         </template>
     </JoCard>
 </template>
 
 <script lang='ts'>
 import { defineComponent } from 'vue';
-import { JoCard, JoCode } from "../../src";
+import { JoCard, JoCode, JoScrollbar } from "../../src";
 
 export default defineComponent({
     name: "ComponentDemo",
     components: {
         JoCard,
-        JoCode
+        JoCode,
+        JoScrollbar,
     },
     props: {
         demoFileName: {
