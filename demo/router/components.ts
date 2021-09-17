@@ -5,6 +5,10 @@ export const componentsRoutes = [
         component: () => import("../../src/menu/demos/zhCN/index.entry.md")
     },
     {
+        path: "alert",
+        component: () => import("../../src/alert/demos/zhCN/index.entry.md")
+    },
+    {
 
         path: "badge",
         component: () => import("../../src/badge/demos/zhCN/index.entry.md")
@@ -29,6 +33,10 @@ export const componentsRoutes = [
     {
         path: "drawer",
         component: () => import("../../src/drawer/demos/zhCN/index.entry.md")
+    },
+    {
+        path: "popover",
+        component: () => import("../../src/popover/demos/zhCN/index.entry.md")
     },
     {
         path: "anchor",

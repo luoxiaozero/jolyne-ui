@@ -30,6 +30,10 @@ export default defineComponent({
                         key: 'menu',
                     },
                     {
+                        label:'警告',
+                        key:'alert',
+                    },
+                    {
                         label: '标记',
                         key: 'badge',
                     },
@@ -52,6 +56,10 @@ export default defineComponent({
                     {
                         label: "抽屉",
                         key: "drawer",
+                    },
+                    {
+                        label: "弹出消息",
+                        key: "popover",
                     },
                     {
                         label: "侧边导航",

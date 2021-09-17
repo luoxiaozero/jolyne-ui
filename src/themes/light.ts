@@ -10,18 +10,20 @@ import { layoutLight } from "../layout/styles";
 import { cardLight } from "../card/styles";
 import { codeLight } from "../code/styles";
 import { tableLight } from "../table/styles";
+import { popoverLight } from "../popover/styles";
 export const lightTheme = {
-    name: "light",
-    common: commonLight,
-    alert:alertLight,
-    badge:badgeLight,
-    button: buttonLight,
-    card: cardLight,
-    code: codeLight,
-    input: inputLight,
-    layout: layoutLight,
-    upload: uploadLight,
-    table: tableLight,
-    tag: tagLight,
-    pagination: paginationLight,
-}
+  name: "light",
+  common: commonLight,
+  alert: alertLight,
+  badge: badgeLight,
+  button: buttonLight,
+  card: cardLight,
+  code: codeLight,
+  input: inputLight,
+  layout: layoutLight,
+  upload: uploadLight,
+  table: tableLight,
+  tag: tagLight,
+  pagination: paginationLight,
+  popover: popoverLight,
+};
