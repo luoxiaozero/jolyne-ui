@@ -1,6 +1,6 @@
 <template>
     <JoLayoutSider style="padding: 2px 0 4px;">
-        <JoScrollbar>
+        <JoScrollbar :scroll-style="'remove'">
             <JoMenu :options="menuOptions" v-model:value="keyRef" />
         </JoScrollbar>
     </JoLayoutSider>

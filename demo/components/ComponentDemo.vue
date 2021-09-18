@@ -1,8 +1,15 @@
 <template>
     <JoCard :title="title" segmented="footer" :id="demoFileName">
+        <template #header-extra>
+            <JoButton text @click="showCodeRef = !showCodeRef">
+                <JoIcon>
+                    <CodeSlashOutlineIcon />
+                </JoIcon>
+            </JoButton>
+        </template>
         <slot name="content"></slot>
         <slot name="demo"></slot>
-        <template #footer>
+        <template #footer v-if="showCodeRef">
             <JoScrollbar>
                 <JoCode :code="codeStr" lang="html"></JoCode>
             </JoScrollbar>
@@ -11,8 +18,9 @@
 </template>
 
 <script lang='ts'>
-import { defineComponent } from 'vue';
-import { JoCard, JoCode, JoScrollbar } from "../../src";
+import { defineComponent, ref } from 'vue';
+import { JoCard, JoCode, JoScrollbar, JoIcon, JoButton } from "../../src";
+import { CodeSlashOutline as CodeSlashOutlineIcon } from "@vicons/ionicons5";
 
 export default defineComponent({
     name: "ComponentDemo",
@@ -20,6 +28,9 @@ export default defineComponent({
         JoCard,
         JoCode,
         JoScrollbar,
+        CodeSlashOutlineIcon,
+        JoIcon,
+        JoButton
     },
     props: {
         demoFileName: {
@@ -41,12 +52,15 @@ export default defineComponent({
     },
     setup(props) {
         const codeStr = decodeURIComponent(props.code || "");
+        const showCodeRef = ref(false);
         return {
-            codeStr
+            codeStr,
+            showCodeRef,
         }
     },
 })
 </script>
+
 
 <style scoped>
 </style>
