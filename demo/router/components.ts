@@ -1,4 +1,3 @@
-import TestEntryDemo from "../../build/loaders/test/index.entry.md";
 export const componentsRoutes = [
     {
         path: "menu",
@@ -47,7 +46,15 @@ export const componentsRoutes = [
         component: () => import("../../src/anchor/demos/zhCN/index.entry.md")
     },
     {
+        path: "space",
+        component: () => import("../../src/space/demos/zhCN/index.entry.md")
+    },
+    {
+        path: "icon",
+        component: () => import("../../src/icon/demos/zhCN/index.entry.md")
+    },
+    {
         path: "test",
-        component: TestEntryDemo
+        component: () => import("../../build/loaders/test/index.entry.md")
     }
 ]

@@ -1,6 +1,7 @@
 import { ref, Ref } from "vue";
 import { Theme, darkTheme } from "../../src";
 export const themeRef = ref<Theme | undefined>(undefined);
+export const loadingBarApiRef = ref<any>(null);
 const themeNameRef = ref<"浅色" | "深色">("浅色");
 export function useThemeName(): Ref<string> {
   return themeNameRef;

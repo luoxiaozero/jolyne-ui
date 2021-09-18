@@ -1,0 +1,11 @@
+.jo-icon {
+  display: inline-block;
+  height: 1em;
+  width: 1em;
+  line-height: 1em;
+  text-align: center;
+}
+.jo-icon svg {
+  height: 1em;
+  width: 1em;
+}
