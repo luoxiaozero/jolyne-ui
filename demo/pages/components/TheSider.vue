@@ -64,6 +64,10 @@ export default defineComponent({
                     {
                         label: "侧边导航",
                         key: "anchor",
+                    },
+                     {
+                        label: "分割线",
+                        key: "divider",
                     }
                 ]
             },

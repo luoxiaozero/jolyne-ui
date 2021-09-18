@@ -31,6 +31,10 @@ export const componentsRoutes = [
         component: () => import("../../src/loading-bar/demos/zhCN/index.entry.md")
     },
     {
+        path: "divider",
+        component: () => import("../../src/divider/demos/zhCN/index.entry.md")
+    },
+    {
         path: "drawer",
         component: () => import("../../src/drawer/demos/zhCN/index.entry.md")
     },
