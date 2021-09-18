@@ -36,6 +36,10 @@ export default defineComponent({
                         label: "卡片",
                         key: "card",
                     },
+                    {
+                        label: "图标",
+                        key: "icon",
+                    },
                 ]
             },
             {
