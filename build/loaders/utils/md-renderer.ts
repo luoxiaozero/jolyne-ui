@@ -5,10 +5,10 @@ export default function createMdRenderer() {
   const renderer = new marked.Renderer();
   const overrides = {
     table(header: string, body: string) {
-      return `<jo-table>
+      return `<jo-card contentStyle="padding: 20px 28px" borderRadius="large"><jo-table>
       <thead> ${header}</thead>
       <tbody>${body}</tbody>
-      </jo-table>`;
+      </jo-table></jo-card>`;
     },
   };
   Object.keys(overrides).forEach((key) => {
