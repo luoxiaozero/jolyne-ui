@@ -17,6 +17,15 @@
 }
 .jo-card__header {
   font-weight: 600;
+  display: flex;
+  align-items: center;
+}
+.jo-card__header-extra {
+  display: flex;
+  align-items: center;
+}
+.jo-card__header-content {
+  flex: 1;
 }
 .jo-card__header,
 .jo-card__content,

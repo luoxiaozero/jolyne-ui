@@ -52,7 +52,12 @@ export default defineComponent({
       >
         {this.$slots.header || this.title ? (
           <div class="jo-card__header" style={this.headerStyle}>
-            {renderSlot(this.$slots, "header", {}, () => [this.title])}
+            <div class="jo-card__header-content">
+              {renderSlot(this.$slots, "header", {}, () => [this.title])}
+            </div>
+            {this.$slots["header-extra"] ? (
+              <div class="jo-card__header-extra">{renderSlot(this.$slots, "header-extra", {})}</div>
+            ) : null}
           </div>
         ) : null}
         <div class="jo-card__content" style={this.contentStyle}>
