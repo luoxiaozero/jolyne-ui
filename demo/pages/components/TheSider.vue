@@ -29,9 +29,31 @@ export default defineComponent({
                 key: 'test-1',
                 children: [
                     {
-                        label: '菜单',
-                        key: 'menu',
+                        label: "按钮",
+                        key: "button",
                     },
+                    {
+                        label: "卡片",
+                        key: "card",
+                    },
+                ]
+            },
+            {
+                type: "group",
+                label: "数据展示组件",
+                key: "数据展示组件",
+                children: [
+                    {
+                        label: "表格",
+                        key: "table",
+                    },
+                ]
+            },
+            {
+                type: "group",
+                label: "反馈组件",
+                key: "反馈组件",
+                children: [
                     {
                         label: '警告',
                         key: 'alert',
@@ -41,22 +63,6 @@ export default defineComponent({
                         key: 'badge',
                     },
                     {
-                        label: "按钮",
-                        key: "button",
-                    },
-                    {
-                        label: "卡片",
-                        key: "card",
-                    },
-                    {
-                        label: "表格",
-                        key: "table",
-                    },
-                    {
-                        label: "加载条",
-                        key: "loading-bar",
-                    },
-                    {
                         label: "抽屉",
                         key: "drawer",
                     },
@@ -64,10 +70,32 @@ export default defineComponent({
                         label: "弹出消息",
                         key: "popover",
                     },
+                ]
+            },
+            {
+                type: "group",
+                label: "导航组件",
+                key: "导航组件",
+                children: [
+                    {
+                        label: '菜单',
+                        key: 'menu',
+                    },
+                    {
+                        label: "加载条",
+                        key: "loading-bar",
+                    },
                     {
                         label: "侧边导航",
                         key: "anchor",
                     },
+                ]
+            },
+            {
+                type: "group",
+                label: "布局组件",
+                key: "test-3",
+                children: [
                     {
                         label: "间距",
                         key: "space",
