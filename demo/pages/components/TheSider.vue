@@ -7,10 +7,13 @@
 </template>
 
 <script lang='ts'>
-import { defineComponent, ref, watch } from 'vue';
+import { defineComponent, ref, watch, h } from 'vue';
 import { useRoute } from 'vue-router';
 import { JoLayoutSider, JoMenu, JoScrollbar } from "../../../src";
 import { router } from '../../router';
+function renderLabel(title: string, subtitle: string) {
+
+}
 export default defineComponent({
     components: {
         JoLayoutSider,
@@ -31,18 +34,22 @@ export default defineComponent({
                     {
                         label: "按钮",
                         key: "button",
+                        extra: "Button"
                     },
                     {
                         label: "卡片",
                         key: "card",
+                        extra: "Card"
                     },
                     {
                         label: "图标",
                         key: "icon",
+                        extra: "Icon"
                     },
                     {
                         label: "分割线",
                         key: "divider",
+                        extra: "Divider"
                     }
                 ]
             },
@@ -54,6 +61,7 @@ export default defineComponent({
                     {
                         label: "表格",
                         key: "table",
+                        extra: "Table"
                     },
                 ]
             },
@@ -65,18 +73,22 @@ export default defineComponent({
                     {
                         label: '警告',
                         key: 'alert',
+                        extra: "Alert"
                     },
                     {
                         label: '标记',
                         key: 'badge',
+                        extra: "Badge"
                     },
                     {
                         label: "抽屉",
                         key: "drawer",
+                        extra: "Drawer"
                     },
                     {
                         label: "弹出消息",
                         key: "popover",
+                        extra: "Popover"
                     },
                 ]
             },
@@ -88,14 +100,17 @@ export default defineComponent({
                     {
                         label: '菜单',
                         key: 'menu',
+                        extra: "menu",
                     },
                     {
                         label: "加载条",
                         key: "loading-bar",
+                        extra: "LoadingBar"
                     },
                     {
                         label: "侧边导航",
                         key: "anchor",
+                        extra: "Anchor"
                     },
                 ]
             },
@@ -107,6 +122,7 @@ export default defineComponent({
                     {
                         label: "间距",
                         key: "space",
+                        extra: "Space"
                     }
                 ]
             },
@@ -118,6 +134,7 @@ export default defineComponent({
                     {
                         label: '测试',
                         key: 'test',
+                        extra: "Test"
                     },
                 ]
             },

@@ -4,12 +4,18 @@ const theme = {
   fontColor: "#333639",
   colorBase: "#fff",
   colorBaseInvert: "#000",
+
   colorBody: "#f6f6f6",
   neutralPopover: "#fff",
   neutralCard: "#fff",
   neutralModal: "#fff",
   neutralBody: "#f6f6f6",
 
+  colorFont1: "#303133",
+  colorFont2: "#606266",
+  colorFont3: "#909399",
+  colorFont4: "#c0c4cc",
+  
   colorPrimary: "#12aa9c",
   colorPrimaryHover: "#10a5a5",
 
