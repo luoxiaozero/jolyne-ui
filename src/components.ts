@@ -12,6 +12,7 @@ export * from "./dialog";
 export * from "./drawer";
 export * from "./dynamic-tags";
 export * from "./global-style";
+export * from "./icon";
 export * from "./image";
 export * from "./input";
 export * from "./layout";
