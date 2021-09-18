@@ -1,0 +1,1 @@
+export {default as JoDivider} from "./src/Divider"

@@ -1,0 +1,12 @@
+.jo-divider__line{
+    background-color: #EFEFF5;
+    height: 1px;
+    width: 100%;
+}
+.jo-divider{
+    position: relative;
+    display: flex;
+    width: 100%;
+    box-sizing: border-box;
+    font-size: 16px;
+}

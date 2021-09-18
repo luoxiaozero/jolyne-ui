@@ -9,6 +9,7 @@ export * from "./code";
 export * from "./collapse";
 export * from "./config-provider";
 export * from "./dialog";
+export * from "./divider";
 export * from "./drawer";
 export * from "./dynamic-tags";
 export * from "./global-style";
