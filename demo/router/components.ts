@@ -66,6 +66,10 @@ export const componentsRoutes = [
         component: () => import("../../src/collapse/demos/zhCN/index.entry.md")
     },
     {
+        path: "config-provider",
+        component: () => import("../../src/config-provider/demos/zhCN/index.entry.md")
+    },
+    {
         path: "test",
         component: () => import("../../build/loaders/test/index.entry.md")
     }

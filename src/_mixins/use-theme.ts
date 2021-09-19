@@ -1,5 +1,5 @@
 import { inject, ref } from "vue";
-import { configProviderInjectionKey } from "../config-provider/ConfigProvider";
+import { configProviderInjectionKey } from "../config-provider/src/ConfigProvider";
 import { lightTheme } from "../themes";
 
 export function useTheme() {

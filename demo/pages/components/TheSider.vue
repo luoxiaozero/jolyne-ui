@@ -143,6 +143,18 @@ export default defineComponent({
             },
             {
                 type: "group",
+                label: "配置组件",
+                key: "test-4",
+                children: [
+                    {
+                        label: "全局化配置",
+                        key: "config-provider",
+                        extra: "Config Provider"
+                    }
+                ]
+            },
+            {
+                type: "group",
                 label: '测试组件',
                 key: 'test-2',
                 children: [
