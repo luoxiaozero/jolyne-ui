@@ -2,12 +2,16 @@ import { h, defineComponent } from "@vue/runtime-core";
 import { computed, CSSProperties, PropType } from "vue";
 import { useTheme } from "../..";
 import "./styles/index.css";
+undefined
 export default defineComponent({
   name: "Badge",
   props: {
-    type: String as PropType<
-      "default" | "error" | "info" | "success" | "warning"
-    >,
+    type: {
+      type: String as PropType<
+        "default" | "error" | "info" | "success" | "warning"
+      >,
+      default: "default"
+    },
     value: Number,
     maxValue: Number,
     dot: Boolean,
