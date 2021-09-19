@@ -54,6 +54,10 @@ export const componentsRoutes = [
         component: () => import("../../src/icon/demos/zhCN/index.entry.md")
     },
     {
+        path: "avatar",
+        component: () => import("../../src/avatar/demos/zhCN/index.entry.md")
+    },
+    {
         path: "test",
         component: () => import("../../build/loaders/test/index.entry.md")
     }

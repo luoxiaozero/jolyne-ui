@@ -32,6 +32,11 @@ export default defineComponent({
                 key: 'test-1',
                 children: [
                     {
+                        label: "头像",
+                        key: "avatar",
+                        extra: "Avatar",
+                    },
+                    {
                         label: "按钮",
                         key: "button",
                         extra: "Button"
