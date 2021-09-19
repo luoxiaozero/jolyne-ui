@@ -8,7 +8,5 @@
   <jo-button type="success">按钮</jo-button>
   <jo-button type="warning">按钮</jo-button>
   <jo-button type="error">按钮</jo-button>
-  <jo-button disabled>按钮</jo-button>
-  <jo-button text>按钮</jo-button>
 </jo-space>
 ```

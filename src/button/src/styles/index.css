@@ -14,8 +14,8 @@
   transition: all 0.3s;
 }
 .jo-button--default-type:hover {
-  border: 1px solid #36ad6a;
-  color: #36ad6a;
+  border: 1px solid #12aa9c;
+  color: #12aa9c;
 }
 
 .jo-button--primary-type,
