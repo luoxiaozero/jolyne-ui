@@ -55,6 +55,11 @@ export default defineComponent({
                         label: "分割线",
                         key: "divider",
                         extra: "Divider"
+                    },
+                    {
+                        label: "折叠面板",
+                        key: "collapse",
+                        extra: "Collapse",
                     }
                 ]
             },
