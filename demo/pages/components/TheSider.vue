@@ -68,6 +68,11 @@ export default defineComponent({
                         key: "table",
                         extra: "Table"
                     },
+                    {
+                        label: "代码",
+                        key: "code",
+                        extra: "Code"
+                    },
                 ]
             },
             {
