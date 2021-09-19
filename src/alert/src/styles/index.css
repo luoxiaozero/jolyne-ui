@@ -1,7 +1,16 @@
 .jo-alert{
-    margin: 0 20px;
-    padding: 10px;
+    position: relative;
+    padding: 14px 20px 14px 42px;
     background-color: var(--background-color);
     border:var(--border);
-    border-radius: 2px;
+    border-radius: 3px;
+}
+.jo-alert__icon {
+    position: absolute;
+    top: 12px;
+    left: 8px;
+}
+.jo-alert__header {
+    font-size: 16px;
+    margin-bottom: 8px;
 }
