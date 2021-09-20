@@ -1,4 +1,4 @@
-import { throwError } from "../util";
+import { throwError } from "../../util";
 import { inject } from "@vue/runtime-core";
 import { MessageApiInjection, messageApiInjectionKey } from "./MessageProvider";
 export function useMessage(): MessageApiInjection {

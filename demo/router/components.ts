@@ -98,6 +98,10 @@ export const componentsRoutes = [
         component: () => import("../../src/layout/demos/zhCN/index.entry.md")
     },
     {
+        path: "message",
+        component: () => import("../../src/message/demos/zhCN/index.entry.md")
+    },
+    {
         path: "test",
         component: () => import("../../build/loaders/test/index.entry.md")
     }

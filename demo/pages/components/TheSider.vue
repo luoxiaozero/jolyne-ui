@@ -135,6 +135,11 @@ export default defineComponent({
                         key: "dialog",
                         extra: "Dialog"
                     },
+                    {
+                        label: "信息",
+                        key: "message",
+                        extra: "Message"
+                    },
                 ]
             },
             {
