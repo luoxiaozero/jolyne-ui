@@ -167,6 +167,11 @@ export default defineComponent({
                         key: "anchor",
                         extra: "Anchor"
                     },
+                    {
+                        label: "分页",
+                        key: "pagination",
+                        extra: "Paginstion"
+                    }
                 ]
             },
             {

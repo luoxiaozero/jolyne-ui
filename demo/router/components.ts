@@ -106,6 +106,10 @@ export const componentsRoutes = [
         component: () => import("../../src/modal/demos/zhCN/index.entry.md")
     },
     {
+        path: "pagination",
+        component: () => import("../../src/pagination/demos/zhCN/index.entry.md")
+    },
+    {
         path: "test",
         component: () => import("../../build/loaders/test/index.entry.md")
     }
