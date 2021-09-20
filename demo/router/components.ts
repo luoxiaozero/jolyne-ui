@@ -70,6 +70,10 @@ export const componentsRoutes = [
         component: () => import("../../src/config-provider/demos/zhCN/index.entry.md")
     },
     {
+        path: "dialog",
+        component: () => import("../../src/dialog/demos/zhCN/index.entry.md")
+    },
+    {
         path: "test",
         component: () => import("../../build/loaders/test/index.entry.md")
     }

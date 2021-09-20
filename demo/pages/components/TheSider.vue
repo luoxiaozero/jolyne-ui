@@ -105,6 +105,11 @@ export default defineComponent({
                         key: "popover",
                         extra: "Popover"
                     },
+                    {
+                        label: "对话框",
+                        key: "dialog",
+                        extra: "Dialog"
+                    },
                 ]
             },
             {
