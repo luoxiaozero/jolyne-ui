@@ -1,0 +1,23 @@
+.jo-dropdown {
+  display: block;
+  height: auto;
+  width: auto;
+  min-height: 30px;
+  max-width: 200px;
+  padding: 6px 0;
+  border-radius: 3px;
+  box-shadow: var(--shadow);
+  background-color: var(--background-color);
+}
+.jo-dropdown__option {
+  height: 35px;
+  padding-left: 8px;
+  font-size: 14px;
+  line-height: 35px;
+  text-align: left;
+  background-color: var(--background-color);
+  cursor: pointer;
+}
+.jo-dropdown__option:hover {
+  background-color: var(--background-color-hover);
+}

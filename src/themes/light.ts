@@ -3,6 +3,7 @@ import { alertLight } from "../alert/styles";
 import { badgeLight } from "../badge/styles";
 import { buttonLight } from "../button/styles";
 import { inputLight } from "../input/styles";
+import { dropdownLight } from "../dropdown/styles";
 import { uploadLight } from "../upload/styles";
 import { tagLight } from "../tag/styles";
 import { paginationLight } from "../pagination/styles";
@@ -19,6 +20,7 @@ export const lightTheme = {
   button: buttonLight,
   card: cardLight,
   code: codeLight,
+  dropdown:dropdownLight,
   input: inputLight,
   layout: layoutLight,
   upload: uploadLight,

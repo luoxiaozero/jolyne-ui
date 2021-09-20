@@ -3,6 +3,7 @@ import { buttonDark } from "../button/styles";
 import { alertDark } from "../alert/styles";
 import { inputDark } from "../input/styles";
 import { uploadDark } from "../upload/styles";
+import { dropdownDark } from "../dropdown/styles";
 import { tagDark } from "../tag/styles";
 import { paginationDark } from "../pagination/styles";
 import { layoutDark } from "../layout/styles";
@@ -19,6 +20,7 @@ export const darkTheme = {
     button: buttonDark,
     card: cardDark,
     code: codeDark,
+    dropdown:dropdownDark,
     input: inputDark,
     layout: layoutDark,
     upload: uploadDark,
