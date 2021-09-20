@@ -107,6 +107,11 @@ export default defineComponent({
                         label: "文本输入",
                         key: "input",
                         extra: "Input"
+                    },
+                     {
+                        label: "上传",
+                        key: "upload",
+                        extra: "Upload"
                     }
                 ]
             },
