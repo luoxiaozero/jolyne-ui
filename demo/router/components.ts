@@ -110,6 +110,10 @@ export const componentsRoutes = [
         component: () => import("../../src/pagination/demos/zhCN/index.entry.md")
     },
     {
+        path: "scrollbar",
+        component: () => import("../../src/scrollbar/demos/zhCN/index.entry.md")
+    },
+    {
         path: "test",
         component: () => import("../../build/loaders/test/index.entry.md")
     }

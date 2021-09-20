@@ -63,6 +63,11 @@ export default defineComponent({
                         label: "下拉菜单",
                         key: "dropdown",
                         extra: "Dropdown"
+                    },
+                    {
+                        label: "滚动条",
+                        key: "scrollbar",
+                        extra: "Scrollbar"
                     }
                 ]
             },
