@@ -1,1 +1,1 @@
-export { default as JoImage } from "./Image";
+export { default as JoImage } from "./src/Image";

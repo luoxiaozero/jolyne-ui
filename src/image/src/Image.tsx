@@ -5,8 +5,8 @@ export default defineComponent({
   props: {
     alt: String,
     src: String,
-    width: Number,
-    height: Number,
+    width: [Number, String] as PropType<number | string>,
+    height: [Number, String] as PropType<number | string>,
     objectFit: {
       type: String as PropType<
         "fill" | "contain" | "cover" | "none" | "scale-down"
@@ -22,6 +22,9 @@ export default defineComponent({
     return {
       cssVars: {
         "--border-radius": props.borderRadius,
+        /** DOM 渲染 width="100%" 失败*/
+        "--width": props.width,
+        "--height": props.height,
       },
     };
   },

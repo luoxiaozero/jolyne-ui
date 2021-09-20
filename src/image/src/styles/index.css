@@ -2,5 +2,7 @@
   display: inline-flex;
 }
 .jo-image__img {
+  width: var(--width);
+  height: var(--height);
   border-radius: var(--border-radius);
 }

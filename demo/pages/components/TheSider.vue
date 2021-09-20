@@ -78,6 +78,11 @@ export default defineComponent({
                         key: "code",
                         extra: "Code"
                     },
+                    {
+                        label: "图像",
+                        key: "image",
+                        extra: "Image"
+                    },
                 ]
             },
             {
