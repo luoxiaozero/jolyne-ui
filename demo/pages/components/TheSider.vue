@@ -50,6 +50,11 @@ export default defineComponent({
                         extra: "Icon"
                     },
                     {
+                        label: "标签",
+                        key: "tag",
+                        extra: "Tag"
+                    },
+                    {
                         label: "分割线",
                         key: "divider",
                         extra: "Divider"
