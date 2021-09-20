@@ -82,6 +82,18 @@ export default defineComponent({
             },
             {
                 type: "group",
+                label: "数据录入组件",
+                key: "数据录入组件",
+                children: [
+                    {
+                        label: "动态标签",
+                        key: "dynamic-tags",
+                        extra: "Dynamic Tags"
+                    }
+                ]
+            },
+            {
+                type: "group",
                 label: "反馈组件",
                 key: "反馈组件",
                 children: [

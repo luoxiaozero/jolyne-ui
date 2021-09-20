@@ -1,8 +1,8 @@
-import { JoButton } from "../button";
+import { JoButton } from "../../button";
 import { h, defineComponent, nextTick, PropType, ref } from "vue";
-import { JoInput } from "../input";
-import { JoSpace } from "../space";
-import { JoTag } from "../tag";
+import { JoInput } from "../../input";
+import { JoSpace } from "../../space";
+import { JoTag } from "../../tag";
 export default defineComponent({
   name: "DynamicTags",
   props: {

@@ -1,1 +1,1 @@
-export { default as JoDynamicTags } from "./DynamicTags";
+export { default as JoDynamicTags } from "./src/DynamicTags";
