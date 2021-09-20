@@ -1,13 +1,16 @@
 # 基础
 
 ```html
-<jo-card title="标题">
+<jo-space vertical>
+  <jo-card title="标题"> 内容 </jo-card>
+  <jo-card title="标题">
     内容
-</jo-card>
-<jo-card title="标题">
+    <template #header-extra> header-extra </template>
+  </jo-card>
+  <jo-card title="标题">
     内容
-    <template #header-extra>
-        header-extra
-    </template>
-</jo-card>
+    <template #header-extra> header-extra </template>
+    <template #footer>内容</template>
+  </jo-card>
+</jo-space>
 ```

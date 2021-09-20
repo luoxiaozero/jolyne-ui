@@ -6,12 +6,14 @@ import {
   provide,
   ref,
   Ref,
+  VNodeChild
 } from "vue";
 import MenuGroup from "./MenuGroup";
 import MenuItem, { MenuItemType } from "./MenuItem";
 interface MenuOption {
   type?: string;
-  label: string;
+  extra?: string | (() => VNodeChild);
+  label: string | (() => VNodeChild[]);
   key: string;
   children?: MenuOption[];
 }

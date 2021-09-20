@@ -1,1 +1,1 @@
-export { default as JoCollapseItem } from "./CollapseItem"
+export { default as JoCollapseItem } from "./src/CollapseItem"

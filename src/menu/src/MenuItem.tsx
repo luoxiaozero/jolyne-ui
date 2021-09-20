@@ -1,10 +1,13 @@
-import { h, defineComponent, PropType, computed } from "vue";
+import { h, defineComponent, PropType, computed, VNodeChild, CSSProperties } from "vue";
 import { useMenu } from "..";
 import MenuGroup, { MenuGroupType } from "./MenuGroup";
+import render from "../../util/render";
 import "./styles/MenuItem.css";
+import { useTheme } from "jolyne-ui";
 export interface MenuItemType {
   type?: "item";
   label: string;
+  extra?: string | (() => VNodeChild);
   key: string;
   children?: Array<MenuGroupType | MenuItemType>;
 }
@@ -17,6 +20,7 @@ const MenuItem = defineComponent({
     },
   },
   setup(props) {
+    const theme = useTheme();
     const menu = useMenu();
     let selectedRef = computed(() => {
       if (menu.key.value === props.option.key) {
@@ -31,11 +35,14 @@ const MenuItem = defineComponent({
     return {
       selectedRef,
       handleClick,
+      cssVars: computed(() => {
+        return { "--font-color-extra": theme.value.common.colorFont4 };
+      }),
     };
   },
   render() {
     return (
-      <div class="jo-menu-item">
+      <div class="jo-menu-item" style={this.cssVars as CSSProperties}>
         <div
           class={[
             "jo-menu-item__content",
@@ -44,6 +51,11 @@ const MenuItem = defineComponent({
           onClick={this.handleClick}
         >
           {this.option.label}
+          {this.option.extra ? (
+            <span class="jo-menu-item__content-extra">
+              {render(this.option.extra)}
+            </span>
+          ) : null}
         </div>
         {this.option.children ? (
           <div class="jo-menu-item__children">

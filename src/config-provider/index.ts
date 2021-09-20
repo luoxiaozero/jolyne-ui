@@ -1,1 +1,1 @@
-export { default as JoConfigProvider } from "./ConfigProvider";
+export { default as JoConfigProvider } from "./src/ConfigProvider";

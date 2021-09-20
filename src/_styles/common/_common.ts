@@ -9,8 +9,9 @@ const theme = {
     fontSizeHuge: '20px',
 
     borderRadius: "3px",
-    borderRadiusMedium: "2px",
-    borderRadiusLarge: "4px",
+    borderRadiusSmall: "2px",
+    borderRadiusMedium: "4px",
+    borderRadiusLarge: "8px",
 
     themeColor: "#12aa9c",
 }

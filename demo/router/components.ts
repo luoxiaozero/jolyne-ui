@@ -58,6 +58,22 @@ export const componentsRoutes = [
         component: () => import("../../src/icon/demos/zhCN/index.entry.md")
     },
     {
+        path: "avatar",
+        component: () => import("../../src/avatar/demos/zhCN/index.entry.md")
+    },
+    {
+        path: "code",
+        component: () => import("../../src/code/demos/zhCN/index.entry.md")
+    },
+    {
+        path: "collapse",
+        component: () => import("../../src/collapse/demos/zhCN/index.entry.md")
+    },
+    {
+        path: "config-provider",
+        component: () => import("../../src/config-provider/demos/zhCN/index.entry.md")
+    },
+    {
         path: "test",
         component: () => import("../../build/loaders/test/index.entry.md")
     }

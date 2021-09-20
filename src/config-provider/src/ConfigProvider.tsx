@@ -1,5 +1,5 @@
 import { h, defineComponent, InjectionKey, PropType, provide, ref, Ref, watch } from "vue";
-import { Theme, lightTheme } from "../themes";
+import { Theme, lightTheme } from "../../themes";
 
 export interface ConfigProviderInjection {
     theme: Ref<Theme>,

@@ -24,4 +24,9 @@ export default defineComponent({
     grid-template-columns: minmax(0px, 1fr) minmax(0px, 1fr);
     align-items: flex-start;
 }
+@media screen and (max-width: 1200px) {
+    .demos {
+        grid-template-columns: 100%;
+    }
+}
 </style>

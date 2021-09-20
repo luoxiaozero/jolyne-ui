@@ -16,6 +16,10 @@ export default defineComponent({
       type: Boolean,
       default: false,
     },
+    borderRadius: {
+      type: [String, Number] as PropType<number | "small" | "medium" | "large" | "base">,
+      default: "base",
+    },
     boxShadow: {
       type: Boolean,
       default: true,
@@ -25,14 +29,21 @@ export default defineComponent({
     contentStyle: [Object, String] as PropType<CSSProperties | string>,
     footerStyle: [Object, String] as PropType<CSSProperties | string>,
   },
-  setup() {
+  setup(props) {
     const theme = useTheme();
     return {
       cssVars: computed(() => {
+        let borderRadius = "0px";
+        if (typeof props.borderRadius === "number") {
+          borderRadius = props.borderRadius + "px";
+        } else {
+          borderRadius = Reflect.get(theme.value.common, `borderRadius${props.borderRadius.toUpperCase().slice(0, 1) + props.borderRadius.slice(1)}`) || theme.value.common.borderRadius;
+        }
         return {
           "--background-color": theme.value.common.neutralCard,
           "--border-color": theme.value.card.borderColor,
           "--box-shadow": theme.value.card.boxShadow,
+          "--border-radius": borderRadius,
         };
       }),
     };

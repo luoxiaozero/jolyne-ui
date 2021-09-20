@@ -1,5 +1,5 @@
 <template>
-    <JoCard :title="title" segmented="footer" :id="demoFileName">
+    <JoCard :title="title" segmented="footer" :id="demoFileName" borderRadius="large">
         <template #header-extra>
             <JoButton text @click="showCodeRef = !showCodeRef">
                 <JoIcon>
