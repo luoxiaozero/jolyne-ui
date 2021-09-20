@@ -99,6 +99,11 @@ export default defineComponent({
                         label: "动态标签",
                         key: "dynamic-tags",
                         extra: "Dynamic Tags"
+                    },
+                    {
+                        label: "文本输入",
+                        key: "input",
+                        extra: "Input"
                     }
                 ]
             },
