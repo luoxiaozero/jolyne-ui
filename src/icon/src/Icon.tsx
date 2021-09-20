@@ -10,7 +10,7 @@ export default defineComponent({
     return {
       mergedStyle: computed(() => {
         return {
-          fontSize: props.size + "px",
+          fontSize: props.size ? props.size + "px" : undefined,
           color: props.color,
         };
       }),
