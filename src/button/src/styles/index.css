@@ -52,4 +52,9 @@
   height: auto;
   border: none;
   padding: inherit;
+  color: var(--font-color);
+  background-color: transparent;
+}
+.jo-button.jo-button--text:hover {
+  color: var(--background-color-hover);
 }

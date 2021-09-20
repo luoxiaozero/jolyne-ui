@@ -53,7 +53,7 @@ export default defineComponent({
             `color${
               props.type.charAt(0).toUpperCase() + props.type.slice(1)
             }Hover`
-          ) || "#0000";
+          ) || theme.value.common.colorPrimaryHover;
         return {
           "--border-color": borderColor,
           "--font-color": fontColor,
