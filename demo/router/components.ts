@@ -38,6 +38,10 @@ export const componentsRoutes = [
         component: () => import("../../src/drawer/demos/zhCN/index.entry.md")
     },
     {
+        path: "dropdown",
+        component: () => import("../../src/dropdown/demos/zhCN/index.entry.md")
+    },
+    {
         path: "popover",
         component: () => import("../../src/popover/demos/zhCN/index.entry.md")
     },

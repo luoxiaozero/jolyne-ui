@@ -11,6 +11,7 @@ export * from "./config-provider";
 export * from "./dialog";
 export * from "./divider";
 export * from "./drawer";
+export * from "./dropdown";
 export * from "./dynamic-tags";
 export * from "./global-style";
 export * from "./icon";

@@ -59,7 +59,12 @@ export default defineComponent({
                     {
                         label: "折叠面板",
                         key: "collapse",
-                        extra: "Collapse",
+                        extra: "Collapse"
+                    },
+                    {
+                        label: "下拉菜单",
+                        key: "dropdown",
+                        extra: "Dropdown"
                     }
                 ]
             },
