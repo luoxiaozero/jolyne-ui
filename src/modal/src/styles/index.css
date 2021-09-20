@@ -1,5 +1,5 @@
 .jo-modal-container {
-  z-index: 100;
+  z-index: 2001;
 }
 .jo-modal-mask {
   position: fixed;
@@ -8,7 +8,7 @@
   left: 0;
   bottom: 0;
   background-color: #0007;
-  z-index: 101;
+  z-index: 2000;
 }
 .jo-modal-body {
   position: fixed;
@@ -18,7 +18,7 @@
   left: 0;
   display: flex;
   min-height: 100%;
-  z-index: 102;
+  z-index: 2002;
 }
 .jo-model-card {
   width: 600px;
@@ -26,5 +26,7 @@
 }
 .jo-model-card__header-close {
   cursor: pointer;
-  float: right;
+}
+.jo-model-card__header-title {
+  font-size: 16px;
 }

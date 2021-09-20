@@ -140,6 +140,11 @@ export default defineComponent({
                         key: "message",
                         extra: "Message"
                     },
+                    {
+                        label: "模态框",
+                        key: "modal",
+                        extra: "Modal"
+                    },
                 ]
             },
             {

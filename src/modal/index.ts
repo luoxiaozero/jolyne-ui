@@ -1,1 +1,1 @@
-export { default as JoModal} from "./Modal"
+export { default as JoModal} from "./src/Modal"
