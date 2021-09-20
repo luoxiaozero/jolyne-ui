@@ -3,31 +3,27 @@
   left: 50%;
   transform: translate(-50%, -60%);
   width: 520px;
-  padding: 20px 25px;
+  padding: 20px 26px;
   position: fixed;
   box-sizing: border-box;
-  z-index: 101;
+  z-index: 2001;
   background-color: var(--background-color);
   border-radius: 3px;
 }
 
 .jo-dialog__title {
   font-weight: bold;
+  font-size: 16px;
 }
 .jo-dialog__head-close {
   float: right;
+  cursor: pointer;
 }
 .jo-dialog__main {
   margin: 10px 0 20px;
 }
 
-.jo-dialog__determine,
-.jo-dialog__close,
-.jo-dialog__head-close {
-  cursor: pointer;
-  font-weight: bold;
-}
-.jo-dialog__determine {
+.jo-dialog__positive {
   float: right;
 }
 
@@ -38,15 +34,9 @@
   left: 0;
   bottom: 0;
   background-color: #0007;
-  z-index: 100;
+  z-index: 2000;
 }
 
-.jo-dialog--error-type {
-  color: #d03050;
-}
-.jo-dialog--success-type {
-  color: #67c23a;
-}
-.jo-dialog--warning-type {
-  color: #e6a23c;
+.jo-dialog__icon {
+  margin-right: 8px;
 }

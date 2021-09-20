@@ -1,7 +1,7 @@
 import { inject } from 'vue'
 import { dialogApiInjectionKey } from './DialogProvider'
 import type { DialogApiInjection } from './DialogProvider'
-import { throwError } from "../util";
+import { throwError } from "../../util";
 
 export function useDialog (): DialogApiInjection {
   const dialog = inject(dialogApiInjectionKey, null)

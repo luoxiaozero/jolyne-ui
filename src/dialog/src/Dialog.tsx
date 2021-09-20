@@ -1,6 +1,18 @@
-import { h, defineComponent, Teleport, PropType, computed, CSSProperties } from "vue";
-import { useTheme } from "../_mixins/use-theme";
+import {
+  h,
+  defineComponent,
+  Teleport,
+  PropType,
+  computed,
+  CSSProperties,
+} from "vue";
+import { useTheme } from "../../_mixins/use-theme";
+import { JoIcon } from "../../icon";
+import { JoButton } from "../../button";
+import { Close as CloseIcon } from "@vicons/ionicons5";
 import "./styles/index.css";
+import createTipIcon from "../../_common/TipIcon";
+import { toFirstLetterUpper } from "../../util";
 export default defineComponent({
   name: "Dialog",
   props: {
@@ -59,7 +71,11 @@ export default defineComponent({
     return {
       cssVars: computed(() => {
         return {
-          "--background-color": theme.value.common.neutralCard
+          "--color-icon": Reflect.get(
+            theme.value.common,
+            `color${toFirstLetterUpper(props.type)}`
+          ),
+          "--background-color": theme.value.common.neutralCard,
         };
       }),
       handCloseClick,
@@ -70,21 +86,43 @@ export default defineComponent({
   render() {
     return (
       <Teleport to="body">
-        <div class="jo-dialog" style={ this.cssVars as CSSProperties }>
+        <div class="jo-dialog" style={this.cssVars as CSSProperties}>
           <div class="jo-dialog__header">
-            <span class={["jo-dialog__title", `jo-dialog--${this.$props.type}-type`]}>{this.$props.title}</span>
+            <span style={"display: inline-flex"}>
+              {createTipIcon(this.type, {
+                size: 22,
+                className: "jo-dialog__icon",
+                color: this.cssVars["--color-icon"],
+              })}
+              <span
+                class={[
+                  "jo-dialog__title",
+                  `jo-dialog--${this.$props.type}-type`,
+                ]}
+              >
+                {this.$props.title}
+              </span>
+            </span>
+
             <span class="jo-dialog__head-close" onClick={this.handCloseClick}>
-              x
+              <JoIcon size={18}>
+                <CloseIcon />
+              </JoIcon>
             </span>
           </div>
           <div class="jo-dialog__main">{this.$props.content}</div>
           <div class="jo-dialog__footer">
-            <span class="jo-dialog__close" onClick={this.handNegativeClick}>
+            <JoButton text onClick={this.handNegativeClick}>
               {this.$props.negativeText}
-            </span>
-            <span class="jo-dialog__determine" onClick={this.handPositiveClick}>
+            </JoButton>
+            <JoButton
+              class="jo-dialog__positive"
+              text
+              onClick={this.handPositiveClick}
+              type={this.type}
+            >
               {this.$props.positiveText}
-            </span>
+            </JoButton>
           </div>
         </div>
         <div class="jo-dialog__mask"></div>

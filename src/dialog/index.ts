@@ -1,2 +1,3 @@
-export { default as JoDialogProvider } from "./DialogProvider";
-export { useDialog } from "./use-dialog";
+export { default as JoDialogProvider } from "./src/DialogProvider";
+export { default as JoDialog } from "./src/Dialog";
+export { useDialog } from "./src/use-dialog";
