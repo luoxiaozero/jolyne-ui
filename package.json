@@ -1,6 +1,7 @@
 {
   "name": "jolyne-ui",
   "version": "0.0.4-alpha.2",
+  "description": "一个 Vue3 的 UI 库",
   "main": "lib/index.js",
   "scripts": {
     "dev": "vite",
@@ -29,8 +30,15 @@
     "vue-router": "^4.0.11",
     "vue-tsc": "^0.2.2"
   },
+  "author": "luoxiaozero",
+  "license": "MIT",
   "files": [
     "package.json",
     "lib"
+  ],
+  "keywords": [
+    "jolyne-ui",
+    "ui",
+    "vue"
   ]
 }

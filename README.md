@@ -1,11 +1,13 @@
-# Vue 3 + Typescript + Vite
+# Jolyne UI
 
-This template should help get you started developing with Vue 3 and Typescript in Vite.
+一个 UI 库
 
-## Recommended IDE Setup
+一个 Vue3 的 UI 库
 
-- [VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.volar)
+一个暂时仿的 UI 库
 
-## Type Support For `.vue` Imports in TS
+一个想着做的好一点的 UI 库
 
-Since TypeScript cannot handle type information for `.vue` imports, they are shimmed to be a generic Vue component type by default. In most cases this is fine if you don't really care about component prop types outside of templates. However, if you wish to get actual prop types in `.vue` imports (for example to get props validation when using manual `h(...)` calls), you can enable Volar's `.vue` type support plugin by running `Volar: Switch TS Plugin on/off` from VSCode command palette.
+# 感谢
+
+[naive-ui](https://github.com/TuSimple/naive-ui)
