@@ -11,9 +11,7 @@ import { defineComponent, ref, watch, h } from 'vue';
 import { useRoute } from 'vue-router';
 import { JoLayoutSider, JoMenu, JoScrollbar } from "../../../src";
 import { router } from '../../router';
-function renderLabel(title: string, subtitle: string) {
 
-}
 export default defineComponent({
     components: {
         JoLayoutSider,
@@ -147,7 +145,7 @@ export default defineComponent({
                     {
                         label: '菜单',
                         key: 'menu',
-                        extra: "menu",
+                        extra: "Menu",
                     },
                     {
                         label: "加载条",
