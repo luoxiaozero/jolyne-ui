@@ -78,6 +78,10 @@ export const componentsRoutes = [
         component: () => import("../../src/dynamic-tags/demos/zhCN/index.entry.md")
     },
     {
+        path: "global-style",
+        component: () => import("../../src/global-style/demos/zhCN/index.entry.md")
+    },
+    {
         path: "test",
         component: () => import("../../build/loaders/test/index.entry.md")
     }

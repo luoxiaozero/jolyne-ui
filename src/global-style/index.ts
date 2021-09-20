@@ -1,1 +1,1 @@
-export { default as JoGlobalStyle } from "./GlobalStyle";
+export { default as JoGlobalStyle } from "./src/GlobalStyle";

@@ -167,6 +167,11 @@ export default defineComponent({
                         label: "全局化配置",
                         key: "config-provider",
                         extra: "Config Provider"
+                    },
+                    {
+                        label: "全局样式",
+                        key: "global-style",
+                        extra: "Global Style"
                     }
                 ]
             },

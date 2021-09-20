@@ -1,5 +1,5 @@
 import { defineComponent, watchEffect } from "vue";
-import { useTheme } from "../_mixins/use-theme";
+import { useTheme } from "../../_mixins/use-theme";
 
 export default defineComponent({
     name: "GlobalStyle",
