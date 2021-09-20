@@ -3,7 +3,7 @@
     "paths": {
       "jolyne-ui": ["./src"]
     },
-    "target": "esnext",
+    "target": "es5",
     "useDefineForClassFields": true,
     "module": "esnext",
     "moduleResolution": "node",

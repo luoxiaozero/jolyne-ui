@@ -1,6 +1,6 @@
 {
   "name": "jolyne-ui",
-  "version": "0.0.2",
+  "version": "0.0.4-alpha.2",
   "main": "lib/index.js",
   "scripts": {
     "dev": "vite",
@@ -10,12 +10,12 @@
     "serve": "vite preview"
   },
   "dependencies": {
-    "vue": "^3.2.6"
+    "vue": "^3.2.6",
+    "@vicons/ionicons5": "^0.11.0"
   },
   "devDependencies": {
     "@types/fs-extra": "^9.0.12",
     "@types/marked": "^3.0.0",
-    "@vicons/ionicons5": "^0.11.0",
     "@vitejs/plugin-vue": "^1.6.0",
     "@vitejs/plugin-vue-jsx": "^1.1.7",
     "@vue/compiler-sfc": "^3.2.6",
