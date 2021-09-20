@@ -1,8 +1,8 @@
 import { h, computed, CSSProperties, defineComponent, PropType, ref } from "vue";
-import { useTheme } from "../_mixins/use-theme";
+import { useTheme } from "../../_mixins/use-theme";
 import "./styles/index.css";
 export default defineComponent({
-  name: "switch",
+  name: "Switch",
   props: {
     value: Boolean,
     "onUpdate:value": Function as PropType<(value: boolean) => void>,

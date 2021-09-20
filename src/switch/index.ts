@@ -1,1 +1,1 @@
-export { default as JoSwitch } from "./Switch";
+export { default as JoSwitch } from "./src/Switch";

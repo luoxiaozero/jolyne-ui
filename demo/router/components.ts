@@ -54,6 +54,11 @@ export const componentsRoutes = [
         component: () => import("../../src/space/demos/zhCN/index.entry.md")
     },
     {
+        path: "switch",
+        component: () => import("../../src/switch/demos/zhCN/index.entry.md")
+
+    },
+    {
         path: "icon",
         component: () => import("../../src/icon/demos/zhCN/index.entry.md")
     },

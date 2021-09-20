@@ -107,6 +107,11 @@ export default defineComponent({
                         label: "文本输入",
                         key: "input",
                         extra: "Input"
+                    },
+                    {
+                         label: "开关",
+                        key: "switch",
+                        extra: "Switch"
                     }
                 ]
             },
