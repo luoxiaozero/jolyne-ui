@@ -167,6 +167,11 @@ export default defineComponent({
                 key: "test-3",
                 children: [
                     {
+                        label: "布局",
+                        key: "layout",
+                        extra: "Layout"
+                    },
+                    {
                         label: "间距",
                         key: "space",
                         extra: "Space"

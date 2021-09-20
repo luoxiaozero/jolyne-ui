@@ -6,7 +6,7 @@ export default defineComponent({
   name: "LayoutHeader",
   props: {
     bordered: Boolean,
-    shadow: Boolean,
+    boxShadow: Boolean,
   },
   setup() {
     const theme = useTheme();
@@ -27,7 +27,7 @@ export default defineComponent({
           "jo-layout-header",
           {
             "jo-layout-header--bordered": this.$props.bordered,
-            "jo-layout-header--shadow": this.shadow,
+            "jo-layout-header--shadow": this.boxShadow,
           },
         ]}
         style={this.cssVars as CSSProperties}

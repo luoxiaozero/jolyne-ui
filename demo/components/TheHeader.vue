@@ -1,5 +1,5 @@
 <template>
-    <JoLayoutHeader class="nav" :shadow="shadow">
+    <JoLayoutHeader class="nav" :box-shadow="shadow">
         <div class="nav-box">
             <router-link to="/" class="router-link--text logo">Jolyne UI</router-link>
             <router-link to="/components/menu" :class="{'router-link--text': true, 'router-link-active': isComponentsPage}">组件</router-link>
