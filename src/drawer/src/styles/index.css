@@ -1,17 +1,14 @@
 .jo-drawer {
   position: fixed;
   background-color: var(--background-color);
-  z-index: 999;
-  padding-top: 20px;
+  z-index: 2001;
 }
 .jo-drawer__header {
   border-bottom: 1px solid silver;
-  height: 50px;
-  margin-bottom: 20px;
-  padding-left: 20px;
+  padding: 16px 20px;
 }
 .jo-drawer__content{
-    padding-left: 20px;
+  padding: 16px 20px;
 }
 .jo-drawer-mask {
   position: fixed;
@@ -21,7 +18,7 @@
   right: 0;
   background-color: #000;
   opacity: 0.3;
-  z-index: 100;
+  z-index: 2000;
 }
 
 .jo-drawer--up,
