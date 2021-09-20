@@ -1,6 +1,6 @@
 <script lang="ts">
 import { defineComponent, onMounted, ref } from 'vue';
-import { JoConfigProvider, JoGlobalStyle, JoLoadingBarProvider, useLoadingBar } from "../src";
+import { JoConfigProvider, JoGlobalStyle, JoLoadingBarProvider, useLoadingBar, JoMessageProvider } from "../src";
 import { themeRef, loadingBarApiRef } from './store';
 import hljs from "./util/hljs";
 export default defineComponent({
@@ -8,7 +8,8 @@ export default defineComponent({
   components: {
     JoConfigProvider,
     JoGlobalStyle,
-    JoLoadingBarProvider
+    JoLoadingBarProvider,
+    JoMessageProvider,
   },
   setup() {
     const loadingBarProviderRef = ref<any>(null);
@@ -27,7 +28,9 @@ export default defineComponent({
 <template>
   <JoConfigProvider :theme="themeRef" :hljs="hljs">
     <JoLoadingBarProvider ref="loadingBarProviderRef">
-      <router-view></router-view>
+      <JoMessageProvider>
+        <router-view></router-view>
+      </JoMessageProvider>
     </JoLoadingBarProvider>
     <JoGlobalStyle />
   </JoConfigProvider>

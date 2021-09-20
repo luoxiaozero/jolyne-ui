@@ -43,6 +43,10 @@ export default defineComponent({
                     {
                         label: "分割线",
                         key: "divider",
+                    },
+                    {
+                        label: "下拉菜单",
+                        key: "dropdown",
                     }
                 ]
             },
