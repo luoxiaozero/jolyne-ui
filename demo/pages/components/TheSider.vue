@@ -104,6 +104,11 @@ export default defineComponent({
                 key: "数据录入组件",
                 children: [
                     {
+                        label: "自动填充",
+                        key: "auto-complete",
+                        extra: "Auto Complete"
+                    },
+                    {
                         label: "动态标签",
                         key: "dynamic-tags",
                         extra: "Dynamic Tags"

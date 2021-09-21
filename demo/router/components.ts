@@ -63,6 +63,10 @@ export const componentsRoutes = [
         component: () => import("../../src/icon/demos/zhCN/index.entry.md")
     },
     {
+        path: "auto-complete",
+        component: () => import("../../src/auto-complete/demos/zhCN/index.entry.md")
+    },
+    {
         path: "avatar",
         component: () => import("../../src/avatar/demos/zhCN/index.entry.md")
     },
