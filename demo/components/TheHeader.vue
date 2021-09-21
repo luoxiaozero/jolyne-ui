@@ -20,6 +20,7 @@
         </div>
 
         <div>
+            <JoButton text @click="jumpGitee" style="margin-right: 18px;">Gitee</JoButton>
             <JoButton text @click="changeTheme">{{ themeNameRef }}</JoButton>
         </div>
     </JoLayoutHeader>
@@ -89,8 +90,12 @@ export default defineComponent({
                     value: item.key
                 }))
         })
+        function jumpGitee() {
+            window.open("https://gitee.com/luoxiaozero/jolyne-ui");
+        }
         return {
             isComponentsPage,
+            jumpGitee,
             changeTheme,
             searchSelect,
             themeNameRef,
