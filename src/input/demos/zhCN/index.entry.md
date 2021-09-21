@@ -16,3 +16,4 @@ size
 | value       | `String`                              | `undefined` | 输入框的值     |
 | onFocus     | `(e: FocusEvent) => void`             | `undefined` | 得到焦点回调   |
 | onBlur      | `(e: FocusEvent) => void`             | `undefined` | 失去焦点回调   |
+| onInput     | `(e: Event) => void`                  | `undefined` | 输入时回调     |

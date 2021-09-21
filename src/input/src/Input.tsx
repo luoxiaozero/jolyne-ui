@@ -18,6 +18,7 @@ export default defineComponent({
     /**失焦 */
     onFocus: Function as PropType<(e: FocusEvent) => void>,
     onBlur: Function as PropType<(e: FocusEvent) => void>,
+    onInput: Function as PropType<(e: Event) => void>,
   },
   setup(props) {
     const theme = useTheme();
@@ -29,6 +30,11 @@ export default defineComponent({
       if (onUpdateValue) onUpdateValue(value);
       if (_onUpdateValue) _onUpdateValue(value);
     }
+    function doFocus(e: FocusEvent): void {
+      if (props.onFocus) {
+        props.onFocus(e);
+      }
+    }
     function doBlur(e: FocusEvent): void {
       if (props.onBlur) {
         props.onBlur(e);
@@ -37,6 +43,7 @@ export default defineComponent({
     function handleInput(e: InputEvent | Event) {
       const targetValue = (e.target as HTMLInputElement).value;
       doUpdateValue(targetValue);
+      props.onInput?.(e);
     }
     function handleWrapperFocus(e: FocusEvent): void {
       focuseRef.value = true;
@@ -53,6 +60,7 @@ export default defineComponent({
     }
     function handleInputFocus(e: FocusEvent) {
       focuseRef.value = true;
+      doFocus(e);
     }
     function handleInputBlur(e: FocusEvent) {
       focuseRef.value = false;
