@@ -14,7 +14,7 @@
                     blur-after-select
                     v-model:value="searchValueRef"
                     :options="options"
-                    @select="searchSelect"
+                    :onSelect="searchSelect"
                 />
             </span>
         </div>
