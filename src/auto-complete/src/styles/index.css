@@ -1,9 +1,9 @@
 .jo-auto-complete__menu {
+    position: relative;
     display: inline-block;
-    padding: 8px 0;
     background-color: var(--background-color);
     box-shadow: var(--box-shadow);
-    z-index: 500;
+    z-index: 2000;
 }
 .jo-auto-complete__item {
     padding: 8px 12px;

@@ -1,4 +1,7 @@
 .jo-input {
+  display: inline-flex;
+  width: 100%;
+  box-sizing: border-box;
   padding: 0 10px;
   background-color: var(--background-color);
   color: var(--font-color);
