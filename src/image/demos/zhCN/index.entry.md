@@ -2,6 +2,7 @@
 
 ```demo
 basis
+size
 ```
 
 # Props

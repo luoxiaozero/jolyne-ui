@@ -7,6 +7,10 @@ import path from "path";
 // https://vitejs.dev/config/
 export default ({ mode }: { mode: string }): unknown => {
   return defineConfig({
+    server: {
+      host: "0.0.0.0",
+      port: 3113,
+    },
     resolve: {
       alias: [
         {
