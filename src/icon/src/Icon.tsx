@@ -1,16 +1,25 @@
-import { h, defineComponent, computed } from "vue";
+import { h, defineComponent, computed, PropType } from "vue";
 import "./styles/Icon.css";
 export default defineComponent({
   name: "Icon",
   props: {
-    size: Number,
+    size: [Number, Array] as PropType<number | [number, number]>,
     color: String,
   },
   setup(props) {
     return {
       mergedStyle: computed(() => {
+        let width, height;
+        if (typeof props.size === "number") {
+          width = height = props.size + "px";
+        } else if (typeof props.size === "object") {
+          width = props.size[0] + "px";
+          height = props.size[1] + "px";
+        }
         return {
-          fontSize: props.size ? props.size + "px" : undefined,
+          lineHeight: height,
+          width,
+          height,
           color: props.color,
         };
       }),
