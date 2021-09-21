@@ -2,9 +2,23 @@
     <JoLayoutHeader class="nav" :box-shadow="shadow">
         <div class="nav-box">
             <router-link to="/" class="router-link--text logo">Jolyne UI</router-link>
-            <router-link to="/components/menu" :class="{'router-link--text': true, 'router-link-active': isComponentsPage}">组件</router-link>
+            <router-link
+                to="/components/menu"
+                :class="{ 'router-link--text': true, 'router-link-active': isComponentsPage }"
+            >组件</router-link>
             <router-link to="/theme" class="router-link--text">主题</router-link>
+            <span style="display: inline-flex;">
+                <JoAutoComplete
+                    placeholder="搜索组件"
+                    clear-after-select
+                    blur-after-select
+                    v-model:value="searchValueRef"
+                    :options="options"
+                    @select="searchSelect"
+                />
+            </span>
         </div>
+
         <div>
             <JoButton text @click="changeTheme">{{ themeNameRef }}</JoButton>
         </div>
@@ -12,14 +26,17 @@
 </template>
 
 <script lang='ts'>
-import { defineComponent, watch, ref } from 'vue';
+import { defineComponent, watch, ref, computed } from 'vue';
 import { useRoute } from 'vue-router';
-import { JoLayoutHeader, JoButton } from "../../src";
+import { JoLayoutHeader, JoButton, JoAutoComplete } from "../../src";
+import { router } from '../router';
 import { changeTheme, useThemeName } from "../store";
+import { menuItemOptions } from '../store/menuOptions';
 export default defineComponent({
     components: {
         JoLayoutHeader,
-        JoButton
+        JoButton,
+        JoAutoComplete
     },
     props: {
         shadow: {
@@ -30,7 +47,8 @@ export default defineComponent({
     setup() {
         const themeNameRef = useThemeName();
         const isComponentsPage = ref(false);
-        const route= useRoute();
+        const route = useRoute();
+        const searchValueRef = ref("");
         watch(route, (value) => {
             if (/^\/components/.test(value.path)) {
                 isComponentsPage.value = true;
@@ -38,10 +56,46 @@ export default defineComponent({
                 isComponentsPage.value = false;
             }
         })
+        function searchSelect(value: string) {
+            router.push(`/components/${value}`);
+        }
+        const searchOptionsRef = computed(() => {
+            function match(pattern: string, string: any): any {
+                if (!pattern.length) return true
+                if (!string.length) return false
+                if (pattern[0] === string[0]) return match(pattern.slice(1), string.slice(1))
+                return match(pattern, string.slice(1))
+            }
+
+            function getLabel(item: { label: string, extra: string, key: string }) {
+                if (item.label) {
+                    return item.label + (item.extra ? ' ' + item.extra : '')
+                }
+                return item.key;
+            }
+            if (!searchValueRef.value) return []
+            const replaceRegex = / |-/g
+            return menuItemOptions
+                .filter((item) => {
+                    const pattern = searchValueRef.value
+                        .toLowerCase()
+                        .replace(replaceRegex, '')
+                        .slice(0, 20)
+                    const label = getLabel(item).toLowerCase().replace(replaceRegex, '')
+                    return match(pattern, label)
+                })
+                .map((item) => ({
+                    label: getLabel(item),
+                    value: item.key
+                }))
+        })
         return {
             isComponentsPage,
             changeTheme,
-            themeNameRef
+            searchSelect,
+            themeNameRef,
+            searchValueRef,
+            options: searchOptionsRef
         }
     },
 })
