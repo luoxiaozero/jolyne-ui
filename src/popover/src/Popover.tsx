@@ -13,7 +13,6 @@ import "./styles/index.css";
 
 export default defineComponent({
   name: "Popover",
-  props: {},
   setup() {
     const triggerRef = ref<HTMLDivElement | null>(null);
     const popoverRef = ref<HTMLDivElement | null>(null);
