@@ -1,9 +1,17 @@
 import { useTheme } from "../../_mixins/use-theme";
 import { h, computed, CSSProperties, defineComponent, PropType } from "vue";
 import "./styles/index.css";
+import { toFirstLetterUpper } from "../../util";
+import createTipIcon from "../../_common/TipIcon";
 export default defineComponent({
   name: "Tag",
   props: {
+    type: {
+      type: String as PropType<
+        "default" | "info" | "success" | "warning" | "error"
+      >,
+      default: "default",
+    },
     closable: {
       type: Boolean,
       default: false,
@@ -13,13 +21,24 @@ export default defineComponent({
   setup(props) {
     const theme = useTheme();
     function handleCloseClick(e: MouseEvent): void {
+      console.log("sds", props.onClose);
       if (props.onClose) props.onClose(e);
     }
     return {
       handleCloseClick,
       cssVars: computed(() => {
-        const { backgroundColor } = theme.value.tag;
+        const fontColor =
+          Reflect.get(
+            theme.value.common,
+            `color${toFirstLetterUpper(props.type)}`
+          ) || "inherit";
+        const backgroundColor =
+          Reflect.get(
+            theme.value.common,
+            `colorBg${toFirstLetterUpper(props.type)}`
+          ) || theme.value.tag.backgroundColor;
         return {
+          "--font-color": fontColor,
           "--background-color": backgroundColor,
         };
       }),
@@ -30,8 +49,8 @@ export default defineComponent({
       <div class="jo-tag" style={this.cssVars as CSSProperties}>
         <span class="jo-tag__content">{this.$slots.default?.()}</span>
         {this.$props.closable ? (
-          <span class="jo-tag__close" onClick={this.handleCloseClick}>
-            x
+          <span onClick={this.handleCloseClick} class="jo-tag__close">
+            {createTipIcon("close")}
           </span>
         ) : null}
       </div>

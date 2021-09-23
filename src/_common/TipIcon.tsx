@@ -6,6 +6,7 @@ import {
   CheckmarkCircle,
   AlertCircle,
   NotificationsCircle,
+  Close
 } from "@vicons/ionicons5";
 
 /**
@@ -15,7 +16,7 @@ import {
  * @returns
  */
 export default function createTipIcon(
-  type: "default" | "info" | "success" | "warning" | "error",
+  type: "default" | "info" | "success" | "warning" | "error" | "close",
   option?: { size?: number; color?: string; className?: any }
 ) {
   return (
@@ -30,6 +31,8 @@ export default function createTipIcon(
             return <CheckmarkCircle />;
           case "error":
             return <CloseCircle />;
+          case "close":
+            return <Close />
           default:
             return <NotificationsCircle />;
         }
