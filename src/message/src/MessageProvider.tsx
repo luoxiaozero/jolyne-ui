@@ -9,6 +9,7 @@ import {
   Fragment,
   renderSlot,
 } from "vue";
+import { MessageType } from "./message-props";
 import MessageEnvironment from "./MessageEnvironment";
 
 type ContentType = string;
@@ -28,6 +29,7 @@ export interface MessageApiInjection {
   warning: (content: ContentType) => void;
   error: (content: ContentType) => void;
   loading: (content: ContentType) => void;
+  create: (content: ContentType, options?: { type: MessageType}) => void;
 }
 
 export const messageApiInjectionKey: InjectionKey<MessageApiInjection> =
@@ -43,7 +45,7 @@ export default defineComponent({
     const messageRefs = ref<{ [key: string]: any }>({});
     const api: MessageApiInjection = {
       info(content: ContentType) {
-        create(content, { ype: "info" });
+        create(content, { type: "info" });
       },
       success(content: ContentType) {
         create(content, { type: "success" });
@@ -57,10 +59,11 @@ export default defineComponent({
       loading(content: ContentType) {
         create(content, { type: "loading" });
       },
+      create
     };
     provide(messageApiInjectionKey, api);
 
-    function create(content: ContentType, options = {}): MessageReactive {
+    function create(content: ContentType, options?: { type: MessageType}): MessageReactive {
       const key = createId();
       const messageReactive = reactive({
         ...options,
