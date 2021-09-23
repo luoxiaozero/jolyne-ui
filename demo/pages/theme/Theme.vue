@@ -62,23 +62,24 @@
             <h2 id="边框和圆角">边框和圆角</h2>
 
             <div class="border-box">
-                <div>
+                <p>
                     实线
                     <code>border-top: 1px solid #dcdfe6;</code>
-                </div>
+                </p>
                 <div class="border-box__line" style="border-top: 1px solid #dcdfe6;"></div>
-                <div>
+                <p>
                     虚线
                     <code>border-top: 1px dashed #dcdfe6;</code>
-                </div>
+                </p>
                 <div class="border-box__line" style="border-top: 1px dashed #dcdfe6;"></div>
             </div>
-            <div class="angle-box">
-                <span style="border-radius: 0px;">无圆角 0px</span>
-                <span style="border-radius: 2px;">小圆角 2px</span>
-                <span style="border-radius: 4px;">大圆角 4px</span>
-                <span style="border-radius: 30px;">圆形圆角 30px</span>
-            </div>
+            <JoSpace :size="16">
+                <span class="angle" style="border-radius: 0px;">无圆角 0px</span>
+                <span class="angle" style="border-radius: 2px;">Small 小圆角 2px</span>
+                <span class="angle" style="border-radius: 3px;">圆角 3px</span>
+                <span class="angle" style="border-radius: 4px;">Medium 中圆角 4px</span>
+                <span class="angle" style="border-radius: 8px;">Large 大圆角 30px</span>
+            </JoSpace>
 
             <h2 id="主题色">主题色</h2>
             <ColorBlock v-for="c of colors" :colorData="c" />
@@ -94,7 +95,7 @@
 
 <script lang='ts'>
 import { defineComponent } from 'vue';
-import { JoCard, JoTable, JoAnchor, JoAnchorLink } from "../../../src";
+import { JoCard, JoTable, JoAnchor, JoAnchorLink, JoSpace } from "../../../src";
 import PageContainer from "../../components/PageContainer.vue";
 import ColorBlock from "./ColorBlock.vue";
 export default defineComponent({
@@ -104,7 +105,8 @@ export default defineComponent({
         JoTable,
         ColorBlock,
         JoAnchor,
-        JoAnchorLink
+        JoAnchorLink,
+        JoSpace
     },
     setup() {
         const neutralColors = [
@@ -168,14 +170,6 @@ export default defineComponent({
                     }
                 ]
             },
-            {
-                name: "黛绿",
-                rgb: "#426666",
-            },
-            {
-                name: "3",
-                rgb: "#509a80"
-            },
         ]
         const auxiliaryColors = [
             {
@@ -226,6 +220,14 @@ export default defineComponent({
                 name: "2",
                 rgb: "#4f7764"
             },
+            {
+                name: "黛绿",
+                rgb: "#426666",
+            },
+            {
+                name: "3",
+                rgb: "#509a80"
+            },
         ]
         return {
             colors,
@@ -238,11 +240,10 @@ export default defineComponent({
 </script>
 
 <style scoped>
-.angle-box > span {
+.angle {
     display: inline-block;
     width: 140px;
     height: 50px;
-    margin-right: 32px;
     line-height: 50px;
     text-align: center;
     border: 1px solid #dcdfe6;
