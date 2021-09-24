@@ -2,6 +2,8 @@
   width: 100%;
   height: 100%;
   overflow: auto;
+  scrollbar-color: #bbb #0000 ;
+  scrollbar-width: thin;
 }
 .jo-scrollbar::-webkit-scrollbar {
   /*滚动条整体样式*/
@@ -29,13 +31,15 @@
 .jo-scrollbar--hidden:hover::-webkit-scrollbar-thumb {
   background-color: #bbb;
 }
-
-.jo-scrollbar--remove::-webkit-scrollbar {
-  width: 0px; 
-  height: 0px;
-  transition: width 3s height 3s;
+.jo-scrollbar--hidden {
+  scrollbar-color: #bbb0 #0000 ;
 }
-.jo-scrollbar--remove:hover::-webkit-scrollbar {
-  width: 7px;
-  height: 7px;
+.jo-scrollbar--hidden:hover {
+  scrollbar-color: #bbb #0000 ;
+}
+.jo-scrollbar--remove {
+  overflow: hidden;
+}
+.jo-scrollbar--remove:hover {
+  overflow: auto;
 }
