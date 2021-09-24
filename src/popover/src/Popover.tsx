@@ -13,7 +13,10 @@ import "./styles/index.css";
 
 export default defineComponent({
   name: "Popover",
-  setup() {
+  props: {
+    hasStyle: { type: Boolean, default: true },
+  },
+  setup(props) {
     const triggerRef = ref<HTMLDivElement | null>(null);
     const popoverRef = ref<HTMLDivElement | null>(null);
     const showPopoverRef = ref(false);
@@ -47,6 +50,8 @@ export default defineComponent({
       handleMouseLeave,
       cssVars: computed(() => {
         return {
+          "--padding": props.hasStyle ? "8px 16px" : "0",
+          "--border-radius": props.hasStyle ? theme.value.common.borderRadiusSmall : "0",
           "--background-color": theme.value.popover.backgroundColor,
           "--shadow": theme.value.popover.shadow,
         };
