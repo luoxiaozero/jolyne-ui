@@ -7,6 +7,7 @@ import {
   nextTick,
   CSSProperties,
   computed,
+  PropType,
 } from "vue";
 import { useTheme } from "../../_mixins/use-theme";
 import "./styles/index.css";
@@ -15,6 +16,11 @@ export default defineComponent({
   name: "Popover",
   props: {
     hasStyle: { type: Boolean, default: true },
+    placement: {
+      type: String as PropType<"top" | "bottom" | "left" | "right">,
+      default: "top",
+    },
+    showAngle: { type: Boolean, default: true },
   },
   setup(props) {
     const triggerRef = ref<HTMLDivElement | null>(null);
@@ -29,18 +35,37 @@ export default defineComponent({
         return;
       }
       const rect = (triggerRef.value as HTMLDivElement).getBoundingClientRect();
+
       showPopoverRef.value = true;
       nextTick(() => {
-        (popoverRef.value as HTMLDivElement).style.transform = `translateX(${
-          rect.x + rect.width / 2
-        }px) translateY(${rect.y}px) translateY(-100%) translateX(-50%)`;
+        if (props.placement === "bottom") {
+          (popoverRef.value as HTMLDivElement).style.transform = `translateX(${
+            rect.x + rect.width / 2
+          }px) translateY(${rect.y}px) translateX(-50%) translateY(100%)`;
+        } else if (props.placement === "left") {
+          (popoverRef.value as HTMLDivElement).style.transform = `translateX(${
+            rect.x
+          }px) translateY(${
+            rect.y + rect.height / 2
+          }px) translateX(calc(-10px + -100%)) translateY(-50%)`;
+        } else if (props.placement === "right") {
+          (popoverRef.value as HTMLDivElement).style.transform = `translateX(${
+            rect.x + rect.width
+          }px) translateY(${rect.y + rect.height / 2}px)  translateY(-50%)`;
+        } else {
+          (popoverRef.value as HTMLDivElement).style.transform = `translateX(${
+            rect.x + rect.width / 2
+          }px) translateY(${
+            rect.y
+          }px) translateX(-50%) translateY(calc(-10px + -100%))`;
+        }
       });
     }
     function handleMouseLeave() {
       showPopoverTimer = setTimeout(() => {
         showPopoverRef.value = false;
         showPopoverTimer = null;
-      }, 300);
+      }, 260);
     }
     return {
       showPopoverRef,
@@ -51,7 +76,9 @@ export default defineComponent({
       cssVars: computed(() => {
         return {
           "--padding": props.hasStyle ? "8px 16px" : "0",
-          "--border-radius": props.hasStyle ? theme.value.common.borderRadiusSmall : "0",
+          "--border-radius": props.hasStyle
+            ? theme.value.common.borderRadiusSmall
+            : "0",
           "--background-color": theme.value.popover.backgroundColor,
           "--shadow": theme.value.popover.shadow,
         };
@@ -61,22 +88,27 @@ export default defineComponent({
   render() {
     return (
       <>
-        <Teleport to="body">
-          {this.showPopoverRef ? (
+        {this.showPopoverRef ? (
+          <Teleport to="body">
             <div
-              class="jo-popover"
+              class={["jo-popover", `jo-popover--${this.placement}`]}
               ref="popoverRef"
               onMouseenter={this.handleMouseEnter}
               onMouseleave={this.handleMouseLeave}
               style={this.cssVars as CSSProperties}
             >
-              <div class="jo-popover__content">{this.$slots.default?.()}</div>
+              {this.$slots.default?.()}
               <div class="jo-popover__angle-container">
-                <span class="jo-popover__angle"></span>
+                <span
+                  class={[
+                    "jo-popover__angle",
+                    { "jo-popover__angle--show": this.showAngle },
+                  ]}
+                ></span>
               </div>
             </div>
-          ) : null}
-        </Teleport>
+          </Teleport>
+        ) : null}
         <div
           ref="triggerRef"
           onMouseenter={this.handleMouseEnter}
