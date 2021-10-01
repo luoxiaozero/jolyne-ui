@@ -23,7 +23,7 @@ export default defineComponent({
         class="jo-grid"
         style={{
           gridTemplateColumns: `repeat(${this.cols}, minmax(0px, 1fr))`,
-          gridGap: `${this.xGap}px ${this.yGap}px`,
+          gridGap: `${this.yGap}px ${this.xGap}px`,
         }}
       >
         {this.$slots.default?.()}

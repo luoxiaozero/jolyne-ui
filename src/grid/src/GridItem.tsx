@@ -15,7 +15,7 @@ export default defineComponent({
       marginLeft = `calc((100% - ${
         (props.span + props.offset - 1) * mergeXGap
       }px) / ${props.span + props.offset} * ${props.offset} + ${
-        (props.offset - 1) * mergeXGap
+        props.offset * mergeXGap
       }px)`;
     console.log(marginLeft, props.offset);
     return {
