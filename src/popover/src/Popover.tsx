@@ -17,7 +17,20 @@ export default defineComponent({
   props: {
     hasStyle: { type: Boolean, default: true },
     placement: {
-      type: String as PropType<"top" | "bottom" | "left" | "right">,
+      type: String as PropType<
+        | "top"
+        | "top-start"
+        | "top-end"
+        | "bottom"
+        | "bottom-start"
+        | "bottom-end"
+        | "left"
+        | "left-start"
+        | "left-end"
+        | "right"
+        | "right-start"
+        | "right-end"
+      >,
       default: "top",
     },
     showAngle: { type: Boolean, default: true },
@@ -38,34 +51,62 @@ export default defineComponent({
 
       showPopoverRef.value = true;
       nextTick(() => {
+        let transform = "";
         if (props.placement === "bottom") {
-          (popoverRef.value as HTMLDivElement).style.transform = `translateX(${
-            rect.x + rect.width / 2
-          }px) translateY(${rect.y}px) translateX(-50%) translateY(100%)`;
+          transform = `translateX(${rect.x + rect.width / 2}px) translateY(${
+            rect.y + rect.height
+          }px) translateX(-50%)`;
+        } else if (props.placement === "bottom-start") {
+          transform = `translateX(${rect.x}px) translateY(${
+            rect.y + rect.height
+          }px)`;
+        } else if (props.placement === "bottom-end") {
+          transform = `translateX(${rect.x + rect.width}px) translateY(${
+            rect.y + rect.height
+          }px) translateX(-100%) `;
         } else if (props.placement === "left") {
-          (popoverRef.value as HTMLDivElement).style.transform = `translateX(${
-            rect.x
-          }px) translateY(${
+          transform = `translateX(${rect.x}px) translateY(${
             rect.y + rect.height / 2
           }px) translateX(calc(-10px + -100%)) translateY(-50%)`;
+        } else if (props.placement === "left-start") {
+          transform = `translateX(${rect.x}px) translateY(${rect.y}px) translateX(calc(-10px + -100%)) `;
+        } else if (props.placement === "left-end") {
+          transform = `translateX(${rect.x}px) translateY(${
+            rect.y + rect.height
+          }px) translateX(calc(-10px + -100%)) translateY(-100%)`;
         } else if (props.placement === "right") {
-          (popoverRef.value as HTMLDivElement).style.transform = `translateX(${
-            rect.x + rect.width
-          }px) translateY(${rect.y + rect.height / 2}px)  translateY(-50%)`;
+          transform = `translateX(${rect.x + rect.width}px) translateY(${
+            rect.y + rect.height / 2
+          }px)  translateY(-50%)`;
+        } else if (props.placement === "right-start") {
+          transform = `translateX(${rect.x + rect.width}px) translateY(${
+            rect.y
+          }px)`;
+        } else if (props.placement === "right-end") {
+          transform = `translateX(${rect.x + rect.width}px) translateY(${
+            rect.y + rect.height
+          }px)  translateY(-100%)`;
+        } else if (props.placement === "top-start") {
+          transform = `translateX(${rect.x}px) translateY(${
+            rect.y
+          }px) translateY(calc(-10px + -100%))`;
+        } else if (props.placement === "top-end") {
+          transform = `translateX(${rect.x + rect.width}px) translateY(${
+            rect.y
+          }px) translateX(-100%) translateY(calc(-10px + -100%))`;
         } else {
-          (popoverRef.value as HTMLDivElement).style.transform = `translateX(${
-            rect.x + rect.width / 2
-          }px) translateY(${
+          transform = `translateX(${rect.x + rect.width / 2}px) translateY(${
             rect.y
           }px) translateX(-50%) translateY(calc(-10px + -100%))`;
         }
+        (popoverRef.value as HTMLDivElement).style.transform = transform;
       });
     }
     function handleMouseLeave() {
       showPopoverTimer = setTimeout(() => {
         showPopoverRef.value = false;
         showPopoverTimer = null;
-      }, 260);
+      }, 100);
     }
     return {
       showPopoverRef,
