@@ -133,5 +133,9 @@ export const componentsRoutes = [
     {
         path: "tag",
         component: () => import("../../src/tag/demos/zhCN/index.entry.md")
+    },
+    {
+        path: "grid",
+        component: () => import("../../src/grid/demos/zhCN/index.entry.md")
     }
 ]
