@@ -17,7 +17,6 @@ export default defineComponent({
       }px) / ${props.span + props.offset} * ${props.offset} + ${
         props.offset * mergeXGap
       }px)`;
-    console.log(marginLeft, props.offset);
     return {
       mergeStyle: {
         marginLeft,

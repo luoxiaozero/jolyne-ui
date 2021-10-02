@@ -21,7 +21,8 @@
 
         <div>
             <JoButton text @click="jumpGitee" style="margin-right: 18px;">Gitee</JoButton>
-            <JoButton text @click="changeTheme">{{ themeNameRef }}</JoButton>
+            <JoButton text @click="changeTheme" style="margin-right: 18px;">{{ themeNameRef }}</JoButton>
+            <span title="版本">{{ version }}</span>
         </div>
     </JoLayoutHeader>
 </template>
@@ -33,6 +34,7 @@ import { JoLayoutHeader, JoButton, JoAutoComplete } from "../../src";
 import { router } from '../router';
 import { changeTheme, useThemeName } from "../store";
 import { menuItemOptions } from '../store/menuOptions';
+import { version } from "../../package.json";
 export default defineComponent({
     components: {
         JoLayoutHeader,
@@ -94,6 +96,7 @@ export default defineComponent({
             window.open("https://gitee.com/luoxiaozero/jolyne-ui");
         }
         return {
+            version,
             isComponentsPage,
             jumpGitee,
             changeTheme,
