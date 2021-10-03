@@ -103,6 +103,11 @@ export const menuOptions = [
         key: "switch",
         extra: "Switch",
       },
+      {
+        label: "滑动选择",
+        key: "slider",
+        extra: "Slider"
+      }
     ],
   },
   {

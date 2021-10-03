@@ -12,6 +12,7 @@ import { cardLight } from "../card/styles";
 import { codeLight } from "../code/styles";
 import { tableLight } from "../table/styles";
 import { popoverLight } from "../popover/styles";
+import { sliderLight } from "../slider/styles";
 export const lightTheme = {
   name: "light",
   common: commonLight,
@@ -28,4 +29,5 @@ export const lightTheme = {
   tag: tagLight,
   pagination: paginationLight,
   popover: popoverLight,
+  slider: sliderLight,
 };

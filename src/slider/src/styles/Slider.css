@@ -1,0 +1,26 @@
+.jo-slider {
+    position: relative;
+    padding: 6px 0;
+    cursor: pointer;
+}
+.jo-slider-rail {
+    height: 4px;
+    background-color: var(--background-color);
+    border-radius: 2px;
+}
+.jo-slider-rail__fill {
+    width: 40%;
+    height: 4px;
+    background-color: var(--background-color-fill);
+    border-radius: 2px;
+}
+.jo-slider-handle {
+    position: absolute;
+    top: 0px;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background-color: white;
+    box-shadow: 0px 0px 4px #2224;
+    
+}

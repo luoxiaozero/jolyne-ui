@@ -12,6 +12,7 @@ import { codeDark } from "../code/styles";
 import { tableDark } from "../table/styles";
 import { popoverDark } from "../popover/styles";
 import { badgeDark } from "../badge/styles";
+import { sliderDark } from "../slider/styles";
 export const darkTheme = {
     name: "dark",
     common: commonDark,
@@ -27,5 +28,6 @@ export const darkTheme = {
     table: tableDark,
     tag: tagDark,
     pagination: paginationDark,
-    popover: popoverDark
+    popover: popoverDark,
+    slider: sliderDark,
 }
