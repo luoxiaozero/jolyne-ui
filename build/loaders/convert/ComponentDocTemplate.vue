@@ -1,5 +1,5 @@
 <template>
-    <div style="position: sticky; top: 20px;right: 10px;width: 170px;float: right">
+    <div class="doc-anchor">
         <jo-anchor listenTo="#page-layout > .jo-scrollbar">
             <!--ANCHOR_SLOT-->
         </jo-anchor>
@@ -26,5 +26,20 @@ export default defineComponent({
 .doc {
     padding: 6px 28px 32px;
     margin-right: 180px;
+}
+.doc-anchor {
+    position: sticky;
+    top: 20px;
+    right: 10px;
+    width: 170px;
+    float: right;
+}
+@media screen and (max-width: 1000px) {
+    .doc-anchor {
+        display: none;
+    }
+    .doc {
+        margin-right: 0;
+    }
 }
 </style>
