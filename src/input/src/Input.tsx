@@ -1,11 +1,22 @@
 import { useTheme } from "../../_mixins/use-theme";
-import { h, computed, CSSProperties, defineComponent, PropType, ref } from "vue";
+import {
+  h,
+  computed,
+  CSSProperties,
+  defineComponent,
+  PropType,
+  ref,
+} from "vue";
 import "./styles/index.css";
 
 export default defineComponent({
   name: "Input",
   props: {
-    type: { type: String as PropType<"textarea" | "input" | "password">, default: "input" },
+    hasStyle: { type: Boolean, default: true },
+    type: {
+      type: String as PropType<"textarea" | "input" | "password">,
+      default: "input",
+    },
     placeholder: String,
     size: {
       type: String as PropType<"small" | "medium">,
@@ -23,6 +34,7 @@ export default defineComponent({
   setup(props) {
     const theme = useTheme();
     const focuseRef = ref(false);
+    const hasStyle = ref(props.hasStyle);
     const textareaElementRef = ref<HTMLTextAreaElement | null>(null);
     const inputElementRef = ref<HTMLInputElement | null>(null);
     function doUpdateValue(value: string) {
@@ -75,6 +87,7 @@ export default defineComponent({
       textareaElementRef,
       inputElementRef,
       focuseRef,
+      hasStyle,
       handleInput,
       handleWrapperBlur,
       handleWrapperFocus,
@@ -82,22 +95,31 @@ export default defineComponent({
       handleInputBlur,
       handleInputFocus,
       cssVars: computed(() => {
-        const { borderColor, backgroundColor, fontColor } = theme.value.input;
+        const { borderColor, backgroundColor, fontColor, errorBorderColor } =
+          theme.value.input;
         if (props.size === "medium") {
           return {
             "--height": "30px",
             "--line-height": "30px",
             "--border-color": borderColor,
+            "--border-color-error": errorBorderColor,
             "--background-color": backgroundColor,
             "--font-color": fontColor,
+            "--border-color-hover": hasStyle.value
+              ? "#36ad6a"
+              : errorBorderColor,
           };
         } else if (props.size === "small") {
           return {
             "--height": "28px",
             "--line-height": "28px",
             "--border-color": borderColor,
+            "--border-color-error": errorBorderColor,
             "--background-color": backgroundColor,
             "--font-color": fontColor,
+            "--border-color-hover": hasStyle.value
+              ? "#36ad6a"
+              : errorBorderColor,
           };
         }
       }),
@@ -111,6 +133,7 @@ export default defineComponent({
           "jo-input",
           `jo-input--${this.type}`,
           { "jo-input--focus": this.focuseRef },
+          { "jo-input--focus-error": this.focuseRef },
         ]}
         onBlur={this.handleWrapperBlur}
         onFocus={this.handleWrapperFocus}
@@ -130,7 +153,7 @@ export default defineComponent({
         ) : (
           <input
             ref="inputElementRef"
-            type={this.$props.type === "password" ? this.$props.type :"text"}
+            type={this.$props.type === "password" ? this.$props.type : "text"}
             placeholder={this.$props.placeholder}
             autofocus={this.$props.autofocus}
             value={this.$props.value}

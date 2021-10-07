@@ -12,7 +12,7 @@
   transition: all 0.3s;
 }
 .jo-input--focus {
-  box-shadow: 0 0 2px #18a05844;
+  /* box-shadow: 0 0 2px #18a05844; */
   border-color: #36ad6a;
 }
 .jo-input--textarea {
@@ -22,7 +22,7 @@
   overflow: hidden;
 }
 .jo-input:hover {
-  border-color: #36ad6a;
+  border-color: var(--border-color-hover);
 }
 .jo-input__input-el {
   width: 100%;
@@ -44,4 +44,13 @@
   border: none;
   outline: none;
   resize: none;
+}
+.jo-form-item--error .jo-input{
+  border-color: var(--border-color-error);
+}
+.jo-form-item--focus-error .jo-input--focus-error{
+  box-shadow: 0 0 0 2px rgba(208, 48, 80, 0.2);
+}
+.jo-form-item--focus .jo-input--focus{
+  box-shadow: 0 0 0 2px rgba(24, 160, 88, 0.2);
 }
