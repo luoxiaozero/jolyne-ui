@@ -14,6 +14,7 @@ export * from "./divider";
 export * from "./drawer";
 export * from "./dropdown";
 export * from "./dynamic-tags";
+export * from "./form";
 export * from "./global-style";
 export * from "./grid";
 export * from "./icon";

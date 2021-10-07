@@ -1,0 +1,12 @@
+.jo-form-item{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+.jo-form-item__label{
+    margin-bottom: 3px;
+}
+.jo-form-item__feedback{
+    margin-top: 3px;
+    height: 16px;
+}

@@ -89,6 +89,11 @@ export const menuOptions = [
         extra: "Dynamic Tags",
       },
       {
+        label: "表单",
+        key: "form",
+        extra: "Form",
+      },
+      {
         label: "文本输入",
         key: "input",
         extra: "Input",
