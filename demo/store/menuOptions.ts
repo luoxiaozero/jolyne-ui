@@ -155,6 +155,11 @@ export const menuOptions = [
         key: "modal",
         extra: "Modal",
       },
+      {
+        label: "骨架屏",
+        key: "skeleton",
+        extra: "Skeleton",
+      },
     ],
   },
   {

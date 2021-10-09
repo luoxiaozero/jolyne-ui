@@ -28,6 +28,7 @@ export * from "./modal";
 export * from "./pagination";
 export * from "./popover";
 export * from "./scrollbar";
+export * from "./skeleton";
 export * from "./slider";
 export * from "./space";
 export * from "./switch";

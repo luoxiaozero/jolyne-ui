@@ -1,0 +1,21 @@
+.jo-skeleton {
+  width: 100%;
+  height: 1em;
+  background-color: var(--background-color-start);
+}
+
+.jo-skeleton--animated {
+  background: linear-gradient(90deg, var(--background-color-start) 25%, var(--background-color-end) 37%, var(--background-color-start) 63%);
+  animation: jo-skeleton-loading-keyframes 1.4s ease infinite;
+  background-size: 400% 100%;
+}
+
+@keyframes jo-skeleton-loading-keyframes {
+  from {
+    background-position: 100% 50%;
+  }
+
+  to {
+    background-position: 0 50%;
+  }
+}

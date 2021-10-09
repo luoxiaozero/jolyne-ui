@@ -145,5 +145,9 @@ export const componentsRoutes = [
     {
         path: "slider",
         component: () => import("../../src/slider/demos/zhCN/index.entry.md")
+    },
+    {
+        path: "skeleton",
+        component: () => import("../../src/skeleton/demos/zhCN/index.entry.md")
     }
 ]
