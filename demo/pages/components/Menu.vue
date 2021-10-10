@@ -1,23 +1,17 @@
 <template>
-    <JoLayoutSider style="padding: 2px 0 4px;">
-        <JoScrollbar :scroll-style="'remove'">
-            <JoMenu :options="menuOptions" v-model:value="keyRef" />
-        </JoScrollbar>
-    </JoLayoutSider>
+    <JoMenu :options="menuOptions" v-model:value="keyRef" />
 </template>
 
 <script lang='ts'>
-import { defineComponent, ref, watch, h } from 'vue';
+import { defineComponent, ref, watch } from 'vue';
 import { useRoute } from 'vue-router';
-import { JoLayoutSider, JoMenu, JoScrollbar } from "../../../src";
+import { JoMenu } from "../../../src";
 import { router } from '../../router';
 import { menuOptions } from '../../store/menuOptions';
 
 export default defineComponent({
     components: {
-        JoLayoutSider,
         JoMenu,
-        JoScrollbar
     },
     setup() {
         const route = useRoute();
@@ -34,6 +28,3 @@ export default defineComponent({
     },
 })
 </script>
-
-<style scoped>
-</style>

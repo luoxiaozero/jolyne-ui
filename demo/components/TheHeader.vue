@@ -4,9 +4,9 @@
             <router-link to="/" class="router-link--text logo">Jolyne UI</router-link>
             <router-link
                 to="/components/menu"
-                :class="{ 'router-link--text': true, 'router-link-active': isComponentsPage }"
+                :class="{ 'min-screen': true, 'router-link--text': true, 'router-link-active': isComponentsPage }"
             >组件</router-link>
-            <router-link to="/theme" class="router-link--text">主题</router-link>
+            <router-link to="/theme" class="router-link--text min-screen">主题</router-link>
             <span style="display: inline-flex;">
                 <JoAutoComplete
                     placeholder="搜索组件"
@@ -18,11 +18,45 @@
                 />
             </span>
         </div>
-
-        <div>
-            <JoButton text @click="jumpGitee" style="margin-right: 18px;">Gitee</JoButton>
-            <JoButton text @click="changeTheme" style="margin-right: 18px;">{{ themeNameRef }}</JoButton>
-            <span title="版本">{{ version }}</span>
+        <div style="display: flex;">
+            <JoButton text @click="jumpGitee" style="margin-right: 18px;" class="min-screen">Gitee</JoButton>
+            <JoButton
+                text
+                @click="changeTheme"
+                style="margin-right: 18px;"
+                class="min-screen"
+            >{{ themeNameRef }}</JoButton>
+            <span title="版本" style="margin-right: 18px;" class="min-screen">{{ version }}</span>
+            <div class="menu-icon">
+                <JoPopover placement="bottom-end" :has-style="false">
+                    <template #trigger>
+                        <JoIcon :size="20">
+                            <MenuIcon />
+                        </JoIcon>
+                    </template>
+                    <div style="height: 70vh;" class="menu-min-body">
+                        <JoScrollbar content-style="display: flex; flex-direction: column; ">
+                            <router-link
+                                to="/components/menu"
+                                :class="{ 'router-link--text': true, 'router-link-active': isComponentsPage }"
+                            >组件</router-link>
+                            <router-link to="/theme" class="router-link--text">主题</router-link>
+                            <JoButton
+                                text
+                                @click="jumpGitee"
+                                style="padding: 10px 20px;text-align: start;"
+                            >Gitee</JoButton>
+                            <JoButton
+                                text
+                                @click="changeTheme"
+                                style="padding: 10px 20px;text-align: start;"
+                            >{{ themeNameRef }}</JoButton>
+                            <span title="版本" style="padding: 10px 20px;">{{ version }}</span>
+                            <Menu />
+                        </JoScrollbar>
+                    </div>
+                </JoPopover>
+            </div>
         </div>
     </JoLayoutHeader>
 </template>
@@ -30,7 +64,9 @@
 <script lang='ts'>
 import { defineComponent, watch, ref, computed } from 'vue';
 import { useRoute } from 'vue-router';
-import { JoLayoutHeader, JoButton, JoAutoComplete } from "../../src";
+import { JoLayoutHeader, JoButton, JoAutoComplete, JoIcon, JoPopover, JoScrollbar } from "../../src";
+import Menu from "../pages/components/Menu.vue";
+import { Menu as MenuIcon } from "@vicons/ionicons5";
 import { router } from '../router';
 import { changeTheme, useThemeName } from "../store";
 import { menuItemOptions } from '../store/menuOptions';
@@ -39,7 +75,12 @@ export default defineComponent({
     components: {
         JoLayoutHeader,
         JoButton,
-        JoAutoComplete
+        JoAutoComplete,
+        JoIcon,
+        MenuIcon,
+        JoPopover,
+        Menu,
+        JoScrollbar
     },
     props: {
         shadow: {
@@ -148,5 +189,29 @@ export default defineComponent({
     right: 0;
     height: 1px;
     background-color: #12aa9c;
+}
+.menu-icon {
+    display: none;
+}
+@media screen and (max-width: 1000px) {
+    .min-screen {
+        display: none;
+    }
+    .menu-icon {
+        display: flex;
+        align-items: center;
+    }
+}
+.menu-min-body .router-link--text {
+    padding: 10px 20px;
+}
+.menu-min-body .router-link-active:not(.logo)::before {
+    height: 0;
+}
+</style>
+<style>
+.menu-icon > div {
+    display: -webkit-inline-flex;
+    width: 25px;
 }
 </style>
