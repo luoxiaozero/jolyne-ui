@@ -3,8 +3,8 @@
 这是一个 jolyne 组件
 
 ```html
-<jo-form :model="model" :rules="rules">
-  <jo-form-item label="年龄" path="age">
+<jo-form :model="model" :rules="rules" label-placement="left">
+  <jo-form-item label="年龄" path="age" >
     <jo-input v-model:value="model.age" />
   </jo-form-item>
 </jo-form>
@@ -33,7 +33,7 @@ export default defineComponent({
     };
     return {
        model,
-       rules
+       rules,
     };
   },
 });

@@ -1,12 +1,37 @@
-.jo-form-item{
+.jo-form--top .jo-form-item{
     display: flex;
     flex-direction: column;
     margin-bottom: 10px;
 }
-.jo-form-item__label{
+.jo-form--top .jo-form-item__label{
     margin-bottom: 3px;
 }
-.jo-form-item__feedback{
+.jo-form--top .jo-form-item__feedback{
     margin-top: 3px;
     height: 16px;
+}
+.jo-form--left .jo-form-item{
+    width: 400px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap:wrap;
+    margin-bottom: 10px;
+}
+.jo-form--left .jo-form-item__label{
+    display: flex;
+    justify-content: flex-end;
+    width: 80px;
+    align-items: center;
+    margin-right: 10px;
+}
+.jo-form--left .jo-form-item__blank{
+    width:300px;
+}
+.jo-form--left .jo-form-item__feedback{
+    display: flex;
+    justify-content: flex-start;
+    width: 380px;
+    padding-left: 80px;
+    align-items: center;
+    margin-left: 10px;
 }

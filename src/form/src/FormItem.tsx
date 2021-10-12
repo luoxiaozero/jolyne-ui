@@ -33,7 +33,7 @@ export default defineComponent({
     return (
       <div
         class={[
-          "jo-form-item",
+          `jo-form-item`,
           this.feedbackRef ? "jo-form-item--error" : undefined,
           this.feedbackRef ? "jo-form-item--focus-error" : "jo-form-item--focus"
         ]}
