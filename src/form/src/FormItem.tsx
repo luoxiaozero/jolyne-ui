@@ -12,7 +12,7 @@ export default defineComponent({
   setup(props) {
     const formApi = inject(formApiInjectionKey);
     const feedbackRef = ref(props.feedback);
-    if (formApi && props.path) {
+    if (formApi && props.path && formApi.rules && props.path in formApi.rules) {
       const rules = formApi.rules[props.path];
       watch(
         () => (formApi.model as any)[props.path as string],
