@@ -27,6 +27,7 @@ export * from "./message";
 export * from "./modal";
 export * from "./pagination";
 export * from "./popover";
+export * from "./radio";
 export * from "./scrollbar";
 export * from "./skeleton";
 export * from "./slider";

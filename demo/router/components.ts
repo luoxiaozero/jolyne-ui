@@ -149,5 +149,9 @@ export const componentsRoutes = [
     {
         path: "skeleton",
         component: () => import("../../src/skeleton/demos/zhCN/index.entry.md")
+    },
+    {
+        path: "radio",
+        component: () => import("../../src/radio/demos/zhCN/index.entry.md")
     }
 ]
