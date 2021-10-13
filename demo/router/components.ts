@@ -153,5 +153,9 @@ export const componentsRoutes = [
     {
         path: "radio",
         component: () => import("../../src/radio/demos/zhCN/index.entry.md")
+    },
+    {
+        path: "checkbox",
+        component: () => import("../../src/checkbox/demos/zhCN/index.entry.md")
     }
 ]

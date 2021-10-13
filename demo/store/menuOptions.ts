@@ -114,6 +114,11 @@ export const menuOptions = [
         extra: "Radio",
       },
       {
+        label: "复选框",
+        key: "checkbox",
+        extra: "Checkbox",
+      },
+      {
         label: "滑动选择",
         key: "slider",
         extra: "Slider"

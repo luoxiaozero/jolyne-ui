@@ -1,0 +1,33 @@
+.jo-checkbox {
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.jo-checkbox__input {
+  width: 0;
+  height: 0;
+}
+.jo-checkbox__dot {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 14px;
+  height: 14px;
+  border: 1px solid #ddd;
+  border-radius: 2px;
+}
+.jo-checkbox:hover .jo-checkbox__dot,
+.jo-checkbox__dot--checked {
+  border-color: var(--background-color-checked);
+}
+.jo-checkbox__dot--checked {
+  background-color: var(--background-color-checked);
+}
+.jo-checkbox__icon {
+    fill: white;
+}
+.jo-checkbox__label {
+  display: inline-block;
+  padding: 0 6px;
+}
