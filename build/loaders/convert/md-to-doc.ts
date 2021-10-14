@@ -39,8 +39,8 @@ async function getDemoInfos(pathUrl: string, code: string): Promise<DemoInfo[]> 
   return infos;
 }
 
-function genDemosTemplate(demoInfos: DemoInfo[]) {
-  return `<component-demos>${demoInfos
+function genDemosTemplate(demoInfos: DemoInfo[], colSpan: number) {
+  return `<component-demos :colSpan="${colSpan}">${demoInfos
     .map(({ tag }) => tag)
     .join("\n")}</component-demos>`;
 }
@@ -57,11 +57,12 @@ export default async function mdToDoc(
   if (demosIndex > -1) {
     const matchResult = resourecePath.match(/(.*)\/([^\/].*?).entry.md$/);
     demoInfos = await getDemoInfos(matchResult[1], (tokens[demosIndex] as { text: string }).text);
+    const colSpan = ~code.search('<!--single-column-->') ? 1 : 2;
     tokens.splice(demosIndex, 1, {
       type: "html",
       pre: false,
       raw: "",
-      text: genDemosTemplate(demoInfos),
+      text: genDemosTemplate(demoInfos, colSpan),
     });
   }
   const docMainTemplate = marked.parser(tokens, {

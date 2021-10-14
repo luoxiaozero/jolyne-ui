@@ -1,5 +1,5 @@
 <template>
-    <div class="demos">
+    <div :class="['demos', {'demos--single': colSpan === 1}]">
         <slot></slot>
     </div>
 </template>
@@ -9,11 +9,8 @@ import { defineComponent } from 'vue';
 export default defineComponent({
     name: "ComponentDemos",
     props: {
-
-    },
-    setup() {
-        return {}
-    },
+        colSpan: Number
+    }
 })
 </script>
 
@@ -23,6 +20,9 @@ export default defineComponent({
     gap: 16px;
     grid-template-columns: minmax(0px, 1fr) minmax(0px, 1fr);
     align-items: flex-start;
+}
+.demos--single {
+    grid-template-columns: 100%;
 }
 @media screen and (max-width: 1200px) {
     .demos {
