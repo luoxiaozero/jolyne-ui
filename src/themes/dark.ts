@@ -15,6 +15,7 @@ import { badgeDark } from "../badge/styles";
 import { sliderDark } from "../slider/styles";
 import { skeletonDark } from "../skeleton/styles";
 import { timelineDark } from "../timeline/styles";
+import { typographyDark } from "../typography/styles";
 export const darkTheme = {
   name: "dark",
   common: commonDark,
@@ -34,4 +35,5 @@ export const darkTheme = {
   skeleton: skeletonDark,
   slider: sliderDark,
   timeline: timelineDark,
+  typography: typographyDark,
 };

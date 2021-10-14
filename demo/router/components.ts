@@ -161,5 +161,9 @@ export const componentsRoutes = [
     {
         path: "timeline",
         component: () => import("../../src/timeline/demos/zhCN/index.entry.md")
+    },
+    {
+        path: "typography",
+        component: () => import("../../src/typography/demos/zhCN/index.entry.md")
     }
 ]

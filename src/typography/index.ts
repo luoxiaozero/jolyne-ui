@@ -1,0 +1,1 @@
+export { default as JoText } from "./src/Text";

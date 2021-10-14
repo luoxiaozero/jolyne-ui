@@ -2,7 +2,7 @@ export const menuOptions = [
   {
     type: "group",
     label: "通用组件",
-    key: "test-1",
+    key: "通用组件",
     children: [
       {
         label: "头像",
@@ -49,6 +49,11 @@ export const menuOptions = [
         key: "scrollbar",
         extra: "Scrollbar",
       },
+      {
+        label: "排印",
+        key: "typography",
+        extra: "Typography",
+      }
     ],
   },
   {

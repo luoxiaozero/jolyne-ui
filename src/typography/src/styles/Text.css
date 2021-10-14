@@ -1,0 +1,8 @@
+.jo-text--code {
+  padding: 0.2em 0.35em;
+  line-height: 1.4;
+  background-color: var(--background-color-code);
+  border: 1px solid #0000;
+  border-radius: 2px;
+  box-sizing: border-box;
+}
