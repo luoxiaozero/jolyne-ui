@@ -37,4 +37,5 @@ export * from "./switch";
 export * from "./table";
 export * from "./tag";
 export * from "./themes";
+export * from "./timeline";
 export * from "./upload";

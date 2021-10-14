@@ -14,6 +14,7 @@ import { tableLight } from "../table/styles";
 import { popoverLight } from "../popover/styles";
 import { sliderLight } from "../slider/styles";
 import { skeletonLight } from "../skeleton/styles";
+import { timelineLight } from "../timeline/styles";
 export const lightTheme = {
   name: "light",
   common: commonLight,
@@ -32,4 +33,5 @@ export const lightTheme = {
   popover: popoverLight,
   skeleton: skeletonLight,
   slider: sliderLight,
+  timeline: timelineLight,
 };

@@ -14,22 +14,24 @@ import { popoverDark } from "../popover/styles";
 import { badgeDark } from "../badge/styles";
 import { sliderDark } from "../slider/styles";
 import { skeletonDark } from "../skeleton/styles";
+import { timelineDark } from "../timeline/styles";
 export const darkTheme = {
-    name: "dark",
-    common: commonDark,
-    alert:alertDark,
-    badge: badgeDark,
-    button: buttonDark,
-    card: cardDark,
-    code: codeDark,
-    dropdown:dropdownDark,
-    input: inputDark,
-    layout: layoutDark,
-    upload: uploadDark,
-    table: tableDark,
-    tag: tagDark,
-    pagination: paginationDark,
-    popover: popoverDark,
-    skeleton: skeletonDark,
-    slider: sliderDark,
-}
+  name: "dark",
+  common: commonDark,
+  alert: alertDark,
+  badge: badgeDark,
+  button: buttonDark,
+  card: cardDark,
+  code: codeDark,
+  dropdown: dropdownDark,
+  input: inputDark,
+  layout: layoutDark,
+  upload: uploadDark,
+  table: tableDark,
+  tag: tagDark,
+  pagination: paginationDark,
+  popover: popoverDark,
+  skeleton: skeletonDark,
+  slider: sliderDark,
+  timeline: timelineDark,
+};

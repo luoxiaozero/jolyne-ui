@@ -1,0 +1,42 @@
+.jo-timeline-item {
+  position: relative;
+}
+.jo-timeline-item__timeline {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 24px;
+}
+.jo-timeline-item__circle {
+  position: relative;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 2px solid var(--border-color-circle);
+  box-sizing: border-box;
+  z-index: 2;
+}
+.jo-timeline-item__line {
+  position: absolute;
+  top: 13px;
+  left: 6px;
+  bottom: 0;
+  width: 2px;
+  background-color: var(--background-color-line);
+}
+.jo-timeline .jo-timeline-item:last-child .jo-timeline-item__line {
+  display: none;
+}
+.jo-timeline-item__content {
+  margin-left: 24px;
+  margin-bottom: 20px;
+}
+.jo-timeline-item__time {
+  margin-top: 2px;
+  font-size: var(--font-size-time);
+  color: var(--font-color-time);
+}
+.jo-timeline-item__slot {
+  margin-top: 2px;
+}

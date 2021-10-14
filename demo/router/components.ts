@@ -157,5 +157,9 @@ export const componentsRoutes = [
     {
         path: "checkbox",
         component: () => import("../../src/checkbox/demos/zhCN/index.entry.md")
+    },
+    {
+        path: "timeline",
+        component: () => import("../../src/timeline/demos/zhCN/index.entry.md")
     }
 ]

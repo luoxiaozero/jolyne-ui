@@ -71,6 +71,11 @@ export const menuOptions = [
         key: "image",
         extra: "Image",
       },
+      {
+        label: "时间线",
+        key: "timeline",
+        extra: "Timeline",
+      }
     ],
   },
   {
