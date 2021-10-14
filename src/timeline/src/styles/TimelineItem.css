@@ -1,12 +1,22 @@
 .jo-timeline-item {
   position: relative;
 }
+.jo-timeline--horizontal .jo-timeline-item {
+  flex-shrink: 0;
+}
 .jo-timeline-item__timeline {
   position: absolute;
   top: 0;
   left: 0;
   bottom: 0;
   width: 24px;
+}
+.jo-timeline--horizontal .jo-timeline-item__timeline {
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: auto;
+  height: 22px;
 }
 .jo-timeline-item__circle {
   position: relative;
@@ -25,12 +35,26 @@
   width: 2px;
   background-color: var(--background-color-line);
 }
+.jo-timeline--horizontal .jo-timeline-item__line {
+  top: 6px;
+  right: 0;
+  left: 13px;
+  bottom: auto;
+  width: auto;
+  height: 2px;
+}
 .jo-timeline .jo-timeline-item:last-child .jo-timeline-item__line {
   display: none;
 }
 .jo-timeline-item__content {
   margin-left: 24px;
   margin-bottom: 20px;
+}
+.jo-timeline--horizontal .jo-timeline-item__content {
+  margin-left: 0;
+  margin-bottom: 0;
+  margin-top: 22px;
+  margin-right: 24px;
 }
 .jo-timeline-item__time {
   margin-top: 2px;
