@@ -11,10 +11,12 @@ export default function createMdRenderer() {
       </jo-table></jo-card>`;
     },
     code(code: string, language: string) {
-      console.log(language);
       const highlighted = hljs.highlight(code, {language}).value;
       return `<jo-card><jo-code><pre>${highlighted}</pre></jo-code></jo-card>`
-    }
+    },
+    codespan (code: string) {
+      return `<jo-text code>${code}</jo-text>`
+    },
   };
   Object.keys(overrides).forEach((key) => {
     renderer[key] = overrides[key];
