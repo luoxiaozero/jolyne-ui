@@ -33,24 +33,20 @@ export default defineComponent({
         showDropdownTimer = null;
         return;
       }
-      const client = (
-        triggerRef.value as HTMLDivElement
-      ).getBoundingClientRect();
+      const client = triggerRef.value!.getBoundingClientRect();
       showDropdownRef.value = true;
       nextTick(
         () =>
-          ((
-            dropdownRef.value as HTMLDivElement
-          ).style.transform = `translateX(${client.x}px) translateY(${
-            client.y + 40
-          }px)  translateX(-35%)`)
+          (dropdownRef.value!.style.transform = `translate(${
+            client.x + client.width / 2
+          }px, ${client.y + client.height}px)  translateX(-50%)`)
       );
     }
     function handleMouseLeave() {
       showDropdownTimer = setTimeout(() => {
         showDropdownRef.value = false;
         showDropdownTimer = null;
-      }, 500);
+      }, 300);
     }
     function handleClick(key: string) {
       return () => {
@@ -70,8 +66,7 @@ export default defineComponent({
         return {
           "--shadow": theme.value.dropdown.shadow,
           "--background-color": theme.value.dropdown.backgroundColor,
-          "--background-color-hover":
-            theme.value.dropdown.backgroundColorHover,
+          "--background-color-hover": theme.value.dropdown.backgroundColorHover,
         };
       }),
     };

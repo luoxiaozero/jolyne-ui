@@ -1,7 +1,8 @@
 .jo-dropdown {
-  display: block;
-  height: auto;
-  width: auto;
+  display: fixed;
+  top: 0;
+  left: 0;
+  display: inline-block;
   min-height: 30px;
   max-width: 200px;
   padding: 6px 0;
@@ -11,10 +12,9 @@
 }
 .jo-dropdown__option {
   height: 35px;
-  padding-left: 8px;
+  padding: 0 8px;
   font-size: 14px;
   line-height: 35px;
-  text-align: left;
   background-color: var(--background-color);
   cursor: pointer;
 }
