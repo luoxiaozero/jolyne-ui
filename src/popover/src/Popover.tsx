@@ -9,6 +9,7 @@ import {
   computed,
   PropType,
 } from "vue";
+import { bindBodyClickEvent } from "../../util/bodyElement";
 import { useTheme } from "../../_mixins/use-theme";
 import "./styles/index.css";
 
@@ -16,6 +17,7 @@ export default defineComponent({
   name: "Popover",
   props: {
     hasStyle: { type: Boolean, default: true },
+    trigger: { type: String as PropType<"hover" | "click">, default: "hover" },
     placement: {
       type: String as PropType<
         | "top"
@@ -42,11 +44,15 @@ export default defineComponent({
     const theme = useTheme();
     let showPopoverTimer: NodeJS.Timeout | null = null;
     function handleMouseEnter() {
+      if (props.trigger !== "hover") return;
       if (showPopoverTimer) {
         clearTimeout(showPopoverTimer);
         showPopoverTimer = null;
         return;
       }
+      showPopover();
+    }
+    function showPopover() {
       const rect = (triggerRef.value as HTMLDivElement).getBoundingClientRect();
 
       showPopoverRef.value = true;
@@ -87,9 +93,7 @@ export default defineComponent({
             rect.y + rect.height
           }px)  translateY(-100%)`;
         } else if (props.placement === "top-start") {
-          transform = `translateX(${rect.x}px) translateY(${
-            rect.y
-          }px) translateY(calc(-10px + -100%))`;
+          transform = `translateX(${rect.x}px) translateY(${rect.y}px) translateY(calc(-10px + -100%))`;
         } else if (props.placement === "top-end") {
           transform = `translateX(${rect.x + rect.width}px) translateY(${
             rect.y
@@ -103,15 +107,26 @@ export default defineComponent({
       });
     }
     function handleMouseLeave() {
+      if (props.trigger !== "hover") return;
       showPopoverTimer = setTimeout(() => {
         showPopoverRef.value = false;
         showPopoverTimer = null;
       }, 100);
     }
+    bindBodyClickEvent((ev) => {
+      if (props.trigger !== "click") return;
+      showPopoverRef.value = false;
+    });
+    function handleClick(e: MouseEvent) {
+      if (props.trigger !== "click") return;
+      if (!showPopoverRef.value) e.stopPropagation();
+      showPopover();
+    }
     return {
       showPopoverRef,
       triggerRef,
       popoverRef,
+      handleClick,
       handleMouseEnter,
       handleMouseLeave,
       cssVars: computed(() => {
@@ -154,6 +169,7 @@ export default defineComponent({
           ref="triggerRef"
           onMouseenter={this.handleMouseEnter}
           onMouseleave={this.handleMouseLeave}
+          onClick={this.handleClick}
         >
           {this.$slots.trigger?.()}
         </div>
