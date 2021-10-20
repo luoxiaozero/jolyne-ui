@@ -1,0 +1,35 @@
+.jo-button-group--vertical {
+  display: inline-flex;
+  flex-direction: column;
+}
+.jo-button-group--vertical .jo-button:first-child {
+  margin-bottom: 0 !important;
+  border-bottom-left-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+}
+.jo-button-group--vertical .jo-button:last-child {
+  margin-top: 0 !important;
+  border-top-left-radius: 0 !important;
+  border-top-right-radius: 0 !important;
+}
+.jo-button-group--vertical .jo-button:not(:first-child):not(:last-child) {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+  border-radius: 0 !important;
+}
+.jo-button-group:not(.jo-button-group--vertical) .jo-button:first-child {
+  margin-right: 0 !important;
+  border-top-right-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+}
+.jo-button-group:not(.jo-button-group--vertical) .jo-button:last-child {
+  margin-left: 0 !important;
+  border-top-left-radius: 0 !important;
+  border-bottom-left-radius: 0 !important;
+}
+.jo-button-group:not(.jo-button-group--vertical)
+  .jo-button:not(:first-child):not(:last-child) {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  border-radius: 0 !important;
+}
