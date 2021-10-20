@@ -33,6 +33,7 @@ export * from "./scrollbar";
 export * from "./skeleton";
 export * from "./slider";
 export * from "./space";
+export * from "./steps";
 export * from "./switch";
 export * from "./table";
 export * from "./tag";

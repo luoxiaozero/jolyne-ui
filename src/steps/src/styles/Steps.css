@@ -1,0 +1,40 @@
+.jo-steps {
+  display: flex;
+}
+.jo-step {
+  flex-shrink: 0;
+}
+.jo-step {
+  display: flex;
+}
+.jo-step__circle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  margin-right: 10px;
+  border-radius: 50%;
+  border: 1px solid var(--color-state);
+  color: var(--color-circle);
+  background-color: var(--background-color-circle);
+}
+.jo-step__header {
+  display: flex;
+  align-items: center;
+  height: 30px;
+  margin-bottom: 6px;
+}
+.jo-step__title {
+  font-size: 16px;
+}
+
+.jo-step__line {
+  flex: 1;
+  height: 1px;
+  margin: 0 10px;
+  background-color: var(--color-state);
+}
+.jo-steps .jo-step:last-child .jo-step__line {
+  display: none;
+}

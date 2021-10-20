@@ -165,5 +165,9 @@ export const componentsRoutes = [
     {
         path: "typography",
         component: () => import("../../src/typography/demos/zhCN/index.entry.md")
+    },
+    {
+        path: "steps",
+        component: () => import("../../src/steps/demos/zhCN/index.entry.md")
     }
 ]

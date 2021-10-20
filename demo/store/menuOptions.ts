@@ -207,6 +207,11 @@ export const menuOptions = [
         key: "pagination",
         extra: "Paginstion",
       },
+      {
+        label: "步骤",
+        key: "steps",
+        extra: "Steps",
+      }
     ],
   },
   {
