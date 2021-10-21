@@ -4,6 +4,10 @@ import "./styles/index.css";
 
 export default defineComponent({
   name: "Table",
+  props: {
+    singleRow: Boolean,
+    singleColumn: Boolean,
+  },
   setup() {
     const theme = useTheme();
     return {
@@ -18,7 +22,10 @@ export default defineComponent({
   },
   render() {
     return (
-      <table class="jo-table" style={this.cssVars as CSSProperties}>
+      <table
+        class={["jo-table", { "jo-table--single-row": this.singleRow, "jo-table--single-column": this.singleColumn }]}
+        style={this.cssVars as CSSProperties}
+      >
         {this.$slots.default?.()}
       </table>
     );

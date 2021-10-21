@@ -5,10 +5,11 @@
   border: 1px solid var(--border-color);
 }
 .jo-table th {
-    background-color: var(--background-color-th);
+  text-align: inherit;
+  background-color: var(--background-color-th);
 }
 .jo-table td {
-    background-color: var(--background-color-td);
+  background-color: var(--background-color-td);
 }
 
 .jo-table td,
@@ -17,12 +18,19 @@
   border-right: 1px solid var(--border-color);
   border-bottom: 1px solid var(--border-color);
 }
+.jo-table.jo-table--single-row td,
+.jo-table.jo-table--single-row th {
+  border-right: none;
+}
+.jo-table.jo-table--single-column td{
+  border-bottom: none;
+}
 .jo-table td:last-child,
 .jo-table th:last-child {
   border-right: none;
 }
 
-.jo-table tbody tr:last-child td{
+.jo-table tbody tr:last-child td {
   border-bottom: none;
 }
 .jo-table tr {
