@@ -3,6 +3,7 @@
 ```demo
 basis
 size
+slots
 ```
 
 # Props

@@ -139,6 +139,9 @@ export default defineComponent({
         onFocus={this.handleWrapperFocus}
         onClick={this.handleWrapperClick}
       >
+        {this.$slots.prefix ? (
+          <div class="jo-input__prefix">{this.$slots.prefix()}</div>
+        ) : undefined}
         {this.$props.type === "textarea" ? (
           <textarea
             ref="textareaElementRef"
@@ -163,6 +166,9 @@ export default defineComponent({
             onInput={this.handleInput}
           />
         )}
+        {this.$slots.suffix ? (
+          <div class="jo-input__suffix">{this.$slots.suffix()}</div>
+        ) : undefined}
       </div>
     );
   },
