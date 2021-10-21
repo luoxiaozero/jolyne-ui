@@ -58,3 +58,8 @@
 .jo-button.jo-button--text:hover {
   color: var(--background-color-hover);
 }
+
+.jo-button__content {
+  display: flex;
+  align-items: center;
+}
