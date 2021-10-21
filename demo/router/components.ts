@@ -169,5 +169,9 @@ export const componentsRoutes = [
     {
         path: "steps",
         component: () => import("../../src/steps/demos/zhCN/index.entry.md")
+    },
+    {
+        path: "input-number",
+        component: () => import("../../src/input-number/demos/zhCN/index.entry.md")
     }
 ]

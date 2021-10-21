@@ -53,7 +53,7 @@ export const menuOptions = [
         label: "排印",
         key: "typography",
         extra: "Typography",
-      }
+      },
     ],
   },
   {
@@ -80,7 +80,7 @@ export const menuOptions = [
         label: "时间线",
         key: "timeline",
         extra: "Timeline",
-      }
+      },
     ],
   },
   {
@@ -109,6 +109,11 @@ export const menuOptions = [
         extra: "Input",
       },
       {
+        label: "数字输入",
+        key: "input-number",
+        extra: "Input Number",
+      },
+      {
         label: "上传",
         key: "upload",
         extra: "Upload",
@@ -131,8 +136,8 @@ export const menuOptions = [
       {
         label: "滑动选择",
         key: "slider",
-        extra: "Slider"
-      }
+        extra: "Slider",
+      },
     ],
   },
   {
@@ -211,7 +216,7 @@ export const menuOptions = [
         label: "步骤",
         key: "steps",
         extra: "Steps",
-      }
+      },
     ],
   },
   {

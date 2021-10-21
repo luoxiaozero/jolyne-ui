@@ -21,6 +21,7 @@ export * from "./grid";
 export * from "./icon";
 export * from "./image";
 export * from "./input";
+export * from "./input-number";
 export * from "./layout";
 export * from "./loading-bar";
 export * from "./menu";
