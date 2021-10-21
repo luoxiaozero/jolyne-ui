@@ -3,11 +3,11 @@
 ```html
 <jo-space>
   <jo-image
-    src="../../../../demo/assets/pexels-eberhard-grossgasteiger-707344.jpg"
+    src="https://s3.bmp.ovh/imgs/2021/10/2c3b013418d55659.jpg"
     width="100px"
   />
   <jo-image
-    src="../../../../demo/assets/pexels-eberhard-grossgasteiger-707344.jpg"
+    src="https://s3.bmp.ovh/imgs/2021/10/2c3b013418d55659.jpg"
     height="100px"
   />
 </jo-space>
