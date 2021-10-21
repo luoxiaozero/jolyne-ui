@@ -59,7 +59,7 @@ export default defineComponent({
       }
     });
     const percentageRef = computed(() => {
-      if (valueRef.value < 0) {
+      if (valueRef.value < 0 || props.max <= 0) {
         return 0;
       } else if (valueRef.value > props.max) {
         return 100;

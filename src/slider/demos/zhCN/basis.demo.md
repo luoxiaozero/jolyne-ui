@@ -2,6 +2,7 @@
 
 ```html
 <jo-space vertical>
+  <jo-slider v-model:value="valueRef" :max="0"/>
   {{ valueRef }}
   <jo-slider v-model:value="valueRef" />
   步长

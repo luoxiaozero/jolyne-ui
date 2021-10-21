@@ -9,7 +9,7 @@
     border-radius: 2px;
 }
 .jo-slider-rail__fill {
-    width: 40%;
+    width: 0%;
     height: 4px;
     background-color: var(--background-color-fill);
     border-radius: 2px;
