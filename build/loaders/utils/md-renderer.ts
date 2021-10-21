@@ -5,7 +5,7 @@ export default function createMdRenderer() {
   const renderer = new marked.Renderer();
   const overrides = {
     table(header: string, body: string) {
-      return `<jo-card contentStyle="padding: 20px 28px" borderRadius="large"><jo-table :single-row="true">
+      return `<jo-card contentStyle="padding: 0" borderRadius="large"><jo-table :single-row="true">
       <thead> ${header}</thead>
       <tbody>${body}</tbody>
       </jo-table></jo-card>`;

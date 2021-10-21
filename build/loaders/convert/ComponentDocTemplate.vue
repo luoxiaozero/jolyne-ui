@@ -39,6 +39,7 @@ export default defineComponent({
         display: none;
     }
     .doc {
+        padding: 6px 4px 12px;
         margin-right: 0;
     }
 }

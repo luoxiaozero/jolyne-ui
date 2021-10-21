@@ -194,6 +194,12 @@ export default defineComponent({
     display: none;
 }
 @media screen and (max-width: 1000px) {
+    .nav {
+        padding: 0 10px;
+    }
+    .nav-box > a {
+        margin-right: 0;
+    }
     .min-screen {
         display: none;
     }
