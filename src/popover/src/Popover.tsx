@@ -115,6 +115,13 @@ export default defineComponent({
     }
     bindBodyClickEvent((ev) => {
       if (props.trigger !== "click") return;
+      let el = ev.target as HTMLElement;
+      while (el !== document.body) {
+        if (el === popoverRef.value) {
+          return;
+        }
+        el = el.parentElement as HTMLElement;
+      }
       showPopoverRef.value = false;
     });
     function handleClick(e: MouseEvent) {
