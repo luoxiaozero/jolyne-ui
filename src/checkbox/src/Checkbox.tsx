@@ -8,6 +8,8 @@ import {
 } from "vue";
 import { useTheme } from "../../components";
 import { checkboxApiInjectionKey } from "./CheckboxGroup";
+import { JoIcon } from "../../icon";
+import { Remove, CheckmarkSharp } from "@vicons/ionicons5";
 import "./styles/Checkbox.css";
 
 export default defineComponent({
@@ -15,6 +17,7 @@ export default defineComponent({
   props: {
     checked: Boolean,
     "onUpdate:checked": Function as PropType<(checked: boolean) => void>,
+    indeterminate: Boolean,
     name: String,
     value: String,
   },
@@ -68,12 +71,16 @@ export default defineComponent({
         <div
           class={[
             "jo-checkbox__dot",
-            { "jo-checkbox__dot--checked": this.checked },
+            { "jo-checkbox__dot--checked": this.checked || this.indeterminate },
           ]}
         >
-          <svg viewBox="0 0 64 64" class="jo-checkbox__icon">
-            <path d="M50.42,16.76L22.34,39.45l-8.1-11.46c-1.12-1.58-3.3-1.96-4.88-0.84c-1.58,1.12-1.95,3.3-0.84,4.88l10.26,14.51  c0.56,0.79,1.42,1.31,2.38,1.45c0.16,0.02,0.32,0.03,0.48,0.03c0.8,0,1.57-0.27,2.2-0.78l30.99-25.03c1.5-1.21,1.74-3.42,0.52-4.92  C54.13,15.78,51.93,15.55,50.42,16.76z"></path>
-          </svg>
+          <JoIcon color="white">
+            {this.indeterminate ? (
+              <Remove />
+            ) : this.checked ? (
+              <CheckmarkSharp />
+            ) : undefined}
+          </JoIcon>
         </div>
         {this.$slots.default ? (
           <div class="jo-checkbox__label">{this.$slots.default()}</div>

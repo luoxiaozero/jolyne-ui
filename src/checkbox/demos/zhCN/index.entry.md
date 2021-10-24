@@ -3,6 +3,7 @@
 ```demo
 basis
 group
+indeterminate
 ```
 
 ## Radio Props

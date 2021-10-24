@@ -24,9 +24,7 @@
 .jo-checkbox__dot--checked {
   background-color: var(--background-color-checked);
 }
-.jo-checkbox__icon {
-    fill: white;
-}
+
 .jo-checkbox__label {
   display: inline-block;
   padding: 0 6px;
