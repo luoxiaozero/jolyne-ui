@@ -67,6 +67,11 @@ export const menuOptions = [
         extra: "Table",
       },
       {
+        label: "数据表格",
+        key: "data-table",
+        extra: "Data Table",
+      },
+      {
         label: "代码",
         key: "code",
         extra: "Code",

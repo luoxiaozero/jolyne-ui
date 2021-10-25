@@ -173,5 +173,9 @@ export const componentsRoutes = [
     {
         path: "input-number",
         component: () => import("../../src/input-number/demos/zhCN/index.entry.md")
+    },
+    {
+        path: "data-table",
+        component: () => import("../../src/data-table/demos/zhCN/index.entry.md")
     }
 ]

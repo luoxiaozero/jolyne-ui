@@ -10,6 +10,7 @@ export * from "./checkbox";
 export * from "./code";
 export * from "./collapse";
 export * from "./config-provider";
+export * from "./data-table";
 export * from "./dialog";
 export * from "./divider";
 export * from "./drawer";
