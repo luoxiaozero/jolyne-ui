@@ -6,7 +6,7 @@ export default defineComponent({
   name: "DataTableBody",
   props: {
     columns: Array as PropType<ColumnsType[]>,
-    data: Array  as PropType<TableDataType[]>,
+    data: Array as PropType<TableDataType[]>,
   },
   render() {
     return (
@@ -15,7 +15,7 @@ export default defineComponent({
           return (
             <tr>
               {this.columns?.map((col) => {
-                return <td>{d[col.key]}</td>;
+                return <td>{col.render ? col.render(d) : d[col.key]}</td>;
               })}
             </tr>
           );

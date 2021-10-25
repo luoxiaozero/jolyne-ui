@@ -1,6 +1,5 @@
 import { h, defineComponent, PropType, computed, CSSProperties } from "vue";
-import DateTableHead, { ColumnsType } from "./DataTableHead";
-import DateTableBody from "./DataTableBody";
+import { ColumnsType } from "./DataTableHead";
 import DataTableHead from "./DataTableHead";
 import DataTableBody from "./DataTableBody";
 import "./styles/DataTable.css";
