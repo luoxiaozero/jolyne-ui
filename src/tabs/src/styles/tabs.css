@@ -1,0 +1,12 @@
+.jo-tabs-nav {
+    display: flex;
+}
+
+.jo-tab {
+    padding: 6px;
+    cursor: pointer;
+}
+
+.jo-tab--selected {
+    color: var(--text-color-selected)
+}

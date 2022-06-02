@@ -177,5 +177,9 @@ export const componentsRoutes = [
     {
         path: "data-table",
         component: () => import("../../src/data-table/demos/zhCN/index.entry.md")
+    },
+    {
+        path: "tabs",
+        component: () => import("../../src/tabs/demos/zhCN/index.entry.md")
     }
 ]

@@ -222,6 +222,11 @@ export const menuOptions = [
         key: "steps",
         extra: "Steps",
       },
+      {
+        label: "标签页",
+        key: "tabs",
+        extra: "Tabs",
+      },
     ],
   },
   {

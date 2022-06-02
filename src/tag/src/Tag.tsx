@@ -21,7 +21,6 @@ export default defineComponent({
   setup(props) {
     const theme = useTheme();
     function handleCloseClick(e: MouseEvent): void {
-      console.log("sds", props.onClose);
       if (props.onClose) props.onClose(e);
     }
     return {
