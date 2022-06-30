@@ -1,6 +1,6 @@
 import { h, defineComponent, PropType, InjectionKey, provide, computed, CSSProperties } from "vue"
 import { useTheme } from "../../_mixins/use-theme"
-import { type FormItemInst } from "./FormItem"
+import type { FormItemInst } from "./FormItem"
 
 export interface FormRules {
     [key: string | number | symbol]: {
