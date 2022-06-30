@@ -24,6 +24,7 @@ import { useMessage } from "jolyne-ui"
 export default defineComponent({
     setup() {
         const formRef = ref(null)
+        const message = useMessage()
         const model = ref({
             age: null,
             password: null,
@@ -31,7 +32,6 @@ export default defineComponent({
         })
 
         function validate() {
-            const message = useMessage()
             formRef.value.validate(msg => {
                 if (msg) {
                     message.error("错误" + msg)
