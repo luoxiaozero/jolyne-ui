@@ -3,6 +3,7 @@
 ```demo
 basis
 LabelPlacement
+validate
 ```
 
 ## Form Props

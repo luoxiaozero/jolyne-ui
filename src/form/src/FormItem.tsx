@@ -1,6 +1,10 @@
-import { h, defineComponent, inject, watch, ref, PropType } from "vue"
+import { h, defineComponent, inject, watch, ref, onBeforeUnmount, onUnmounted, Ref } from "vue"
 import { formApiInjectionKey } from "./Form"
 import "./styles/index.css"
+
+export interface FormItemInst {
+    validate: () => string | undefined
+}
 
 export default defineComponent({
     name: "FormItem",
@@ -11,8 +15,9 @@ export default defineComponent({
     },
     setup(props) {
         const formApi = inject(formApiInjectionKey)
-        const feedbackRef = ref(props.feedback)
+        const feedbackRef: Ref<string | undefined> = ref(props.feedback)
         const isShowRequireMark = ref(false)
+
         if (formApi && props.path && formApi.rules && props.path in formApi.rules) {
             const rules = formApi.rules[props.path]
             for (const rule of rules) {
@@ -22,20 +27,52 @@ export default defineComponent({
                 }
             }
 
+            const validate = () => {
+                if (!props.path) return
+                const value = (formApi.model as any)[props.path]
+                feedbackRef.value = undefined
+                for (const rule of rules) {
+                    if (rule.required) {
+                        feedbackRef.value = !value ? rule.message : undefined
+                    }
+                    if (rule.validator) {
+                        const reValue = rule.validator(rule, value)
+                        feedbackRef.value =
+                            typeof reValue === "object" ? reValue.message : undefined
+                    }
+                    if (feedbackRef.value) {
+                        return feedbackRef.value
+                    }
+                }
+                return
+            }
+
+            const formItemInst: FormItemInst = {
+                validate,
+            }
+
+            const mountValidate = () => {
+                if (!props.path) return
+                if (!formApi.formItems[props.path]) {
+                    formApi.formItems[props.path] = []
+                }
+                formApi.formItems[props.path].push(formItemInst)
+            }
+
+            const unmountValidate = () => {
+                if (!props.path) return
+                formApi.formItems[props.path].filter(item => item != formItemInst)
+            }
+
+            mountValidate()
+            onBeforeUnmount(() => {
+                unmountValidate()
+            })
+
             watch(
                 () => (formApi.model as any)[props.path as string],
                 value => {
-                    for (const rule of rules) {
-                        if (rule.required) {
-                            isShowRequireMark.value = rule.required
-                            feedbackRef.value = !value ? rule.message : ""
-                        }
-                        if (rule.validator) {
-                            const reValue = rule.validator(rule, value)
-                            feedbackRef.value =
-                                typeof reValue === "object" ? reValue.message : undefined
-                        }
-                    }
+                    validate()
                 }
             )
         }
@@ -55,7 +92,9 @@ export default defineComponent({
             >
                 <div class="jo-form-item__label">
                     {this.label}
-                    {this.isShowRequireMark ? <span style="color: #d03050">&nbsp;*</span> : undefined}
+                    {this.isShowRequireMark ? (
+                        <span style="color: #d03050">&nbsp;*</span>
+                    ) : undefined}
                 </div>
                 <div class="jo-form-item__blank">{this.$slots.default?.()}</div>
                 <div class="jo-form-item__feedback">{this.feedbackRef}</div>
