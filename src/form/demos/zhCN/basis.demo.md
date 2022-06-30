@@ -36,6 +36,12 @@ export default defineComponent({
                     },
                 },
             ],
+            password: [
+                {
+                    required: true,
+                    message: "密码不能为空",
+                },
+            ],
         }
         return {
             model,

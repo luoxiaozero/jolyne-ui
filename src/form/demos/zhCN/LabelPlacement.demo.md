@@ -55,6 +55,12 @@ export default defineComponent({
                     },
                 },
             ],
+            name: [
+                {
+                    required: true,
+                    message: "名字不能为空",
+                },
+            ],
         }
         return {
             model,

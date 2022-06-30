@@ -1,15 +1,17 @@
 import { h, defineComponent, PropType, InjectionKey, provide, computed, CSSProperties } from "vue"
 import { useTheme } from "../../_mixins/use-theme"
 
-interface Rules {
+export interface FormRules {
     [key: string | number | symbol]: {
-        validator: (rule: any, value: any) => boolean | Error
+        required?: boolean,
+        message?: string,
+        validator?: (rule: any, value: any) => boolean | Error
     }[]
 }
 
 interface FromApiInjection {
     model: Object
-    rules: Rules
+    rules: FormRules
 }
 export const formApiInjectionKey: InjectionKey<FromApiInjection> = Symbol("formApi")
 export default defineComponent({
@@ -24,7 +26,7 @@ export default defineComponent({
             default: "top",
         },
         model: Object,
-        rules: Object as PropType<Rules>,
+        rules: Object as PropType<FormRules>,
     },
     setup(props) {
         const theme = useTheme()
