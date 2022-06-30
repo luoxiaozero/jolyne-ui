@@ -13,7 +13,10 @@ export const formApiInjectionKey: InjectionKey<FromApiInjection> = Symbol("formA
 export default defineComponent({
   name: "Form",
   props: {
-    labelPlacement:String as PropType<"left"|"top">,
+    labelPlacement: {
+      type: String as PropType<"left"|"top">,
+      deafult: "top"
+    },
     model: Object,
     rules: Object as PropType<Rules>,
   },

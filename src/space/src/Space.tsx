@@ -18,7 +18,7 @@ export default defineComponent({
     size: {
       type: [Number, Array] as PropType<number | [number, number]>,
       default: 8,
-    }
+    },
   },
   setup(props) {
     let horizontalMargin = "";
@@ -33,14 +33,14 @@ export default defineComponent({
     return {
       horizontalMargin,
       verticalMargin,
-    }
+    };
   },
   render() {
     const children = flatten(getSlot(this));
     const lastIndex = children.length - 1;
     return (
       <div
-        class="jo-space"
+        class={["jo-space", { "jo-space--vertical": this.vertical }]}
         style={{
           flexDirection: this.$props.vertical ? "column" : "row",
           flexWrap: this.$props.wrap ? "wrap" : "nowrap",
@@ -53,10 +53,12 @@ export default defineComponent({
               style={
                 (this.$props.vertical
                   ? {
-                      marginBottom: index !== lastIndex ? this.verticalMargin : "",
+                      marginBottom:
+                        index !== lastIndex ? this.verticalMargin : "",
                     }
                   : {
-                      marginRight: index !== lastIndex ? this.horizontalMargin : "",
+                      marginRight:
+                        index !== lastIndex ? this.horizontalMargin : "",
                       paddingTop: "4px",
                       paddingBottom: "4px",
                     }) as any

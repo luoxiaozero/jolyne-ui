@@ -2,6 +2,7 @@
 
 ```demo
 basis
+LabelPlacement
 ```
 
 ## Form Props
@@ -10,7 +11,7 @@ basis
 | --------------- | --------------- | ----------- | -------------------------- |
 | model           | `Object`        | `undefined` | 获取表项中收集到的值的对象 |
 | rules           | `Rules`         | `undefined` | 验证表项的规则             |
-| label-placement | `'left'\|'top'` | `undefined` | 标签显示的位置         |
+| label-placement | `'left'\|'top'` | `top`       | 标签显示的位置             |
 
 ### Rules
 

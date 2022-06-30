@@ -1,3 +1,6 @@
 .jo-space {
     display: flex;
 }
+.jo-space--vertical > div{
+    max-width: 100%;
+}
