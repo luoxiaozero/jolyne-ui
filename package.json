@@ -1,6 +1,6 @@
 {
   "name": "jolyne-ui",
-  "version": "0.0.12-alpha.2",
+  "version": "0.0.13-alpha.1",
   "description": "一个 Vue3 的 UI 库",
   "main": "lib/index.js",
   "scripts": {
