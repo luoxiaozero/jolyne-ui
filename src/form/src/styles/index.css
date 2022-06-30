@@ -26,6 +26,7 @@
 
 .jo-form--left .jo-form-item__blank {
     display: inline-flex;
+    width: calc(100% - 10px - var(--jo-label-width));
 }
 
 .jo-form--left .jo-form-item__feedback {
