@@ -1,49 +1,46 @@
-# 标签显示的位置
+# 验证
 
 ```html
-<h4>默认</h4>
-<jo-form :model="model" :rules="rules">
-    <jo-form-item label="年龄" path="age">
-        <jo-input v-model:value="model.age" />
-    </jo-form-item>
-</jo-form>
-
-<h4>上边</h4>
-<jo-form :model="model" :rules="rules" label-placement="top">
-    <jo-form-item label="年龄" path="age">
-        <jo-input v-model:value="model.age" />
-    </jo-form-item>
-</jo-form>
-
-<h4>左边</h4>
-<jo-form :model="model" :rules="rules" label-placement="left">
+<jo-form :model="model" :rules="rules" ref="formRef">
     <jo-form-item label="名字" path="name">
         <jo-input v-model:value="model.name" />
     </jo-form-item>
     <jo-form-item label="年龄" path="age">
         <jo-input v-model:value="model.age" />
     </jo-form-item>
-</jo-form>
-<h4>左边 指定标签宽度</h4>
-<jo-form :model="model" :rules="rules" label-placement="left" label-width="50px">
-    <jo-form-item label="名字" path="name">
-        <jo-input v-model:value="model.name" />
+    <jo-form-item label="密码" path="password">
+        <jo-input v-model:value="model.password" />
     </jo-form-item>
-    <jo-form-item label="年龄" path="age">
-        <jo-input v-model:value="model.age" />
+    <jo-form-item>
+        <jo-button @click="validate">验证</jo-button>
     </jo-form-item>
 </jo-form>
 ```
 
 ```js
 import { defineComponent, ref } from "vue"
+import { useMessage } from "jolyne-ui"
+
 export default defineComponent({
     setup() {
+        const formRef = ref(null)
+        const message = useMessage()
         const model = ref({
             age: null,
             password: null,
             name: null,
         })
+
+        function validate() {
+            formRef.value.validate(msg => {
+                if (msg) {
+                    message.error("错误" + msg)
+                } else {
+                    message.success("成功")
+                }
+            })
+        }
+
         const rules = {
             age: [
                 {
@@ -55,14 +52,16 @@ export default defineComponent({
                     },
                 },
             ],
-            name: [
+            password: [
                 {
                     required: true,
-                    message: "名字不能为空",
+                    message: "密码不能为空",
                 },
             ],
         }
         return {
+            formRef,
+            validate,
             model,
             rules,
         }
