@@ -1,0 +1,19 @@
+.jo-input-group {
+    display: flex;
+}
+
+.jo-input-group > *:first-child {
+    margin-right: 0 !important;
+    border-top-right-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
+}
+.jo-input-group > *:last-child {
+    margin-left: 0 !important;
+    border-top-left-radius: 0 !important;
+    border-bottom-left-radius: 0 !important;
+}
+.jo-button-group > *:not(:first-child):not(:last-child) {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    border-radius: 0 !important;
+}
