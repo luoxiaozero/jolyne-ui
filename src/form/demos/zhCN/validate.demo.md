@@ -12,7 +12,10 @@
         <jo-input v-model:value="model.password" />
     </jo-form-item>
     <jo-form-item>
-        <jo-button @click="validate">验证</jo-button>
+        <jo-space>
+            <jo-button @click="validate">验证</jo-button>
+            <jo-button @click="validateField">验证名字</jo-button>
+        </jo-space>
     </jo-form-item>
 </jo-form>
 ```
@@ -40,13 +43,28 @@ export default defineComponent({
                 }
             })
         }
+        function validateField() {
+            formRef.value.validateField("name", msg => {
+                if (msg) {
+                    message.error("错误" + msg)
+                } else {
+                    message.success("成功")
+                }
+            })
+        }
 
         const rules = {
+            name: [
+                {
+                    required: true,
+                    message: "名字不能为空",
+                },
+            ],
             age: [
                 {
                     validator(rule, value) {
                         if (value < 0 || value > 200) {
-                            return new Error("年龄 gg")
+                            return new Error("年龄")
                         }
                         return true
                     },
@@ -62,6 +80,7 @@ export default defineComponent({
         return {
             formRef,
             validate,
+            validateField,
             model,
             rules,
         }
