@@ -1,5 +1,6 @@
 .jo-input-group {
     display: flex;
+    width: 100%;
 }
 
 .jo-input-group > *:first-child {
