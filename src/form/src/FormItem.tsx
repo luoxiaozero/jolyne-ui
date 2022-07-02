@@ -33,16 +33,17 @@ export default defineComponent({
                 feedbackRef.value = undefined
                 for (const rule of rules) {
                     if (rule.required) {
-                        feedbackRef.value = !value ? rule.message : undefined
+                        if (!value) {
+                            feedbackRef.value = rule.message
+                        }
                     }
                     if (rule.validator) {
                         const reValue = rule.validator(rule, value)
-                        feedbackRef.value =
-                            typeof reValue === "object" ? reValue.message : undefined
+                        if (typeof reValue === "object") {
+                            feedbackRef.value = reValue.message
+                        }
                     }
-                    if (feedbackRef.value) {
-                        return feedbackRef.value
-                    }
+                    if (feedbackRef.value) return feedbackRef.value
                 }
                 return
             }

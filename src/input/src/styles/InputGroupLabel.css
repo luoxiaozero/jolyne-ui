@@ -1,0 +1,10 @@
+.jo-input-group-label {
+    display: inline-flex;
+    align-items: center;
+    white-space: nowrap;
+    padding: 0 10px;
+
+    background-color: var(--jo-label-background-color);
+    border: 1px solid var(--jo-border-color);
+    border-radius: 3px;
+}

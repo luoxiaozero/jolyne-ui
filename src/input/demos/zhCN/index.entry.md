@@ -4,6 +4,7 @@
 basis
 size
 slots
+group
 ```
 
 # Props
