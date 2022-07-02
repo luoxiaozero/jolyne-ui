@@ -11,6 +11,9 @@
         <jo-input-group-label @click="handleClick" style="cursor: pointer">
             {{ text }}
         </jo-input-group-label>
+        <jo-button style="width:70px">
+            发送
+        </jo-button>
     </jo-input-group>
 </jo-space>
 ```

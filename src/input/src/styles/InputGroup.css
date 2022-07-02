@@ -12,7 +12,7 @@
     border-top-left-radius: 0 !important;
     border-bottom-left-radius: 0 !important;
 }
-.jo-button-group > *:not(:first-child):not(:last-child) {
+.jo-input-group > *:not(:first-child):not(:last-child) {
     margin-left: 0 !important;
     margin-right: 0 !important;
     border-radius: 0 !important;
