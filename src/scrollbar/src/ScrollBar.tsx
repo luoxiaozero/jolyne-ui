@@ -72,8 +72,12 @@ export default defineComponent({
       }
     }
     function handleScrollMouseMove(ev: MouseEvent) {
-      ev.preventDefault();
-      ev.stopPropagation();
+      /**移动滚动条时 取消默认事件。不加判断：页面内容不能复制，。 */
+      if (isXThumbMouseMove || isYThumbMouseMove) {
+        ev.preventDefault();
+        ev.stopPropagation();
+      }
+      
       if (isXThumbMouseMove) {
         const rect = containerRef.value!.getBoundingClientRect();
         if (ev.x <= rect.x + xThumbMouseOffset) {
