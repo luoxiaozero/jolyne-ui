@@ -1,5 +1,7 @@
 .jo-popover {
   position: fixed;
+  top: 0;
+  left: 0;
   display: inline-block;
   z-index: 1000;
   background-color: var(--background-color);
