@@ -1,5 +1,6 @@
 import { h, computed, CSSProperties, defineComponent, PropType, ref, Fragment, Teleport } from "vue"
 import "./styles/select.css"
+import { useTheme } from "../../_mixins/use-theme"
 
 interface SelectOption {
     label: string
@@ -15,6 +16,7 @@ export default defineComponent({
         options: Array as PropType<SelectOption[]>,
     },
     setup(props) {
+        const theme = useTheme()
         const selectLabelRef = ref<String | null>(null)
 
         props.options?.find(option => {
@@ -36,12 +38,27 @@ export default defineComponent({
         return {
             selectLabelRef,
             handleMenuItemClick,
+            cssVars: computed(() => {
+                const { borderColor, backgroundColor, fontColor, errorBorderColor } =
+                    theme.value.input
+                return {
+                    "--height": "30px",
+                    "--line-height": "30px",
+                    "--border-color": borderColor,
+                    "--border-color-error": errorBorderColor,
+                    "--background-color": backgroundColor,
+                    "--font-color": fontColor,
+                    "--border-color-hover": "#36ad6a",
+                }
+            }),
         }
     },
     render() {
         return (
             <>
-                <div class="jo-select">{this.selectLabelRef}</div>
+                <div class="jo-select" style={this.cssVars as CSSProperties}>
+                    {this.selectLabelRef}
+                </div>
                 <Teleport to="body">
                     <div class="jo-select-menu">
                         {this.options?.map(option => {

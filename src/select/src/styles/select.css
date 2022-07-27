@@ -1,0 +1,20 @@
+.jo-select {
+    padding: 0 10px;
+    height: var(--height);
+    line-height: var(--line-height);
+    background-color: var(--background-color);
+    color: var(--font-color);
+    border: 1px solid var(--border-color);
+    border-radius: 3px;
+    transition: all 0.3s;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+
+.jo-select:hover {
+    border-color: var(--border-color-hover);
+}
+
+.jo-form-item--error .jo-select {
+    border-color: var(--border-color-error);
+}
