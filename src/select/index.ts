@@ -1,0 +1,1 @@
+export { default as JoSelect } from "./src/Select";

@@ -1,4 +1,4 @@
-import { h, computed, CSSProperties, defineComponent, PropType, Fragment, Teleport } from "vue"
+import { h, computed, CSSProperties, defineComponent, PropType, ref, Fragment, Teleport } from "vue"
 import "./styles/select.css"
 
 interface SelectOption {
@@ -15,30 +15,40 @@ export default defineComponent({
         options: Array as PropType<SelectOption[]>,
     },
     setup(props) {
+        const selectLabelRef = ref<String | null>(null)
+
+        props.options?.find(option => {
+            if (option.value == props.value) {
+                selectLabelRef.value = option.label
+                return true
+            }
+        })
         function doUpdateValue(value: string) {
             const { onUpdateValue, "onUpdate:value": _onUpdateValue } = props
             if (onUpdateValue) onUpdateValue(value)
             if (_onUpdateValue) _onUpdateValue(value)
         }
 
-        function handleMenuItemClick(value: string) {
-            doUpdateValue(value)
+        function handleMenuItemClick(option: SelectOption) {
+            doUpdateValue(option.value)
+            selectLabelRef.value = option.label
         }
         return {
+            selectLabelRef,
             handleMenuItemClick,
         }
     },
     render() {
         return (
             <>
-                <div class="jo-select"></div>
+                <div class="jo-select">{this.selectLabelRef}</div>
                 <Teleport to="body">
                     <div class="jo-select-menu">
                         {this.options?.map(option => {
                             return (
                                 <div
                                     class="jo-select-menu-item"
-                                    onClick={() => this.handleMenuItemClick(option.value)}
+                                    onClick={() => this.handleMenuItemClick(option)}
                                 >
                                     {option.label}
                                 </div>
