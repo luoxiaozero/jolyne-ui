@@ -1,6 +1,17 @@
-import { h, computed, CSSProperties, defineComponent, PropType, ref, Fragment, Teleport } from "vue"
+import {
+    h,
+    computed,
+    CSSProperties,
+    defineComponent,
+    PropType,
+    ref,
+    Fragment,
+    Teleport,
+    nextTick,
+} from "vue"
 import "./styles/select.css"
 import { useTheme } from "../../_mixins/use-theme"
+import { bindBodyClickEvent } from "../../util/bodyElement"
 
 interface SelectOption {
     label: string
@@ -18,6 +29,20 @@ export default defineComponent({
     setup(props) {
         const theme = useTheme()
         const selectLabelRef = ref<String | null>(null)
+        const triggerRef = ref<HTMLDivElement | null>(null)
+        const popoverRef = ref<HTMLDivElement | null>(null)
+        const isShowPopoverRef = ref(false)
+        function showPopover() {
+            const rect = triggerRef.value!.getBoundingClientRect()
+
+            isShowPopoverRef.value = true
+            nextTick(() => {
+                popoverRef.value!.style.width = `${rect.width}px`
+                popoverRef.value!.style.transform = `translateX(${
+                    rect.x + rect.width / 2
+                }px) translateY(${rect.y + rect.height}px) translateX(-50%)`
+            })
+        }
 
         props.options?.find(option => {
             if (option.value == props.value) {
@@ -25,6 +50,18 @@ export default defineComponent({
                 return true
             }
         })
+
+        bindBodyClickEvent(ev => {
+            let el = ev.target as HTMLElement
+            while (el !== document.body) {
+                if (el === popoverRef.value || el === triggerRef.value) {
+                    return
+                }
+                el = el.parentElement as HTMLElement
+            }
+            isShowPopoverRef.value = false
+        })
+
         function doUpdateValue(value: string) {
             const { onUpdateValue, "onUpdate:value": _onUpdateValue } = props
             if (onUpdateValue) onUpdateValue(value)
@@ -34,8 +71,13 @@ export default defineComponent({
         function handleMenuItemClick(option: SelectOption) {
             doUpdateValue(option.value)
             selectLabelRef.value = option.label
+            isShowPopoverRef.value = false
         }
         return {
+            triggerRef,
+            popoverRef,
+            showPopover,
+            isShowPopoverRef,
             selectLabelRef,
             handleMenuItemClick,
             cssVars: computed(() => {
@@ -56,23 +98,34 @@ export default defineComponent({
     render() {
         return (
             <>
-                <div class="jo-select" style={this.cssVars as CSSProperties}>
+                <div
+                    class="jo-select"
+                    ref="triggerRef"
+                    style={this.cssVars as CSSProperties}
+                    onClick={this.showPopover}
+                >
                     {this.selectLabelRef}
                 </div>
-                <Teleport to="body">
-                    <div class="jo-select-menu">
-                        {this.options?.map(option => {
-                            return (
-                                <div
-                                    class="jo-select-menu-item"
-                                    onClick={() => this.handleMenuItemClick(option)}
-                                >
-                                    {option.label}
-                                </div>
-                            )
-                        })}
-                    </div>
-                </Teleport>
+                {this.isShowPopoverRef ? (
+                    <Teleport to="body">
+                        <div
+                            class="jo-select-menu"
+                            ref="popoverRef"
+                            style={this.cssVars as CSSProperties}
+                        >
+                            {this.options?.map(option => {
+                                return (
+                                    <div
+                                        class="jo-select-menu-item"
+                                        onClick={() => this.handleMenuItemClick(option)}
+                                    >
+                                        {option.label}
+                                    </div>
+                                )
+                            })}
+                        </div>
+                    </Teleport>
+                ) : null}
             </>
         )
     },
