@@ -139,6 +139,11 @@ export const menuOptions = [
         extra: "Checkbox",
       },
       {
+        label: "选择器",
+        key: "select",
+        extra: "Select",
+      },
+      {
         label: "滑动选择",
         key: "slider",
         extra: "Slider",

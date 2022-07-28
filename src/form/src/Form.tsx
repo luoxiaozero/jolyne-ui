@@ -59,7 +59,7 @@ export default defineComponent({
                 return
             },
             validateField: (path, callback) => {
-                if (path in Object.keys(formApi.formItems)) {
+                if (Object.keys(formApi.formItems).includes(path)) {
                     const itemValue = formApi.formItems[path]
                     for (const formItem of itemValue) {
                         const msg = formItem.validate()

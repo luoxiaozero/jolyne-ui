@@ -1,0 +1,45 @@
+.jo-select {
+    position: relative;
+    padding: 0 10px;
+    height: var(--height);
+    line-height: var(--line-height);
+    background-color: var(--background-color);
+    color: var(--font-color);
+    border: 1px solid var(--border-color);
+    border-radius: 3px;
+    transition: all 0.3s;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+
+.jo-select:hover {
+    border-color: var(--border-color-hover);
+}
+
+.jo-form-item--error .jo-select {
+    border-color: var(--border-color-error);
+}
+
+.jo-select-menu {
+    box-sizing: border-box;
+    padding: 5px;
+    background-color: var(--background-color);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    max-height: 200px;
+    border-radius: 3px;
+    box-shadow: 0 3px 6px -4px rgba(0, 0, 0, 0.12), 0 6px 16px 0 rgba(0, 0, 0, 0.08),
+        0 9px 28px 8px rgba(0, 0, 0, 0.05);
+}
+
+.jo-select-menu-item {
+    padding: 6px 5px;
+    border-radius: 2px;
+    cursor: pointer;
+}
+
+.jo-select-menu-item:hover {
+    background-color: #f6f6f7;
+}
