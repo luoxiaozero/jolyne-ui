@@ -86,7 +86,10 @@ export default defineComponent({
     },
     render() {
         return (
-            <div style={this.cssVars as CSSProperties} class={[`jo-form--${this.labelPlacement}`]}>
+            <div
+                style={this.cssVars as CSSProperties}
+                class={["jo-form", `jo-form--${this.labelPlacement}`]}
+            >
                 {this.$slots.default?.()}
             </div>
         )
