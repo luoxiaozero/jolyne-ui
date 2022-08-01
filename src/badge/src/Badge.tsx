@@ -1,5 +1,4 @@
-import { h, defineComponent } from "@vue/runtime-core";
-import { computed, CSSProperties, PropType } from "vue";
+import { h, defineComponent, computed, CSSProperties, PropType } from "vue";
 import { useTheme } from "../..";
 import "./styles/index.css";
 undefined

@@ -1,5 +1,4 @@
-import { h, defineComponent, renderSlot } from "@vue/runtime-core";
-import { computed, CSSProperties, PropType } from "vue";
+import { h, defineComponent, renderSlot, computed, CSSProperties, PropType } from "vue";
 import { JoIcon } from "../../icon";
 import { useTheme } from "../../_mixins/use-theme";
 import "./styles/index.css";
