@@ -1,4 +1,5 @@
 import { App } from "vue";
+import version from './version'
 import * as components from "./components";
 function create(compoents: any[]) {
   function registerComponent(app: App, name: string, compoent: any) {
@@ -13,7 +14,7 @@ function create(compoents: any[]) {
     });
   }
   return {
-    version: '0.0.0',
+    version,
     install,
   };
 }

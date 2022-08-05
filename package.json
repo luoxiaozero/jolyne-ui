@@ -5,9 +5,11 @@
   "main": "lib/index.js",
   "scripts": {
     "dev": "vite",
-    "build:lib": "rimraf lib && tsc -b ./build.tsconfig.json && gulp",
-    "build:publish": "pnpm run build:lib && pnpm publish --access=public",
+    "build:lib": "rimraf lib && pnpm gen-version && tsc -b ./build.tsconfig.json && gulp && gen-volar-dts",
+    "build:publish": "pnpm build:lib && pnpm publish --access=public",
     "build:site": "vue-tsc --noEmit && vite build",
+    "gen-version": "node scripts/gen-version",
+    "gen-volar-dts": "esbuild scripts/gen-component-declaration.js --bundle --platform=node --outfile=temp.js && node temp.js && rimraf temp.*",
     "serve": "vite preview"
   },
   "dependencies": {
@@ -19,6 +21,7 @@
     "@types/marked": "^4.0.3",
     "@vitejs/plugin-vue": "^3.0.1",
     "@vitejs/plugin-vue-jsx": "^2.0.0",
+    "esbuild": "^0.14.53",
     "fs-extra": "^10.1.0",
     "gulp": "^4.0.2",
     "highlight.js": "^11.6.0",
@@ -33,7 +36,8 @@
   "license": "MIT",
   "files": [
     "package.json",
-    "lib"
+    "lib",
+    "volar.d.ts"
   ],
   "keywords": [
     "jolyne-ui",
