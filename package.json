@@ -5,15 +5,17 @@
   "main": "lib/index.js",
   "scripts": {
     "dev": "vite",
-    "build:lib": "rimraf lib && pnpm gen-version && tsc -b ./build.tsconfig.json && gulp && gen-volar-dts",
+    "build:lib": "rimraf lib && pnpm gen-react && pnpm gen-version && tsc -b ./build.tsconfig.json && gulp && pnpm gen-volar-dts",
     "build:publish": "pnpm build:lib && pnpm publish --access=public",
     "build:site": "vue-tsc --noEmit && vite build",
     "gen-version": "node scripts/gen-version",
+    "gen-react": "esbuild scripts/gen-react.js --bundle --platform=node --outfile=temp.js && node temp.js && rimraf temp.*",
     "gen-volar-dts": "esbuild scripts/gen-component-declaration.js --bundle --platform=node --outfile=temp.js && node temp.js && rimraf temp.*",
     "serve": "vite preview"
   },
   "dependencies": {
     "@vicons/ionicons5": "^0.12.0",
+    "veaury": "^2.2.5",
     "vue": "^3.2.37"
   },
   "devDependencies": {
