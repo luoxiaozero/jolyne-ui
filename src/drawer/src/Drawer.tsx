@@ -7,15 +7,20 @@ import {
   CSSProperties,
 } from "vue";
 import { useTheme } from "../..";
+import { ExtractPublicPropTypes } from "../../util/extract-public-props";
 import "./styles/index.css";
+
+const drawerProps = {
+  placement: String as PropType<"up" | "down" | "left" | "right">,
+  show: Boolean,
+  "onUpdate:show": Function as PropType<(value: boolean) => void>,
+  onUpdateShow: Function as PropType<(value: boolean) => void>,
+}
+export type DrawerProps = ExtractPublicPropTypes<typeof drawerProps>
+
 export default defineComponent({
   name: "Drawer",
-  props: {
-    placement: String as PropType<"up" | "down" | "left" | "right">,
-    show: Boolean,
-    "onUpdate:show": Function as PropType<(value: boolean) => void>,
-    onUpdateShow: Function as PropType<(value: boolean) => void>,
-  },
+  props: drawerProps,
   setup(props) {
     const theme = useTheme();
     function doUpdateShow(show: boolean): void {

@@ -7,15 +7,19 @@ import {
   CSSProperties,
 } from "vue";
 import { useTheme } from "../..";
+import { ExtractPublicPropTypes } from "../../util/extract-public-props";
 import { useHljs } from "../../_mixins/use-hljs";
 import "./styles/index.css";
 
+const codeProps = {
+  code: String,
+  lang: String,
+}
+export type CodeProps = ExtractPublicPropTypes<typeof codeProps>
+
 export default defineComponent({
   name: "Code",
-  props: {
-    code: String,
-    lang: String,
-  },
+  props: codeProps,
   setup(props) {
     const theme = useTheme();
     const codeRef = ref<HTMLPreElement | null>(null);

@@ -11,16 +11,20 @@ import { checkboxApiInjectionKey } from "./CheckboxGroup";
 import { JoIcon } from "../../icon";
 import { Remove, CheckmarkSharp } from "@vicons/ionicons5";
 import "./styles/Checkbox.css";
+import { ExtractPublicPropTypes } from "../../util/extract-public-props";
+
+const checkboxProps = {
+  checked: Boolean,
+  "onUpdate:checked": Function as PropType<(checked: boolean) => void>,
+  indeterminate: Boolean,
+  name: String,
+  value: String,
+}
+export type CheckboxProps = ExtractPublicPropTypes<typeof checkboxProps>
 
 export default defineComponent({
   name: "Checkbox",
-  props: {
-    checked: Boolean,
-    "onUpdate:checked": Function as PropType<(checked: boolean) => void>,
-    indeterminate: Boolean,
-    name: String,
-    value: String,
-  },
+  props: checkboxProps,
   setup(props) {
     const checkboxApi = inject(checkboxApiInjectionKey);
     const mergeName = props.name || checkboxApi?.name;

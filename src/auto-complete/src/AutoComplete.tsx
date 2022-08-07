@@ -13,23 +13,27 @@ import {
 } from "vue";
 import "./styles/index.css";
 import { useTheme } from "jolyne-ui";
+import { ExtractPublicPropTypes } from "../../util/extract-public-props";
 
 interface AutoCompleteOption {
   label: string;
   value: string;
 }
 
+const autoCompleteProps = {
+  value: String,
+  "onUpdate:value": Function as PropType<(value: string) => void>,
+  options: Array as PropType<AutoCompleteOption[]>,
+  clearAfterSelect: Boolean,
+  blurAfterSelect: Boolean,
+  placeholder: String,
+  onSelect: Function as PropType<(value: string) => void>,
+}
+export type AutoCompleteProps = ExtractPublicPropTypes<typeof autoCompleteProps>
+
 export default defineComponent({
   name: "AutoComplete",
-  props: {
-    value: String,
-    "onUpdate:value": Function as PropType<(value: string) => void>,
-    options: Array as PropType<AutoCompleteOption[]>,
-    clearAfterSelect: Boolean,
-    blurAfterSelect: Boolean,
-    placeholder: String,
-    onSelect: Function as PropType<(value: string) => void>,
-  },
+  props: autoCompleteProps,
   setup(props) {
     const theme = useTheme();
     const isComposingRef = ref(false);

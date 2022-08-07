@@ -1,5 +1,13 @@
 import { h, defineComponent, computed, PropType } from "vue";
+import { ExtractPublicPropTypes } from "../../util/extract-public-props";
 import "./styles/Icon.css";
+
+const iconProps = {
+  size: [Number, Array] as PropType<number | [number, number]>,
+  color: String,
+}
+export type IconProps = ExtractPublicPropTypes<typeof iconProps>
+
 export default defineComponent({
   name: "Icon",
   props: {
