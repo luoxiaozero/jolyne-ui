@@ -1,12 +1,12 @@
 {
   "name": "jolyne-ui",
-  "version": "0.0.15-alpha.4",
+  "version": "0.0.16",
   "description": "一个 Vue3 的 UI 库",
   "main": "lib/index.js",
   "scripts": {
     "dev": "vite",
     "build:lib": "rimraf lib && pnpm gen-react && pnpm gen-version && tsc -b ./build.tsconfig.json && gulp && pnpm gen-volar-dts",
-    "build:publish": "pnpm build:lib && pnpm publish --access=public",
+    "build:publish": "pnpm build:lib && pnpm publish --access=public --no-git-checks",
     "build:site": "vue-tsc --noEmit && vite build",
     "gen-version": "node scripts/gen-version",
     "gen-react": "esbuild scripts/gen-react.js --bundle --platform=node --outfile=temp.js && node temp.js && rimraf temp.*",
