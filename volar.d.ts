@@ -15,7 +15,6 @@ declare module 'vue' {
     JoCode: typeof import('jolyne-ui')['JoCode']
     JoCollapseItem: typeof import('jolyne-ui')['JoCollapseItem']
     JoConfigProvider: typeof import('jolyne-ui')['JoConfigProvider']
-    JoDateTable: typeof import('jolyne-ui')['JoDateTable']
     JoDialog: typeof import('jolyne-ui')['JoDialog']
     JoDialogProvider: typeof import('jolyne-ui')['JoDialogProvider']
     JoDivider: typeof import('jolyne-ui')['JoDivider']
@@ -64,6 +63,7 @@ declare module 'vue' {
     JoTimelineItem: typeof import('jolyne-ui')['JoTimelineItem']
     JoUpload: typeof import('jolyne-ui')['JoUpload']
     JoUploadDragger: typeof import('jolyne-ui')['JoUploadDragger']
+    JoDataTable: typeof import('jolyne-ui')['JoDataTable']
   }
 }
 export {}
