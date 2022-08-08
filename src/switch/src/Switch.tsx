@@ -1,13 +1,16 @@
 import { h, computed, CSSProperties, defineComponent, PropType, ref } from "vue";
+import { ExtractPublicPropTypes } from "../../util/extract-public-props";
 import { useTheme } from "../../_mixins/use-theme";
 import "./styles/index.css";
+const switchProps = {
+  value: Boolean,
+  "onUpdate:value": Function as PropType<(value: boolean) => void>,
+  onUpdateValue: Function as PropType<(value: boolean) => void>,
+}
+export type SwitchProps = ExtractPublicPropTypes<typeof switchProps>
 export default defineComponent({
   name: "Switch",
-  props: {
-    value: Boolean,
-    "onUpdate:value": Function as PropType<(value: boolean) => void>,
-    onUpdateValue: Function as PropType<(value: boolean) => void>,
-  },
+  props: switchProps,
   setup(props) {
     const valueRef = ref(props.value || false);
     const theme = useTheme();

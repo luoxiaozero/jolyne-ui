@@ -3,14 +3,16 @@ import { flatten } from "../../util/flatten"
 import Tab from "./Tab"
 import "./styles/tabs.css"
 import { useTheme } from "../../components"
-
+import { ExtractPublicPropTypes } from "../../util/extract-public-props"
+const tabsProps = {
+    value: String,
+    "onUpdate:value": Function as PropType<(value: string) => void>,
+    onUpdateValue: Function as PropType<(value: string) => void>,
+}
+export type TabsProps = ExtractPublicPropTypes<typeof tabsProps>
 export default defineComponent({
     name: "Tabs",
-    props: {
-        value: String,
-        "onUpdate:value": Function as PropType<(value: string) => void>,
-        onUpdateValue: Function as PropType<(value: string) => void>,
-    },
+    props: tabsProps,
     setup(props) {
         const theme = useTheme()
         const valueRef = computed(() => props.value || "")

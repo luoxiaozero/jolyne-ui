@@ -8,17 +8,21 @@ import {
   inject,
 } from "vue";
 import { useTheme } from "../../components";
+import { ExtractPublicPropTypes } from "../../util/extract-public-props";
 import { radioApiInjectionKey } from "./RadioGroup";
 import "./styles/Radio.css";
 
+const radioProps = {
+  checked: Boolean,
+  "onUpdate:checked": Function as PropType<(checked: boolean) => void>,
+  name: String,
+  value: String,
+}
+export type RadioProps = ExtractPublicPropTypes<typeof radioProps>
+
 export default defineComponent({
   name: "Radio",
-  props: {
-    checked: Boolean,
-    "onUpdate:checked": Function as PropType<(checked: boolean) => void>,
-    name: String,
-    value: String,
-  },
+  props: radioProps,
   setup(props) {
     const radioApi = inject(radioApiInjectionKey);
     const mergeName = props.name || radioApi?.name; 

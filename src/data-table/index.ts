@@ -1,1 +1,3 @@
-export { default as JoDateTable } from "./src/DataTable";
+export { default as JoDataTable } from "./src/DataTable";
+
+export type { DataTableProps as JTDataTableProps } from "./src/DataTable"

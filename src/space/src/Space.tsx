@@ -2,24 +2,28 @@ import { flatten } from "../../util/flatten";
 import getSlot from "../../util/getSlot";
 import { h, defineComponent, PropType } from "vue";
 import "./styles/index.css";
+import { ExtractPublicPropTypes } from "../../util/extract-public-props";
+
+const spaceProps = {
+  vertical: Boolean,
+  justify: {
+    type: String as PropType<"start" | "end">,
+    default: "start",
+  },
+  wrap: {
+    type: Boolean,
+    default: true,
+  },
+  size: {
+    type: [Number, Array] as PropType<number | [number, number]>,
+    default: 8,
+  },
+}
+export type SpaceProps = ExtractPublicPropTypes<typeof spaceProps>
 
 export default defineComponent({
   name: "Space",
-  props: {
-    vertical: Boolean,
-    justify: {
-      type: String as PropType<"start" | "end">,
-      default: "start",
-    },
-    wrap: {
-      type: Boolean,
-      default: true,
-    },
-    size: {
-      type: [Number, Array] as PropType<number | [number, number]>,
-      default: 8,
-    },
-  },
+  props: spaceProps,
   setup(props) {
     let horizontalMargin = "";
     let verticalMargin = "";

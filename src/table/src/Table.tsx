@@ -1,13 +1,17 @@
 import { h, defineComponent, computed, CSSProperties } from "vue";
 import { useTheme } from "../..";
+import { ExtractPublicPropTypes } from "../../util/extract-public-props";
 import "./styles/index.css";
+
+const tableProps = {
+  singleRow: Boolean,
+  singleColumn: Boolean,
+}
+export type TableProps = ExtractPublicPropTypes<typeof tableProps>
 
 export default defineComponent({
   name: "Table",
-  props: {
-    singleRow: Boolean,
-    singleColumn: Boolean,
-  },
+  props: tableProps,
   setup() {
     const theme = useTheme();
     return {

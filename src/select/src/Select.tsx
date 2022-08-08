@@ -12,20 +12,22 @@ import {
 import "./styles/select.css"
 import { useTheme } from "../../_mixins/use-theme"
 import { bindBodyClickEvent } from "../../util/bodyElement"
+import { ExtractPublicPropTypes } from "../../util/extract-public-props"
 
 interface SelectOption {
     label: string
     value: string
 }
-
+const selectProps = {
+    value: String,
+    "onUpdate:value": Function as PropType<(value: string) => void>,
+    onUpdateValue: Function as PropType<(value: string) => void>,
+    options: Array as PropType<SelectOption[]>,
+}
+export type SelectProps = ExtractPublicPropTypes<typeof selectProps>
 export default defineComponent({
     name: "Select",
-    props: {
-        value: String,
-        "onUpdate:value": Function as PropType<(value: string) => void>,
-        onUpdateValue: Function as PropType<(value: string) => void>,
-        options: Array as PropType<SelectOption[]>,
-    },
+    props: selectProps,
     setup(props) {
         const theme = useTheme()
         const selectLabelRef = ref<String | null>(null)

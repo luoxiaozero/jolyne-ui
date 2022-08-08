@@ -6,7 +6,7 @@ const gridItemProps = {
   span: { type: Number, default: 1 },
   offset: { type: Number, default: 0 },
 }
-export type GridProps = ExtractPublicPropTypes<typeof gridItemProps>
+export type GridItemProps = ExtractPublicPropTypes<typeof gridItemProps>
 
 export default defineComponent({
   name: "GridItem",

@@ -9,22 +9,25 @@ import {
   onMounted,
   onBeforeUnmount,
 } from "vue";
+import { ExtractPublicPropTypes } from "../../util/extract-public-props";
 import "./styles/Slider.css";
+const sliderProps = {
+  max: {
+    type: Number,
+    default: 100,
+  },
+  step: {
+    type: Number,
+    default: 1,
+  },
+  value: Number,
+  "onUpdate:value": Function as PropType<(value: number) => void>,
+  isSliderDelay: Boolean,
+}
+export type SliderProps = ExtractPublicPropTypes<typeof sliderProps>
 export default defineComponent({
   name: "Slider",
-  props: {
-    max: {
-      type: Number,
-      default: 100,
-    },
-    step: {
-      type: Number,
-      default: 1,
-    },
-    value: Number,
-    "onUpdate:value": Function as PropType<(value: number) => void>,
-    isSliderDelay: Boolean,
-  },
+  props: sliderProps,
   setup(props) {
     const theme = useTheme();
     const sliderRailRef = ref<HTMLDivElement | null>(null);

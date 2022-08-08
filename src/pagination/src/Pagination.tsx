@@ -1,24 +1,28 @@
 import { useTheme } from "../../_mixins/use-theme";
 import { h, computed, CSSProperties, defineComponent, ref, watch } from "vue";
 import "./styles/index.css";
+import { ExtractPublicPropTypes } from "../../util/extract-public-props";
+
+const paginationProps = {
+  /**总页数 */
+  total: {
+    type: Number,
+    required: true as true,
+  },
+  size: {
+    type: Number,
+    default: 10,
+  },
+  selectColor: {
+    type: String,
+    default: "#409eff",
+  },
+}
+export type PaginationProps = ExtractPublicPropTypes<typeof paginationProps>
 
 export default defineComponent({
   name: "Pagination",
-  props: {
-    /**总页数 */
-    total: {
-      type: Number,
-      required: true,
-    },
-    size: {
-      type: Number,
-      default: 10,
-    },
-    selectColor: {
-      type: String,
-      default: "#409eff",
-    },
-  },
+  props: paginationProps,
   setup(props, context) {
     const theme = useTheme();
     const total = ref(props.total);

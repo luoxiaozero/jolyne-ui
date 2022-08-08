@@ -7,6 +7,7 @@ import {
   computed,
   provide,
 } from "vue";
+import { ExtractPublicPropTypes } from "../../util/extract-public-props";
 interface RadioApiInjection {
   name?: string;
   valueRef: ComputedRef<string>;
@@ -14,13 +15,17 @@ interface RadioApiInjection {
 }
 export const radioApiInjectionKey: InjectionKey<RadioApiInjection> =
   Symbol("radioApi");
+
+const radioGroupProps = {
+  value: String,
+  "onUpdate:value": Function as PropType<(value: string) => void>,
+  name: String,
+}
+export type RadioGroupProps = ExtractPublicPropTypes<typeof radioGroupProps>
+
 export default defineComponent({
   name: "RadioGroup",
-  props: {
-    value: String,
-    "onUpdate:value": Function as PropType<(value: string) => void>,
-    name: String,
-  },
+  props: radioGroupProps,
   setup(props) {
     const valueRef = computed(() => props.value || "");
     function doUpdateValue(value: string) {

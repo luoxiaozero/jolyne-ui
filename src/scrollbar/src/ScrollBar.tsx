@@ -7,17 +7,21 @@ import {
   onMounted,
   onBeforeUnmount,
 } from "vue";
+import { ExtractPublicPropTypes } from "../../util/extract-public-props";
 import "./styles/index.css";
+const scrollbarProps = {
+  /**滚动条默认样式功能 */
+  scrollStyle: {
+    type: String as PropType<"default" | "hidden" | "remove" | "virtual">,
+    default: "hidden",
+  },
+  contentStyle: [String, Object] as PropType<CSSProperties | string>,
+}
+export type ScrollbarProps = ExtractPublicPropTypes<typeof scrollbarProps>
+
 export default defineComponent({
   name: "Scrollbar",
-  props: {
-    /**滚动条默认样式功能 */
-    scrollStyle: {
-      type: String as PropType<"default" | "hidden" | "remove" | "virtual">,
-      default: "hidden",
-    },
-    contentStyle: [String, Object] as PropType<CSSProperties | string>,
-  },
+  props: scrollbarProps,
   setup() {
     const containerScrollTopRef = ref(0);
     const containerScrollLeftRef = ref(0);

@@ -3,18 +3,22 @@ import { useTheme } from "../../_mixins/use-theme";
 import { JoIcon } from "../../icon";
 import { Checkmark, Close } from "@vicons/ionicons5";
 import { stepsApiInjectionKey } from "./Steps";
+import { ExtractPublicPropTypes } from "../../util/extract-public-props";
+
+const stepProps = {
+  title: String,
+  description: String,
+  /**由父类填充 */
+  internalIndex: {
+    type: Number,
+    default: 1,
+  },
+}
+export type StepProps = ExtractPublicPropTypes<typeof stepProps>
 
 export default defineComponent({
   name: "Step",
-  props: {
-    title: String,
-    description: String,
-    /**由父类填充 */
-    internalIndex: {
-      type: Number,
-      default: 1,
-    },
-  },
+  props: stepProps,
   setup(props) {
     const theme = useTheme();
     const stepsApi = inject(stepsApiInjectionKey);
