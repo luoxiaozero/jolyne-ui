@@ -1,12 +1,14 @@
 import { useTheme } from "../../components";
 import { h, defineComponent, CSSProperties, computed } from "vue";
 import "./styles/Text.css";
-
+import { ExtractPublicPropTypes } from "../../util/extract-public-props";
+const textProps = {
+  code: Boolean,
+}
+export type TextProps = ExtractPublicPropTypes<typeof textProps>
 export default defineComponent({
   name: "Text",
-  props: {
-    code: Boolean,
-  },
+  props: textProps,
   setup() {
       const theme = useTheme();
       return {

@@ -1,4 +1,5 @@
 import { h, defineComponent, inject, watch, ref, onBeforeUnmount, onUnmounted, Ref } from "vue"
+import { ExtractPublicPropTypes } from "../../util/extract-public-props"
 import { formApiInjectionKey } from "./Form"
 import "./styles/index.css"
 
@@ -6,13 +7,16 @@ export interface FormItemInst {
     validate: () => string | undefined
 }
 
+const formItemProps = {
+    label: String,
+    feedback: String,
+    path: String,
+}
+export type FormItemProps = ExtractPublicPropTypes<typeof formItemProps>
+
 export default defineComponent({
     name: "FormItem",
-    props: {
-        label: String,
-        feedback: String,
-        path: String,
-    },
+    props: formItemProps,
     setup(props) {
         const formApi = inject(formApiInjectionKey)
         const feedbackRef: Ref<string | undefined> = ref(props.feedback)

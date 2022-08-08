@@ -3,12 +3,17 @@ import { h, defineComponent, nextTick, PropType, ref } from "vue";
 import { JoInput } from "../../input";
 import { JoSpace } from "../../space";
 import { JoTag } from "../../tag";
+import { ExtractPublicPropTypes } from "../../util/extract-public-props";
+
+const dynamicTagsProps = {
+  value: Array as PropType<string[]>,
+  "onUpdate:value": Function as PropType<(value: string[]) => void>,
+}
+export type DynamicTagsProps = ExtractPublicPropTypes<typeof dynamicTagsProps>
+
 export default defineComponent({
   name: "DynamicTags",
-  props: {
-    value: Array as PropType<string[]>,
-    "onUpdate:value": Function as PropType<(value: string[]) => void>,
-  },
+  props: dynamicTagsProps,
   setup(props) {
     const showInputRef = ref(false);
     const controlledValueRef = ref(props.value || []);

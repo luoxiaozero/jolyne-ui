@@ -1,4 +1,4 @@
-import { h, defineComponent, renderSlot, computed, CSSProperties, PropType } from "vue";
+import { h, defineComponent, renderSlot, computed, CSSProperties, PropType, ExtractPropTypes } from "vue";
 import { JoIcon } from "../../icon";
 import { useTheme } from "../../_mixins/use-theme";
 import "./styles/index.css";
@@ -10,18 +10,23 @@ import {
   NotificationsCircle,
 } from "@vicons/ionicons5";
 import { toFirstLetterUpper } from "../../util";
+import { ExtractPublicPropTypes } from "../../util/extract-public-props";
+
+const alertProps = {
+  title: String,
+  type: {
+    type: String as PropType<
+      "default" | "info" | "success" | "warning" | "error"
+    >,
+    default: "default",
+  },
+}
+
+export type AlertProps = ExtractPublicPropTypes<typeof alertProps>
 
 export default defineComponent({
   name: "Alert",
-  props: {
-    title: String,
-    type: {
-      type: String as PropType<
-        "default" | "info" | "success" | "warning" | "error"
-      >,
-      default: "default",
-    },
-  },
+  props: alertProps,
   setup(props) {
     const theme = useTheme();
     return {

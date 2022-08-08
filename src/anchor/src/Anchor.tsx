@@ -10,6 +10,7 @@ import {
   onBeforeUnmount,
   PropType,
 } from "vue";
+import { ExtractPublicPropTypes } from "../../util/extract-public-props";
 import "./styles/Anchor.css";
 interface AnchorApiInjection {
   collectedLinkHrefs: string[];
@@ -18,11 +19,15 @@ interface AnchorApiInjection {
 }
 export const anchorApiInjectionKey: InjectionKey<AnchorApiInjection> =
   Symbol("anchorApi");
+
+const anchorProps = {
+  listenTo: [Object, String] as PropType<HTMLElement | string>,
+}
+export type AnchorProps = ExtractPublicPropTypes<typeof anchorProps>
+  
 export default defineComponent({
   name: "Anchor",
-  props: {
-    listenTo: [Object, String] as PropType<HTMLElement | string>,
-  },
+  props: anchorProps,
   setup(props) {
     const collectedLinkHrefs = reactive<string[]>([]);
     const selectedHrefRef = ref("");

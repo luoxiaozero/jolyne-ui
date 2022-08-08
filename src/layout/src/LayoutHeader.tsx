@@ -1,12 +1,16 @@
 import { h, defineComponent, computed, CSSProperties } from "vue";
 import { useTheme } from "../..";
+import { ExtractPublicPropTypes } from "../../util/extract-public-props";
+
+const layoutHeaderProps = {
+  bordered: Boolean,
+  boxShadow: Boolean,
+}
+export type LayoutHeaderProps = ExtractPublicPropTypes<typeof layoutHeaderProps>
 
 export default defineComponent({
   name: "LayoutHeader",
-  props: {
-    bordered: Boolean,
-    boxShadow: Boolean,
-  },
+  props: layoutHeaderProps,
   setup() {
     const theme = useTheme();
     return {

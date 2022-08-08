@@ -13,28 +13,33 @@ import { Close as CloseIcon } from "@vicons/ionicons5";
 import "./styles/index.css";
 import createTipIcon from "../../_common/TipIcon";
 import { toFirstLetterUpper } from "../../util";
+import { ExtractPublicPropTypes } from "../../util/extract-public-props";
+
+const dialogProps = {
+  type: {
+    type: String as PropType<
+      "info" | "success" | "warning" | "error" | "default"
+    >,
+    default: "default",
+  },
+  title: String,
+  negativeText: String,
+  positiveText: String,
+  content: String,
+  onPositiveClick: Function as PropType<() => boolean>,
+  onNegativeClick: Function as PropType<() => boolean>,
+  onClose: Function as PropType<() => boolean>,
+  internalKey: {
+    type: String,
+    required: true,
+  },
+  onInternalAfterLeave: Function as PropType<(key: string) => void>,
+}
+export type DialogProps = ExtractPublicPropTypes<typeof dialogProps>
+
 export default defineComponent({
   name: "Dialog",
-  props: {
-    type: {
-      type: String as PropType<
-        "info" | "success" | "warning" | "error" | "default"
-      >,
-      default: "default",
-    },
-    title: String,
-    negativeText: String,
-    positiveText: String,
-    content: String,
-    onPositiveClick: Function as PropType<() => boolean>,
-    onNegativeClick: Function as PropType<() => boolean>,
-    onClose: Function as PropType<() => boolean>,
-    internalKey: {
-      type: String,
-      required: true,
-    },
-    onInternalAfterLeave: Function as PropType<(key: string) => void>,
-  },
+  props: dialogProps,
   setup(props) {
     const theme = useTheme();
     function hide() {

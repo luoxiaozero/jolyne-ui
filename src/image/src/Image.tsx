@@ -1,23 +1,28 @@
 import { h, CSSProperties, defineComponent, PropType } from "vue";
+import { ExtractPublicPropTypes } from "../../util/extract-public-props";
 import "./styles/index.css";
+
+const imageProps = {
+  alt: String,
+  src: String,
+  width: [Number, String] as PropType<number | string>,
+  height: [Number, String] as PropType<number | string>,
+  objectFit: {
+    type: String as PropType<
+      "fill" | "contain" | "cover" | "none" | "scale-down"
+    >,
+    default: "fill",
+  },
+  borderRadius: {
+    type: String,
+    default: "inherit",
+  },
+}
+export type ImageProps = ExtractPublicPropTypes<typeof imageProps>
+
 export default defineComponent({
   name: "Image",
-  props: {
-    alt: String,
-    src: String,
-    width: [Number, String] as PropType<number | string>,
-    height: [Number, String] as PropType<number | string>,
-    objectFit: {
-      type: String as PropType<
-        "fill" | "contain" | "cover" | "none" | "scale-down"
-      >,
-      default: "fill",
-    },
-    borderRadius: {
-      type: String,
-      default: "inherit",
-    },
-  },
+  props: imageProps,
   setup(props) {
     return {
       cssVars: {

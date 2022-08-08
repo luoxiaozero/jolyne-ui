@@ -1,5 +1,12 @@
 import { h, defineComponent, inject } from "vue";
+import { ExtractPublicPropTypes } from "../../util/extract-public-props";
 import { gridApiInjectionKey } from "./Grid";
+
+const gridItemProps = {
+  span: { type: Number, default: 1 },
+  offset: { type: Number, default: 0 },
+}
+export type GridItemProps = ExtractPublicPropTypes<typeof gridItemProps>
 
 export default defineComponent({
   name: "GridItem",

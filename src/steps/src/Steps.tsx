@@ -10,6 +10,7 @@ import {
 } from "vue";
 import "./styles/Steps.css";
 import getSlot from "../../util/getSlot";
+import { ExtractPublicPropTypes } from "../../util/extract-public-props";
 function stepWithIndex(step: VNodeChild, i: number): VNode | null {
   if (typeof step !== "object" || step === null || Array.isArray(step)) {
     return null;
@@ -37,6 +38,8 @@ export interface StepsApiInjection {
 
 export const stepsApiInjectionKey: InjectionKey<StepsApiInjection> =
   Symbol("stepsApi");
+
+export type StepsProps = ExtractPublicPropTypes<typeof stepsProps>
 
 export default defineComponent({
   name: "Steps",

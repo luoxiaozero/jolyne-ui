@@ -1,11 +1,13 @@
 import { h, defineComponent } from "vue";
+import { ExtractPublicPropTypes } from "../../util/extract-public-props";
 import "./styles/Timeline.css";
-
+const timelineProps = {
+  horizontal: Boolean,
+}
+export type TimelineProps = ExtractPublicPropTypes<typeof timelineProps>
 export default defineComponent({
   name: "Timeline",
-  props: {
-    horizontal: Boolean,
-  },
+  props: timelineProps,
   render() {
     return (
       <div

@@ -6,15 +6,19 @@ import {
   inject,
   computed,
 } from "vue";
+import { ExtractPublicPropTypes } from "../../util/extract-public-props";
 import { anchorApiInjectionKey } from "./Anchor";
 import "./styles/AnchorLink.css";
 
+const anchorLinkProps = {
+  title: String,
+  href: String,
+}
+export type AnchorLinkProps = ExtractPublicPropTypes<typeof anchorLinkProps>
+
 export default defineComponent({
   name: "AnchorLink",
-  props: {
-    title: String,
-    href: String,
-  },
+  props: anchorLinkProps,
   setup(props) {
     const anchor = inject(anchorApiInjectionKey, null);
     const isActive = computed(() => {

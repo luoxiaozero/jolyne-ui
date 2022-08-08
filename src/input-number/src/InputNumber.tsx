@@ -3,14 +3,18 @@ import { JoInput } from "../../input";
 import { JoIcon } from "../../icon";
 import { JoButton } from "../../button";
 import { Remove, Add } from "@vicons/ionicons5";
+import { ExtractPublicPropTypes } from "../../util/extract-public-props";
+
+const inputNumberProps = {
+  placeholder: String,
+  value: Number,
+  "onUpdate:value": Function as PropType<(value: number | undefined) => void>,
+}
+export type InputNumberProps = ExtractPublicPropTypes<typeof inputNumberProps>
 
 export default defineComponent({
   name: "InputNumber",
-  props: {
-    placeholder: String,
-    value: Number,
-    "onUpdate:value": Function as PropType<(value: number | undefined) => void>,
-  },
+  props: inputNumberProps,
   setup(props) {
     const displayVlaue = computed(() => {
       return props.value as unknown as string;

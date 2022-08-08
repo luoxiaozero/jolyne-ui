@@ -1,18 +1,24 @@
 import { h, defineComponent, CSSProperties, PropType, computed } from "vue";
 import { useTheme, JoScrollbar } from "../..";
+import { ExtractPublicPropTypes } from "../../util/extract-public-props";
 import "./styles/index.css";
 
 export default createLayoutComponent(false);
+
+const layoutProps = {
+  hasSider: Boolean,
+  position: {
+    type: String as PropType<"static" | "absolute">,
+    default: "static",
+  },
+}
+export type LayoutProps = ExtractPublicPropTypes<typeof layoutProps>
+export type LayoutContentProps = ExtractPublicPropTypes<typeof layoutProps>
+
 export function createLayoutComponent(isContent: boolean) {
   return defineComponent({
     name: isContent ? "LayoutContent" : "Layout",
-    props: {
-      hasSider: Boolean,
-      position: {
-        type: String as PropType<"static" | "absolute">,
-        default: "static",
-      },
-    },
+    props: layoutProps,
     setup() {
       const theme = useTheme();
       const hasSiderStyle: CSSProperties = {

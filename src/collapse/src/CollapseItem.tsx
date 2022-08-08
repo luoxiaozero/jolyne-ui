@@ -1,11 +1,15 @@
 import { h, defineComponent, ref } from "vue";
+import { ExtractPublicPropTypes } from "../../util/extract-public-props";
 import "./styles/index.css";
+
+const collapseItemProps = {
+  title: String,
+}
+export type CollapseItemProps = ExtractPublicPropTypes<typeof collapseItemProps>
 
 export default defineComponent({
   name: "CollapseItem",
-  props: {
-    title: String,
-  },
+  props: collapseItemProps,
   setup() {
     const isShow = ref(false);
     const openContent = () => {

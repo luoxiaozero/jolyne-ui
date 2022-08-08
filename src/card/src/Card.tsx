@@ -6,29 +6,34 @@ import {
   renderSlot,
   PropType,
 } from "vue";
+import { ExtractPublicPropTypes } from "../../util/extract-public-props";
 import { useTheme } from "../../_mixins/use-theme";
 import "./styles/index.css";
+
+const cardProps = {
+  title: String,
+  bordered: {
+    type: Boolean,
+    default: false,
+  },
+  borderRadius: {
+    type: [String, Number] as PropType<number | "small" | "medium" | "large" | "base">,
+    default: "base",
+  },
+  boxShadow: {
+    type: Boolean,
+    default: true,
+  },
+  segmented: String as PropType<"header" | "content" | "footer">,
+  headerStyle: [Object, String] as PropType<CSSProperties | string>,
+  contentStyle: [Object, String] as PropType<CSSProperties | string>,
+  footerStyle: [Object, String] as PropType<CSSProperties | string>,
+}
+export type CardProps = ExtractPublicPropTypes<typeof cardProps>
+
 export default defineComponent({
   name: "Card",
-  props: {
-    title: String,
-    bordered: {
-      type: Boolean,
-      default: false,
-    },
-    borderRadius: {
-      type: [String, Number] as PropType<number | "small" | "medium" | "large" | "base">,
-      default: "base",
-    },
-    boxShadow: {
-      type: Boolean,
-      default: true,
-    },
-    segmented: String as PropType<"header" | "content" | "footer">,
-    headerStyle: [Object, String] as PropType<CSSProperties | string>,
-    contentStyle: [Object, String] as PropType<CSSProperties | string>,
-    footerStyle: [Object, String] as PropType<CSSProperties | string>,
-  },
+  props: cardProps,
   setup(props) {
     const theme = useTheme();
     return {

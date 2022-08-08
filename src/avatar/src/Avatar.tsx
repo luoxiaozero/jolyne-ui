@@ -1,16 +1,20 @@
 import { h, CSSProperties, defineComponent, PropType } from "vue";
+import { ExtractPublicPropTypes } from "../../util/extract-public-props";
 import "./styles/index.css";
+
+const avatarProps = {
+  src: String,
+  circle: Boolean,
+  size: {
+    type: [String, Number] as PropType<number | "medium">,
+    default: "medium",
+  },
+}
+export type AvatarProps = ExtractPublicPropTypes<typeof avatarProps>
 
 export default defineComponent({
   name: "Avatar",
-  props: {
-    src: String,
-    circle: Boolean,
-    size: {
-      type: [String, Number] as PropType<number | "medium">,
-      default: "medium",
-    },
-  },
+  props: avatarProps,
   setup(props) {
     let size: string;
     if (typeof props.size === "number") {

@@ -10,11 +10,17 @@ import {
   computed,
   CSSProperties,
 } from "vue";
+import { ExtractPublicPropTypes } from "../../util/extract-public-props";
 import "./styles/index.css";
 interface DropdownOption {
   label: string;
   key: string;
 }
+const dropdownProps = {
+  options: Array as PropType<DropdownOption[]>,
+  onSelect: Function as PropType<(key: string) => void>,
+}
+export type DropdownProps = ExtractPublicPropTypes<typeof dropdownProps>
 export default defineComponent({
   name: "Dropdown",
   props: {

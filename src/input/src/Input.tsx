@@ -8,29 +8,33 @@ import {
   ref,
 } from "vue";
 import "./styles/index.css";
+import { ExtractPublicPropTypes } from "../../util/extract-public-props";
+
+const inputProps = {
+  hasStyle: { type: Boolean, default: true },
+  type: {
+    type: String as PropType<"textarea" | "input" | "password">,
+    default: "input",
+  },
+  placeholder: String,
+  size: {
+    type: String as PropType<"small" | "medium">,
+    default: "medium",
+  },
+  autofocus: Boolean,
+  value: String,
+  "onUpdate:value": Function as PropType<(value: string) => void>,
+  onUpdateValue: Function as PropType<(value: string) => void>,
+  /**失焦 */
+  onFocus: Function as PropType<(e: FocusEvent) => void>,
+  onBlur: Function as PropType<(e: FocusEvent) => void>,
+  onInput: Function as PropType<(e: Event) => void>,
+}
+export type InputProps = ExtractPublicPropTypes<typeof inputProps>
 
 export default defineComponent({
   name: "Input",
-  props: {
-    hasStyle: { type: Boolean, default: true },
-    type: {
-      type: String as PropType<"textarea" | "input" | "password">,
-      default: "input",
-    },
-    placeholder: String,
-    size: {
-      type: String as PropType<"small" | "medium">,
-      default: "medium",
-    },
-    autofocus: Boolean,
-    value: String,
-    "onUpdate:value": Function as PropType<(value: string) => void>,
-    onUpdateValue: Function as PropType<(value: string) => void>,
-    /**失焦 */
-    onFocus: Function as PropType<(e: FocusEvent) => void>,
-    onBlur: Function as PropType<(e: FocusEvent) => void>,
-    onInput: Function as PropType<(e: Event) => void>,
-  },
+  props: inputProps,
   setup(props) {
     const theme = useTheme();
     const focuseRef = ref(false);

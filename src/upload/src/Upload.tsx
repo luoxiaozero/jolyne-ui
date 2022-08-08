@@ -1,17 +1,21 @@
 import { h, defineComponent, PropType, ref } from "vue";
+import { ExtractPublicPropTypes } from "../../util/extract-public-props";
+
+const uploadProps = {
+  accept: String,
+  multiple: {
+    type: Boolean,
+    default: false,
+  },
+  onBeforeUpload: {
+    type: Function as PropType<(file: File) => void>,
+  },
+}
+export type UploadProps = ExtractPublicPropTypes<typeof uploadProps>
 
 export default defineComponent({
   name: "Upload",
-  props: {
-    accept: String,
-    multiple: {
-      type: Boolean,
-      default: false,
-    },
-    onBeforeUpload: {
-      type: Function as PropType<(file: File) => void>,
-    },
-  },
+  props: uploadProps,
   setup(props) {
     const inputElementRef = ref<HTMLInputElement | null>(null);
     const dargOverRef = ref(false);
