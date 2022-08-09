@@ -3,8 +3,6 @@ import { useTheme, JoScrollbar } from "../..";
 import { ExtractPublicPropTypes } from "../../util/extract-public-props";
 import "./styles/index.css";
 
-export default createLayoutComponent(false);
-
 const layoutProps = {
   hasSider: Boolean,
   position: {
@@ -15,6 +13,7 @@ const layoutProps = {
 export type LayoutProps = ExtractPublicPropTypes<typeof layoutProps>
 export type LayoutContentProps = ExtractPublicPropTypes<typeof layoutProps>
 
+export default createLayoutComponent(false);
 export function createLayoutComponent(isContent: boolean) {
   return defineComponent({
     name: isContent ? "LayoutContent" : "Layout",
