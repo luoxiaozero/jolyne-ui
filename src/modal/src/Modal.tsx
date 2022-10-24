@@ -3,20 +3,24 @@ import { JoCard } from "../../card";
 import { JoIcon } from "../../icon";
 import { Close as CloseIcon } from "@vicons/ionicons5";
 import "./styles/index.css";
+import { ExtractPublicPropTypes } from "../../util/extract-public-props";
+
+const modalProps = {
+  title: {
+    type: String,
+  },
+  show: {
+    type: Boolean,
+    default: false,
+  },
+  "onUpdate:show": Function as PropType<(value: boolean) => void>,
+  onClose: Function as PropType<() => boolean>,
+}
+export type ModalProps = ExtractPublicPropTypes<typeof modalProps>
 
 export default defineComponent({
   name: "Modal",
-  props: {
-    title: {
-      type: String,
-    },
-    show: {
-      type: Boolean,
-      default: false,
-    },
-    "onUpdate:show": Function as PropType<(value: boolean) => void>,
-    onClose: Function as PropType<() => boolean>,
-  },
+  props: modalProps,
   setup(props) {
     function doUpdateShow(show: boolean): void {
       const { "onUpdate:show": _onUpdateShow } = props;

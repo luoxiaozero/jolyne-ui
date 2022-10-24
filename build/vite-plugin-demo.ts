@@ -5,9 +5,10 @@ const fileRegex = /\.(md)$/;
 const vuePlugin = createVuePlugin({
   include: [/\.md$/],
 });
+
 export function createDemoPlugin() {
   const demoPlugin = {
-    name: "demo-vite",
+    name: "vite-plugin-vue-demo",
     transform(code: string, id: string) {
       if (fileRegex.test(id)) {
         return getTransformedVueSrc(id);
@@ -16,8 +17,8 @@ export function createDemoPlugin() {
     async handleHotUpdate(ctx: HmrContext) {
       const { file } = ctx;
       if (fileRegex.test(file)) {
-        const code = await getTransformedVueSrc(file);
-        return vuePlugin.handleHotUpdate({
+        const code = await getTransformedVueSrc(file) || "";
+        return vuePlugin.handleHotUpdate?.({
           ...ctx,
           read: () => code,
         });

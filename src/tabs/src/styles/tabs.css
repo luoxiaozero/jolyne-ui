@@ -1,12 +1,14 @@
 .jo-tabs-nav {
     display: flex;
+    margin-bottom: 5px;
+    border-bottom: 3px solid #eee;
 }
 
 .jo-tab {
-    padding: 6px;
+    padding: 8px 12px;
     cursor: pointer;
 }
 
 .jo-tab--selected {
-    color: var(--text-color-selected)
+    color: var(--text-color-selected);
 }

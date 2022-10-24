@@ -1,21 +1,24 @@
-import { h, defineComponent } from "@vue/runtime-core";
-import { computed, CSSProperties, PropType } from "vue";
+import { h, defineComponent, computed, CSSProperties, PropType } from "vue";
 import { useTheme } from "../..";
+import { ExtractPublicPropTypes } from "../../util/extract-public-props";
 import "./styles/index.css";
-undefined
+
+const badgeProps = {
+  type: {
+    type: String as PropType<
+      "default" | "error" | "info" | "success" | "warning"
+    >,
+    default: "default"
+  },
+  value: Number,
+  maxValue: Number,
+  dot: Boolean,
+}
+export type BadgeProps = ExtractPublicPropTypes<typeof badgeProps>
+
 export default defineComponent({
   name: "Badge",
-  props: {
-    type: {
-      type: String as PropType<
-        "default" | "error" | "info" | "success" | "warning"
-      >,
-      default: "default"
-    },
-    value: Number,
-    maxValue: Number,
-    dot: Boolean,
-  },
+  props: badgeProps,
   setup(props) {
     const theme = useTheme();
     return {

@@ -7,6 +7,7 @@ import {
   computed,
   provide,
 } from "vue";
+import { ExtractPublicPropTypes } from "../../util/extract-public-props";
 interface CheckboxApiInjection {
   valueRef: ComputedRef<string[]>;
   doUpdateValue: (value: string[]) => void;
@@ -15,16 +16,19 @@ interface CheckboxApiInjection {
 export const checkboxApiInjectionKey: InjectionKey<CheckboxApiInjection> =
   Symbol("checkboxApi");
 
+const checkboxGroupProps = {
+  value: {
+    type: Array as PropType<string[]>,
+    default: () => [],
+  },
+  "onUpdate:value": Function as PropType<(value: string[]) => void>,
+  name: String,
+}
+export type CheckboxGroupProps = ExtractPublicPropTypes<typeof checkboxGroupProps>
+
 export default defineComponent({
   name: "CheckboxGroup",
-  props: {
-    value: {
-      type: Array as PropType<string[]>,
-      default: () => [],
-    },
-    "onUpdate:value": Function as PropType<(value: string[]) => void>,
-    name: String,
-  },
+  props: checkboxGroupProps,
   setup(props) {
     const valueRef = computed(() => props.value);
     function doUpdateValue(value: string[]) {

@@ -1,4 +1,4 @@
-import marked from "marked";
+import { marked } from "marked";
 import fs from "fs-extra";
 import path from "path";
 import createMdRenderer from "../utils/md-renderer";
@@ -20,10 +20,10 @@ const demoVue = fs
  * @returns
  */
 function getPartsOfDemo(tokens: marked.TokensList): Parts {
-  let template = null;
-  let script = null;
-  let style = null;
-  let title = null;
+  let template: string | null = null;
+  let script: string | null = null;
+  let style: string | null = null;
+  let title: string | null = null;
   const contentTokens: any = [];
   contentTokens.links = tokens.links;
   for (const token of tokens) {

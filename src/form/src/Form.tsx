@@ -1,4 +1,5 @@
 import { h, defineComponent, PropType, InjectionKey, provide, computed, CSSProperties } from "vue"
+import { ExtractPublicPropTypes } from "../../util/extract-public-props"
 import { useTheme } from "../../_mixins/use-theme"
 import type { FormItemInst } from "./FormItem"
 
@@ -22,20 +23,24 @@ interface FromApiInjection {
 }
 
 export const formApiInjectionKey: InjectionKey<FromApiInjection> = Symbol("formApi")
+
+const formProps = {
+    labelWidth: {
+        type: String,
+        default: "80px",
+    },
+    labelPlacement: {
+        type: String as PropType<"left" | "top">,
+        default: "top",
+    },
+    model: Object,
+    rules: Object as PropType<FormRules>,
+}
+export type FormProps = ExtractPublicPropTypes<typeof formProps>
+
 export default defineComponent({
     name: "Form",
-    props: {
-        labelWidth: {
-            type: String,
-            default: "80px",
-        },
-        labelPlacement: {
-            type: String as PropType<"left" | "top">,
-            default: "top",
-        },
-        model: Object,
-        rules: Object as PropType<FormRules>,
-    },
+    props: formProps,
     setup(props) {
         const theme = useTheme()
         const formApi: FromApiInjection = {
@@ -86,7 +91,10 @@ export default defineComponent({
     },
     render() {
         return (
-            <div style={this.cssVars as CSSProperties} class={[`jo-form--${this.labelPlacement}`]}>
+            <div
+                style={this.cssVars as CSSProperties}
+                class={["jo-form", `jo-form--${this.labelPlacement}`]}
+            >
                 {this.$slots.default?.()}
             </div>
         )

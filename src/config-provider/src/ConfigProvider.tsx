@@ -1,5 +1,6 @@
 import { h, defineComponent, InjectionKey, PropType, provide, ref, Ref, watch } from "vue";
 import { Theme, lightTheme } from "../../themes";
+import { ExtractPublicPropTypes } from "../../util/extract-public-props";
 
 export interface ConfigProviderInjection {
     theme: Ref<Theme>,
@@ -9,13 +10,15 @@ export interface ConfigProviderInjection {
 export const configProviderInjectionKey: InjectionKey<ConfigProviderInjection> =
   Symbol('configProviderInjection');
 
+const configProviderProps = {
+    theme: Object as PropType<Theme>,
+    hljs: Object,
+}
+export type ConfigProviderProps = ExtractPublicPropTypes<typeof configProviderProps>
 
 export default defineComponent({
     name: "ConfigProvider",
-    props: {
-        theme: Object as PropType<Theme>,
-        hljs: Object,
-    },
+    props: configProviderProps,
     setup(props) {
         const mergeTheme = ref(Object.assign({}, lightTheme, props.theme))
         provide(configProviderInjectionKey, {

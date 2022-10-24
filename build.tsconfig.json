@@ -1,10 +1,11 @@
 {
-  "extends": "./tsconfig.json",
-  "compilerOptions": {
-    "module": "ES6",
-    "sourceMap": false,
-    "declaration": true,
-    "outDir": "lib"
-  },
-  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"]
+    "extends": "./tsconfig.json",
+    "compilerOptions": {
+        "module": "ES6",
+        "sourceMap": false,
+        "declaration": true,
+        "outDir": "lib",
+        "skipLibCheck": true
+    },
+    "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"]
 }

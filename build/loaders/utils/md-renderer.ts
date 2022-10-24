@@ -1,4 +1,4 @@
-import marked from "marked";
+import { marked } from "marked";
 import hljs from "highlight.js";
 
 export default function createMdRenderer() {
@@ -11,10 +11,10 @@ export default function createMdRenderer() {
       </jo-table></jo-card>`;
     },
     code(code: string, language: string) {
-      const highlighted = hljs.highlight(code, {language}).value;
+      const highlighted = hljs.highlight(code, { language }).value;
       return `<jo-card><jo-code><pre>${highlighted}</pre></jo-code></jo-card>`
     },
-    codespan (code: string) {
+    codespan(code: string) {
       return `<jo-text code>${code}</jo-text>`
     },
   };

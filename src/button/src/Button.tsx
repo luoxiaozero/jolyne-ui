@@ -8,6 +8,7 @@ import {
   renderSlot,
 } from "vue";
 import "./styles/index.css";
+import { ExtractPublicPropTypes } from "../../util/extract-public-props";
 export type Type =
   | "default"
   | "primary"
@@ -15,22 +16,26 @@ export type Type =
   | "success"
   | "warning"
   | "error";
+
+const buttonProps = {
+  tag: {
+    type: String as PropType<keyof HTMLElementTagNameMap>,
+    default: "button",
+  },
+  type: {
+    type: String as PropType<Type>,
+    default: "default",
+  },
+  text: Boolean,
+  /**禁用 */
+  disabled: Boolean,
+  onClick: Function as PropType<(e: MouseEvent) => void>,
+}
+export type ButtonProps = ExtractPublicPropTypes<typeof buttonProps>
+
 export default defineComponent({
   name: "Button",
-  props: {
-    tag: {
-      type: String as PropType<keyof HTMLElementTagNameMap>,
-      default: "button",
-    },
-    type: {
-      type: String as PropType<Type>,
-      default: "default",
-    },
-    text: Boolean,
-    /**禁用 */
-    disabled: Boolean,
-    onClick: Function as PropType<(e: MouseEvent) => void>,
-  },
+  props: buttonProps,
   setup(props) {
     const theme = useTheme();
     function handleClick(e: MouseEvent): void {

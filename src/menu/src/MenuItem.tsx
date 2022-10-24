@@ -4,6 +4,7 @@ import MenuGroup, { MenuGroupType } from "./MenuGroup";
 import render from "../../util/render";
 import "./styles/MenuItem.css";
 import { useTheme } from "jolyne-ui";
+import { ExtractPublicPropTypes } from "../../util/extract-public-props";
 export interface MenuItemType {
   type?: "item";
   label: string;
@@ -11,14 +12,18 @@ export interface MenuItemType {
   key: string;
   children?: Array<MenuGroupType | MenuItemType>;
 }
+
+const menuItemProps = {
+  option: {
+    type: Object as PropType<MenuItemType>,
+    required: true as true,
+  },
+}
+export type MenuItemProps = ExtractPublicPropTypes<typeof menuItemProps>
+
 const MenuItem = defineComponent({
   name: "MenuItem",
-  props: {
-    option: {
-      type: Object as PropType<MenuItemType>,
-      required: true,
-    },
-  },
+  props: menuItemProps,
   setup(props) {
     const theme = useTheme();
     const menu = useMenu();

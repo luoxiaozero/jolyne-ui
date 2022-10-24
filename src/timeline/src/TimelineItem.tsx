@@ -1,20 +1,22 @@
 import { h, defineComponent, PropType, computed, CSSProperties } from "vue";
 import { toFirstLetterUpper } from "../../util";
+import { ExtractPublicPropTypes } from "../../util/extract-public-props";
 import { useTheme } from "../../_mixins/use-theme";
 import "./styles/TimelineItem.css";
-
+const timelineItemProps = {
+  title: String,
+  time: String,
+  type: {
+    type: String as PropType<
+      "default" | "info" | "success" | "error" | "warning"
+    >,
+    default: "deafult",
+  },
+}
+export type TimelineItemProps = ExtractPublicPropTypes<typeof timelineItemProps>
 export default defineComponent({
   name: "TimelineItem",
-  props: {
-    title: String,
-    time: String,
-    type: {
-      type: String as PropType<
-        "default" | "info" | "success" | "error" | "warning"
-      >,
-      default: "deafult",
-    },
-  },
+  props: timelineItemProps,
   setup(props) {
     const theme = useTheme();
     return {

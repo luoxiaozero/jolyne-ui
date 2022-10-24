@@ -8,6 +8,7 @@ import {
   Ref,
   VNodeChild
 } from "vue";
+import { ExtractPublicPropTypes } from "../../util/extract-public-props";
 import MenuGroup from "./MenuGroup";
 import MenuItem, { MenuItemType } from "./MenuItem";
 interface MenuOption {
@@ -22,17 +23,20 @@ export interface MenuInjection {
   toggleExpand: (item: MenuItemType) => void;
 }
 export const menuInjectionKey: InjectionKey<MenuInjection> = Symbol("menu");
+const menuProps = {
+  options: {
+    type: Array as PropType<MenuOption[]>,
+    default: () => [],
+  },
+  value: String,
+  "onUpdate:value": Function as PropType<(key: string) => void>,
+  onUpdateValue: Function as PropType<(key: string) => void>,
+}
+export type MenuProps = ExtractPublicPropTypes<typeof menuProps>
+
 export default defineComponent({
   name: "Menu",
-  props: {
-    options: {
-      type: Array as PropType<MenuOption[]>,
-      default: () => [],
-    },
-    value: String,
-    "onUpdate:value": Function as PropType<(key: string) => void>,
-    onUpdateValue: Function as PropType<(key: string) => void>,
-  },
+  props: menuProps,
   setup(props) {
     const keyRef = ref(props.value || "");
     function doUpdateValue(key: string) {

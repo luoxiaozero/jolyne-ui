@@ -1,4 +1,5 @@
 import { h, defineComponent, PropType } from "vue";
+import { ExtractPublicPropTypes } from "../../util/extract-public-props";
 import MenuItem, { MenuItemType } from "./MenuItem";
 import "./styles/MenuGroup.css";
 export interface MenuGroupType {
@@ -8,14 +9,17 @@ export interface MenuGroupType {
   children?: MenuItemType[];
 }
 
+const menuGroupProps = {
+  option: {
+    type: Object as PropType<MenuGroupType>,
+    required: true as true,
+  },
+}
+export type MenuGroupProps = ExtractPublicPropTypes<typeof menuGroupProps>
+
 export default defineComponent({
   name: "MenuGroup",
-  props: {
-    option: {
-      type: Object as PropType<MenuGroupType>,
-      required: true,
-    },
-  },
+  props: menuGroupProps,
   render() {
     return (
       <div class="jo-menu-group">

@@ -8,6 +8,7 @@ import {
   EllipseOutline as LoadingIcon
 } from "@vicons/ionicons5";
 import { useTheme } from "jolyne-ui";
+import { ExtractPublicPropTypes } from "../../util/extract-public-props";
 const iconMap = {
   info: <InfoIcon />,
   success: <SuccessIcon />,
@@ -15,6 +16,10 @@ const iconMap = {
   error: <ErrorIcon />,
   loading: <LoadingIcon />,
 };
+
+
+export type MessageProps = ExtractPublicPropTypes<typeof messageProps>
+
 export default defineComponent({
   name: "Message",
   props: messageProps,

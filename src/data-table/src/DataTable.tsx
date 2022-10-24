@@ -4,15 +4,20 @@ import DataTableHead from "./DataTableHead";
 import DataTableBody from "./DataTableBody";
 import "./styles/DataTable.css";
 import { useTheme } from "../../components";
+import { ExtractPublicPropTypes } from "../../util/extract-public-props";
 export interface TableDataType {
   [key: string]: any;
 }
+
+const dataTableProps = {
+  columns: Array as PropType<ColumnsType[]>,
+  data: Array as PropType<TableDataType[]>,
+}
+export type DataTableProps = ExtractPublicPropTypes<typeof dataTableProps>
+
 export default defineComponent({
   name: "DataTable",
-  props: {
-    columns: Array as PropType<ColumnsType[]>,
-    data: Array as PropType<TableDataType[]>,
-  },
+  props: dataTableProps,
   setup() {
     const theme = useTheme();
     return {

@@ -1,4 +1,4 @@
-import marked from "marked";
+import { marked } from "marked";
 import fs from "fs-extra";
 import path from "path";
 import createMdRenderer from "../utils/md-renderer";
@@ -18,7 +18,7 @@ async function resolveDemoTitle(pathUrl: string, fileName) {
     path.resolve(pathUrl, fileName),
     "utf-8"
   );
-  return demoStr.match(/# ([^\n]+)/)[1];
+  return demoStr.match(/# ([^\n]+)/)?.[1];
 }
 /**
  * 获取 demo 文件配置
@@ -31,7 +31,7 @@ async function getDemoInfos(pathUrl: string, code: string): Promise<DemoInfo[]> 
   for (let name of names) {
     infos.push({
       name,
-      title: await resolveDemoTitle(pathUrl, `${name}.demo.md`),
+      title: await resolveDemoTitle(pathUrl, `${name}.demo.md`) || "",
       fileName: `${name}.demo.md`,
       tag: `<${name}Demo/>`,
     });
@@ -53,17 +53,19 @@ export default async function mdToDoc(
   const demosIndex = tokens.findIndex(
     (token) => token.type === "code" && token.lang === "demo"
   );
-  let demoInfos = [];
+  let demoInfos: DemoInfo[] = [];
   if (demosIndex > -1) {
-    const matchResult = resourecePath.match(/(.*)\/([^\/].*?).entry.md$/);
-    demoInfos = await getDemoInfos(matchResult[1], (tokens[demosIndex] as { text: string }).text);
-    const colSpan = ~code.search('<!--single-column-->') ? 1 : 2;
-    tokens.splice(demosIndex, 1, {
-      type: "html",
-      pre: false,
-      raw: "",
-      text: genDemosTemplate(demoInfos, colSpan),
-    });
+    const matchResult = resourecePath.match(/(.*)\/([^\/].*?).entry.md$/)
+    if (matchResult) {
+      demoInfos = await getDemoInfos(matchResult[1], (tokens[demosIndex] as { text: string }).text)
+      const colSpan = ~code.search('<!--single-column-->') ? 1 : 2
+      tokens.splice(demosIndex, 1, {
+        type: "html",
+        pre: false,
+        raw: "",
+        text: genDemosTemplate(demoInfos, colSpan),
+      })
+    }
   }
   const docMainTemplate = marked.parser(tokens, {
     renderer: mdRenderer,

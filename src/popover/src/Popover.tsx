@@ -10,33 +10,37 @@ import {
   PropType,
 } from "vue";
 import { bindBodyClickEvent } from "../../util/bodyElement";
+import { ExtractPublicPropTypes } from "../../util/extract-public-props";
 import { useTheme } from "../../_mixins/use-theme";
 import "./styles/index.css";
 
+const popoverProps = {
+  hasStyle: { type: Boolean, default: true },
+  trigger: { type: String as PropType<"hover" | "click">, default: "hover" },
+  placement: {
+    type: String as PropType<
+      | "top"
+      | "top-start"
+      | "top-end"
+      | "bottom"
+      | "bottom-start"
+      | "bottom-end"
+      | "left"
+      | "left-start"
+      | "left-end"
+      | "right"
+      | "right-start"
+      | "right-end"
+    >,
+    default: "top",
+  },
+  showAngle: { type: Boolean, default: true },
+}
+export type PopoverProps = ExtractPublicPropTypes<typeof popoverProps>
+
 export default defineComponent({
   name: "Popover",
-  props: {
-    hasStyle: { type: Boolean, default: true },
-    trigger: { type: String as PropType<"hover" | "click">, default: "hover" },
-    placement: {
-      type: String as PropType<
-        | "top"
-        | "top-start"
-        | "top-end"
-        | "bottom"
-        | "bottom-start"
-        | "bottom-end"
-        | "left"
-        | "left-start"
-        | "left-end"
-        | "right"
-        | "right-start"
-        | "right-end"
-      >,
-      default: "top",
-    },
-    showAngle: { type: Boolean, default: true },
-  },
+  props: popoverProps,
   setup(props) {
     const triggerRef = ref<HTMLDivElement | null>(null);
     const popoverRef = ref<HTMLDivElement | null>(null);
